@@ -1,12 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "semantic-ui-css/semantic.min.css";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import "./styles/style.css";
+import Main from "./components/Main";
+import Character from "./components/CharacterGrid";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const router = (
+    <Router>
+        <Route path="/" component={Main} />
+    </Router>
+);
+
+ReactDOM.render(router, document.getElementById("app"));
+
+module.hot.accept();

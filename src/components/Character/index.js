@@ -1,0 +1,26 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Character = ({ character }) => (
+    <figure className="grid-figure">
+        <div className="grid-photo-wrap">
+            <Link to={`/${character.id}`}>
+                <img
+                    src={`${character.thumbnail.path}/portrait_fantastic.${
+                        character.thumbnail.extension
+                    }`}
+                    alt={character.name}
+                    className="grid-photo"
+                />
+            </Link>
+        </div>
+
+        <figcaption>
+            <Link to={`/${character.id}`}>
+                <p className="character-name">{character.name}</p>
+            </Link>
+        </figcaption>
+    </figure>
+);
+
+export default Character;

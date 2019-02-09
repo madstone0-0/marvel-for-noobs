@@ -1,0 +1,92 @@
+html {
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  margin: 10px auto 10px auto;
+  color: #fff;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+body a {
+  text-decoration: none;
+  color: #125688;
+}
+
+.ui.nav-bar {
+  background-color: #b71c1c;
+  height: 50px;
+}
+
+.search-bar {
+  width: 400px;
+  margin: 10px auto;
+  padding-bottom: 10px;
+}
+.search-bar .search-button {
+  margin-left: 10px;
+}
+.search-bar .ui.input.focus > input,
+.search-bar .ui.input > input:focus {
+  border-color: #e53935;
+}
+
+.character-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+.grid-figure, .single-photo {
+  flex-basis: 2.68rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 2rem 2rem 2rem;
+  padding: 2rem;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
+  position: relative;
+}
+
+.single-photo {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  background: whitesmoke;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.single-photo .grid-figure, .single-photo .single-photo {
+  box-shadow: none;
+  margin: 0 2rem 0 0;
+  border: 0;
+  padding: 0;
+  flex: 1 0 60%;
+  max-width: 60%;
+}
+.single-photo .description {
+  flex: 1 0 40%;
+  max-width: 40%;
+}
+
+.character-name {
+  text-align: center;
+}
+
+.back-button {
+  float: left;
+}
+
+/*# sourceMappingURL=style.css.map */

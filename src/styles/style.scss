@@ -1,0 +1,76 @@
+@import "./typography";
+@import "./variables";
+
+body {
+    background-color: #f4f4f4;
+    a {
+        text-decoration: none;
+        color: $blue;
+    }
+}
+
+.ui.nav-bar {
+    background-color: #b71c1c;
+    height: 50px;
+}
+
+.search-bar {
+    width: 400px;
+    margin: 10px auto;
+    padding-bottom: 10px;
+    .search-button {
+        margin-left: 10px;
+    }
+    .ui.input.focus > input,
+    .ui.input > input:focus {
+        border-color: #e53935;
+    }
+}
+
+.character-grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+.grid-figure {
+    flex-basis: $calc_flex_basis;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin: 0 2rem 2rem 2rem;
+    padding: 2rem;
+    border-radius: 25px;
+    background: white;
+    box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
+    position: relative;
+}
+
+.single-photo {
+    @extend .grid-figure;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    background: whitesmoke;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    .grid-figure {
+        box-shadow: none;
+        margin: 0 2rem 0 0;
+        border: 0;
+        padding: 0;
+        flex: 1 0 60%;
+        max-width: 60%;
+    }
+    .description {
+        flex: 1 0 40%;
+        max-width: 40%;
+    }
+}
+
+.character-name {
+    text-align: center;
+}
+
+.back-button {
+    float: left;
+}
