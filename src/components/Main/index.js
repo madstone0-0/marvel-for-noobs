@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import { Container, Menu } from "semantic-ui-react";
-import { Link, Route, matchPath } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import {
     API_KEY,
     CHARACTERS,
     LIMIT,
     PATH_BASE,
-    PATH_SEARCH_IS,
     PATH_SEARCH_STARTS,
     DEFAULT_QUERY,
-    API_PRIVATE,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
-import CharacterSingle from "../CharacterSingle";
-import Character from "../Character";
 
 function isSearched(searchCharacter) {
     return function(character) {
