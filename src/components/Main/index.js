@@ -10,6 +10,7 @@ import {
     PATH_SEARCH_IS,
     PATH_SEARCH_STARTS,
     DEFAULT_QUERY,
+    API_PRIVATE,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 import CharacterSingle from "../CharacterSingle";
@@ -122,8 +123,8 @@ class Main extends Component {
     };
 
     onSearchSubmit = event => {
+        this.fetchSearchedCharacter(this.state.searchCharacter);
         event.preventDefault();
-        // Insert code here
     };
 
     setSearchedCharacter = result => {
@@ -133,7 +134,7 @@ class Main extends Component {
 
     fetchSearchedCharacter = searchCharacter => {
         fetch(
-            `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}`,
+            `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}&limit=${LIMIT}`,
         )
             .then(response => response.json)
             .then(result => this.setSearchedCharacter(result))
