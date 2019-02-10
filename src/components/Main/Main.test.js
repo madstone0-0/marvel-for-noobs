@@ -19,7 +19,9 @@ const AppwithRoute = (
 
 describe("Main", () => {
     it("renders without crashing", () => {
-        shallow(<Main />);
+        // shallow(<Main />);
+        const div = document.createElement("div");
+        ReactDOM.render(AppwithRoute, div);
     });
 
     test("Snapshot", () => {

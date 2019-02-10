@@ -13,7 +13,11 @@ const CharacterSingle = ({ id, name, description, thumbnail }) => (
             />
         </Link>
         <h2 className="character-name">{name}</h2>
-        <p className="description">{description}</p>
+        <p className="description">
+            {description === ""
+                ? "No description listed for this character."
+                : description}
+        </p>
     </div>
 );
 

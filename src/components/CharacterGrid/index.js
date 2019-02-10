@@ -9,44 +9,39 @@ const CharacterGrid = ({
     characters,
     searchCharacter,
     onChange,
-    onSearchSubmit,
-    isSearched,
+    onSubmit,
     value,
 }) => (
     <div>
         <Search
             value={value}
             children="Search"
-            onSubmit={onSearchSubmit}
+            onSubmit={onSubmit}
             onChange={onChange}
         />
         <div className="character-grid">
-            {characters
-                .filter(isSearched(searchCharacter))
-                .map((character, key) => {
-                    return (
-                        <div key={key}>
-                            <Route
-                                exact
-                                path="/"
-                                render={() => (
-                                    <Character character={character} />
-                                )}
-                            />
-                            <Route
-                                path={`/${character.id}`}
-                                render={() => (
-                                    <CharacterSingle
-                                        name={character.name}
-                                        id={character.id}
-                                        description={character.description}
-                                        thumbnail={character.thumbnail}
-                                    />
-                                )}
-                            />
-                        </div>
-                    );
-                })}
+            {characters.map((character, key) => {
+                return (
+                    <div key={key}>
+                        <Route
+                            exact
+                            path="/"
+                            render={() => <Character character={character} />}
+                        />
+                        <Route
+                            path={`/${character.id}`}
+                            render={() => (
+                                <CharacterSingle
+                                    name={character.name}
+                                    id={character.id}
+                                    description={character.description}
+                                    thumbnail={character.thumbnail}
+                                />
+                            )}
+                        />
+                    </div>
+                );
+            })}
         </div>
     </div>
 );

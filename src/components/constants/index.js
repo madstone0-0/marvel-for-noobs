@@ -5,7 +5,7 @@ const PATH_BASE = "https://gateway.marvel.com:443/v1/public";
 const CHARACTERS = "/characters";
 const PATH_SEARCH_STARTS = "nameStartsWith";
 const PATH_SEARCH_IS = "name";
-const LIMIT = 10;
+const LIMIT = 15;
 
 export {
     API_KEY,

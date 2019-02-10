@@ -1,9 +1,13 @@
 language: node_js
 node_js:
-    - "stable"
+- stable
 cache:
-    directories:
-        - node_modules
+  directories:
+  - node_modules
 script:
-    - npm test
-    - npm run build
+- npm test
+- npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: u7ocoYj9PcjBU6ndmqZyZ0l9wKKwXdP2SOy/8N59Ax4X3CxvP0+WPJNveDkV2jWj/PD3j3k90oTPOrJVuBh/M/QPNA/mlWRSxyvTtGEYUWaF/CpJij91Zce3TUpbIMLRnR2H1hbWJRBgvvLagEsQrZRP2Z+CHl04HxXbuIvEw0coUYHzwMYINEjDkNnuKA4E7SohzI04zvr6wgnFKiu44uHgDSTvDjLCEGHd2Z8DI8RDoV8YUbZs4BpIL7eGwkbqHF757FddRphDmPhmWx7fUeZFi4R3TCsGSh3EHtsYIN9Ex0qqo3U00ePccQkPF5u1JIx68e4+gNIuJiQdj2bFKnyrwHGX6O76IbHP1mjRY4GJ7MoVR56yw8IaXCdmQy1Omgi5JdThXEIytBweD77lRvoFk1oBOhGoKiw8W7pF8NCpHOnC+7ZVtp+ZNbbJBCy8QrsQQGf1IiH1itsf/705EdoCzNaIjzFSVD1QGlcI8pAR5QqcFvMJDQ9D36PDNdAsxEoMeMcGZEQQTorYyZpjGHN9KUL5oyn/CQy/RyGPpMAhTsSdOh0j6G5tmX8XMoewsM2eBvue2itOLV7qSWIxjq8Ciwpu4cmc/HjIUaEciuEr3MmFuFrPJB2AKKP2HedgN22A+/zW9elf8lfnAL4hGdSATh8zq/uwfpc4V7Yj4aU=
