@@ -18,6 +18,7 @@ h1 {
 body {
   background-color: #f4f4f4;
 }
+
 body a {
   text-decoration: none;
   color: #125688;
@@ -33,9 +34,11 @@ body a {
   margin: 10px auto;
   padding-bottom: 10px;
 }
+
 .search-bar .search-button {
   margin-left: 10px;
 }
+
 .search-bar .ui.input.focus > input,
 .search-bar .ui.input > input:focus {
   border-color: #e53935;
@@ -48,13 +51,16 @@ body a {
   margin: 0px auto;
 }
 
+.grid-photo {
+  width: 210px;
+}
+
 .grid-figure, .single-photo {
   flex-basis: 2.68rem;
   flex-grow: 1;
   flex-shrink: 0;
   margin: 0 2rem 2rem 2rem;
-  padding: 2rem;
-  border-radius: 25px;
+  padding: 1rem;
   background: white;
   box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
   position: relative;
@@ -68,6 +74,7 @@ body a {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
 .single-photo .grid-figure, .single-photo .single-photo {
   box-shadow: none;
   margin: 0 2rem 0 0;
@@ -76,6 +83,7 @@ body a {
   flex: 1 0 60%;
   max-width: 60%;
 }
+
 .single-photo .description {
   flex: 1 0 40%;
   max-width: 40%;
@@ -88,5 +96,3 @@ body a {
 .back-button {
   float: left;
 }
-
-/*# sourceMappingURL=style.css.map */

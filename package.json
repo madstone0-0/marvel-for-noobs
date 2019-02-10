@@ -13,6 +13,8 @@
     "semantic-ui-react": "^0.84.0"
   },
   "scripts": {
+    "build-css": "node-sass --output-style expanded --include-path ./src --include-path ./node_modlues src/ -o src/",
+    "watch-css": "npm run build-css && node-sass --output-style expanded --include ./src --include-path: ./node_modules src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
