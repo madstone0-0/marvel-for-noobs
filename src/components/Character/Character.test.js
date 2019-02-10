@@ -2,17 +2,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import Search from "./index";
+import Character from "./index";
 import renderer from "react-test-renderer";
 
-describe("Search", () => {
-    it("renders withput crashing", () => {
+describe("Character", () => {
+    it("renders without crashing", () => {
         const div = document.createElement("div");
-        ReactDOM.render(<Search>Search</Search>, div);
+        ReactDOM.render(<Character />, div);
     });
 
     test("Snapshot", () => {
-        const component = renderer.create(<Search>Search</Search>);
+        const component = renderer.create(<Character />);
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
