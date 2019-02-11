@@ -28,7 +28,7 @@ class Main extends Component {
 
     onSearchSubmit = event => {
         const { searchCharacter } = this.state;
-        console.log(`Searching for ${searchCharacter}`);
+        // console.log(`Searching for ${searchCharacter}`);
         this.fetchSearchedCharacter(searchCharacter);
         event.preventDefault();
     };
