@@ -36,6 +36,8 @@ const CharacterGrid = ({
                                     id={character.id}
                                     description={character.description}
                                     thumbnail={character.thumbnail}
+                                    comics={character.comics}
+                                    events={character.events}
                                 />
                             )}
                         />

@@ -10,6 +10,7 @@ import {
     LIMIT,
     PATH_BASE,
     PATH_SEARCH_STARTS,
+    // TIMESTAMP,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 
@@ -52,8 +53,8 @@ class Main extends Component {
     };
 
     componentDidMount = () => {
-        const { searchCharacter } = this.state;
-        this.fetchSearchedCharacter(searchCharacter);
+        // const { searchCharacter } = this.state;
+        // this.fetchSearchedCharacter(searchCharacter);
     };
 
     render() {
