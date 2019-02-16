@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { API_KEY } from "../constants/index";
 
 const CharacterSingle = ({
     id,
@@ -10,7 +9,7 @@ const CharacterSingle = ({
     comics,
     events,
 }) => (
-    <div className="grid-figure">
+    <div className="charcter-single grid-figure">
         <Link to="/">
             <img
                 src={`${thumbnail.path}/portrait_uncanny.${
