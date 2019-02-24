@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
-import { Container, Menu, Flag } from "semantic-ui-react";
-import { Route, Link } from "react-router-dom";
+import { Container, Menu } from "semantic-ui-react";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import { notification, Icon } from "antd";
