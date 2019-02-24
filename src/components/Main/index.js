@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
-import { Container, Menu } from "semantic-ui-react";
-import { Route } from "react-router-dom";
+import { Container, Menu, Flag } from "semantic-ui-react";
+import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
+import { notification, Icon } from "antd";
 
 import {
     API_KEY,
@@ -23,8 +24,23 @@ class Main extends Component {
             characters: [],
             error: null,
             isLoading: false,
+            hasNotSearchedOnce: true,
         };
+
+        this.welcome();
     }
+
+    welcome = () => {
+        notification.open({
+            message: "Welcome to Marvel for Noobs",
+            description:
+                "I'm guessing your a noob, lets start by searching for a character, To go back to the homepage just click the charactar potrait",
+            placement: "topRight",
+            duration: 5,
+            icon: <Icon type="smile" style={{ color: "#b71c1c" }} />,
+        });
+    };
+
     onSearchChange = event => {
         return this.setState({ searchCharacter: event.target.value });
     };
@@ -46,7 +62,7 @@ class Main extends Component {
     };
 
     fetchSearchedCharacter = searchCharacter => {
-        this.setState({ isLoading: true });
+        this.setState({ isLoading: true, hasNotSearchedOnce: false });
         axios
             .get(
                 `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}&limit=${LIMIT}`,
@@ -65,7 +81,13 @@ class Main extends Component {
     };
 
     render() {
-        const { searchCharacter, characters, error, isLoading } = this.state;
+        const {
+            searchCharacter,
+            characters,
+            error,
+            isLoading,
+            hasNotSearchedOnce,
+        } = this.state;
         return (
             <Container>
                 <Menu className="nav-bar">
@@ -79,7 +101,9 @@ class Main extends Component {
                         render={() => (
                             <div>
                                 {error ? (
-                                    <p>Something went worng</p>
+                                    <p className="centered">
+                                        Something went worng
+                                    </p>
                                 ) : (
                                     <div>
                                         {isLoading ? (
@@ -87,15 +111,29 @@ class Main extends Component {
                                                 Loading...
                                             </p>
                                         ) : (
-                                            <CharacterGrid
-                                                value={searchCharacter}
-                                                searchCharacter={
-                                                    searchCharacter
-                                                }
-                                                characters={characters}
-                                                onChange={this.onSearchChange}
-                                                onSubmit={this.onSearchSubmit}
-                                            />
+                                            <div>
+                                                {characters.length < 1 &&
+                                                hasNotSearchedOnce === false ? (
+                                                        <p className="centered">
+                                                        No results found, please
+                                                        refresh
+                                                        </p>
+                                                    ) : (
+                                                        <CharacterGrid
+                                                            value={searchCharacter}
+                                                            searchCharacter={
+                                                                searchCharacter
+                                                            }
+                                                            characters={characters}
+                                                            onChange={
+                                                                this.onSearchChange
+                                                            }
+                                                            onSubmit={
+                                                                this.onSearchSubmit
+                                                            }
+                                                        />
+                                                    )}
+                                            </div>
                                         )}
                                     </div>
                                 )}

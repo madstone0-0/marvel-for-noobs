@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 
 const CharacterSingle = ({
     id,
@@ -8,6 +9,7 @@ const CharacterSingle = ({
     thumbnail,
     comics,
     events,
+    urls,
 }) => (
     <div className="charcter-single grid-figure">
         <Link to="/">
@@ -45,6 +47,16 @@ const CharacterSingle = ({
                 </h3>
             </div>
         ))}
+        <div>
+            {urls.map((link, key) => (
+                <div>
+                    <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
+                    <a key={key} target="_blank" href={link.url}>
+                        Read More
+                    </a>
+                </div>
+            ))}
+        </div>
     </div>
 );
 
