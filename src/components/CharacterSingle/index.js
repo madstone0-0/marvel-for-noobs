@@ -50,7 +50,7 @@ const CharacterSingle = ({
             {urls.map((link, key) => (
                 <div>
                     <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
-                    <a key={key} target="_blank" href={link.url}>
+                    <a key={key} target="_blank" rel="noopener noreferrer" href={link.url}>
                         Read More
                     </a>
                 </div>
