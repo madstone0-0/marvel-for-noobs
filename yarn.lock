@@ -6863,6 +6863,11 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
+nightly.js@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/nightly.js/-/nightly.js-1.1.0.tgz#175e691df4111ec6ccfa6143ead17ac4e421a99c"
+  integrity sha1-F15pHfQRHsbM+mFD6tF6xOQhqZw=
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
