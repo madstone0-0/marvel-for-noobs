@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
 import { Container, Menu } from "semantic-ui-react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import { notification, Icon } from "antd";
@@ -15,6 +15,7 @@ import {
     // TIMESTAMP,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
+import ComicGrid from "../ComicGrid";
 
 class Main extends Component {
     constructor(props) {
@@ -94,6 +95,12 @@ class Main extends Component {
                     <Container>
                         <h1>Marvel for Noobs</h1>
                     </Container>
+                    <Menu.Item>
+                        <Link to="/comics">Comics</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to="/">Characters</Link>
+                    </Menu.Item>
                 </Menu>
                 <div>
                     <Route
@@ -140,6 +147,14 @@ class Main extends Component {
                             </div>
                         )}
                     />
+                    <div>
+                        <Route
+                            path="/comics"
+                            render={() => (
+                                <ComicGrid />
+                            )}
+                        />
+                    </div>
                 </div>
             </Container>
         );
