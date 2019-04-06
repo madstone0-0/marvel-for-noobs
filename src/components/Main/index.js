@@ -5,6 +5,7 @@ import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import { notification, Icon } from "antd";
+import LogRocket from 'logrocket';
 
 import {
     API_KEY,
@@ -79,6 +80,7 @@ class Main extends Component {
     componentDidMount = () => {
         ReactGA.initialize("UA-131448417-2");
         ReactGA.pageview(window.location.pathname + window.location.search);
+        LogRocket.init('uxtmk4/marvel-for-noobs');
     };
 
     render() {
