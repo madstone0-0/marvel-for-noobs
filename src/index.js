@@ -14,5 +14,3 @@ const router = (
 );
 
 ReactDOM.render(router, document.getElementById("app"));
-
-module.hot.accept();
