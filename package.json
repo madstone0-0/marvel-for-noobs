@@ -5,7 +5,7 @@
   "dependencies": {
     "antd": "^3.18.1",
     "axios": "^0.18.0",
-    "logrocket": "^0.6.21",
+    "logrocket": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-ga": "^2.5.7",
