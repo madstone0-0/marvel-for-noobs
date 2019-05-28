@@ -19,10 +19,9 @@ h1 {
 body {
   background-color: #f4f4f4;
 }
-
 body a {
   text-decoration: none;
-  color: #125688;
+  color: #1a76b8;
 }
 
 .ui.nav-bar {
@@ -35,11 +34,9 @@ body a {
   margin: 10px auto;
   padding-bottom: 10px;
 }
-
 .search-bar .search-button {
   margin-left: 10px;
 }
-
 .search-bar .ui.input.focus > input,
 .search-bar .ui.input > input:focus {
   border-color: #e53935;
@@ -51,7 +48,6 @@ body a {
   max-width: 1200px;
   margin: 0px auto;
 }
-
 .character-grid .character-single {
   display: none;
   max-width: 1200px;
@@ -81,7 +77,6 @@ body a {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-
 .single-photo .grid-figure, .single-photo .single-photo {
   box-shadow: none;
   margin: 0 2rem 0 0;
@@ -90,7 +85,6 @@ body a {
   flex: 1 0 60%;
   max-width: 60%;
 }
-
 .single-photo .description {
   flex: 1 0 40%;
   max-width: 40%;
@@ -108,9 +102,26 @@ body a {
 }
 
 .dark-button {
-  background-color: #e53935;
   width: 150px;
   height: 44px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.page-header {
+  font-size: 1.8rem;
+}
+
+.homepage-wip {
+  font-size: 32px;
+  color: #000000;
+  margin: 10px auto;
+}
+
+.menu-item {
+  color: #fff;
+  font-size: 14px;
+}
+.menu-item :focus {
+  box-shadow: #ec0808;
 }

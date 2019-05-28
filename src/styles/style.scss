@@ -108,3 +108,22 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.page-header {
+    font-size: 1.8rem;
+}
+
+.homepage-wip {
+    font-size: 32px;
+    color: #000000;
+    margin: 10px auto
+}
+
+.menu-item {
+    color: #fff;
+    font-size: 14px;
+    :focus {
+        box-shadow: #ec0808
+    }
+
+}
