@@ -5,7 +5,7 @@ import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import { notification, Icon } from "antd";
-import LogRocket from 'logrocket';
+import LogRocket from "logrocket";
 
 import {
     API_KEY,
@@ -17,6 +17,7 @@ import {
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 import ComicGrid from "../ComicGrid";
+import HomePage from "../HomePage";
 
 class Main extends Component {
     constructor(props) {
@@ -24,6 +25,8 @@ class Main extends Component {
         this.state = {
             searchCharacter: "",
             characters: [],
+            searchComic: "",
+            comics: [],
             error: null,
             isLoading: false,
             hasNotSearchedOnce: true,
@@ -36,7 +39,7 @@ class Main extends Component {
         notification.open({
             message: "Welcome to Marvel for Noobs",
             description:
-                "I'm guessing your a noob, lets start by searching for a character, To go back to the homepage just click the charactar potrait",
+                "I'm guessing your a noob, lets start by searching for a character",
             placement: "topRight",
             duration: 5,
             icon: <Icon type="smile" style={{ color: "#b71c1c" }} />,
@@ -46,6 +49,10 @@ class Main extends Component {
     onSearchChange = event => {
         return this.setState({ searchCharacter: event.target.value });
     };
+
+    onSearchChangeComics = event => {
+        return this.setState({searchComic: event.target.value});
+    }
 
     onSearchSubmit = event => {
         ReactGA.event({
@@ -58,10 +65,24 @@ class Main extends Component {
         event.preventDefault();
     };
 
+    onSearchSubmitComic = event => {
+        ReactGA.event({
+            category: "Page interactions",
+            action: "Searched for a comic",
+        });
+        const {searchComic} = this.state;
+
+    }
+
     setSearchedCharacter = result => {
         const results = result.data.results;
         this.setState({ characters: results, isLoading: false });
     };
+
+    setSearchedComic = result => {
+        const results = result.data.results;
+        this.setState({comics: results, isLoading: false});
+    }
 
     fetchSearchedCharacter = searchCharacter => {
         this.setState({ isLoading: true, hasNotSearchedOnce: false });
@@ -77,10 +98,15 @@ class Main extends Component {
             });
     };
 
+    fetchSearchedComic = searchComic => {
+        this.setState({isLoading: true, hasNotSearchedOnce: false});
+        
+    }
+
     componentDidMount = () => {
         ReactGA.initialize("UA-131448417-2");
         ReactGA.pageview(window.location.pathname + window.location.search);
-        LogRocket.init('uxtmk4/marvel-for-noobs');
+        LogRocket.init("uxtmk4/marvel-for-noobs");
     };
 
     render() {
@@ -95,18 +121,21 @@ class Main extends Component {
             <Container>
                 <Menu className="nav-bar">
                     <Container>
-                        <h1>Marvel for Noobs</h1>
+                        <h1 className="page-header">Marvel for Noobs</h1>
                     </Container>
-                    <Menu.Item>
-                        <Link to="/comics">Comics</Link>
+                    <Menu.Item className="menu-item">
+                        <Link to="/">Home</Link>
                     </Menu.Item>
-                    <Menu.Item>
-                        <Link to="/">Characters</Link>
+                    <Menu.Item className="menu-item">
+                        <Link to="/characters">Characters</Link>
+                    </Menu.Item>
+                    <Menu.Item className="menu-item">
+                        <Link to="/comics">Comics</Link>
                     </Menu.Item>
                 </Menu>
                 <div>
                     <Route
-                        path="/"
+                        path="/characters"
                         render={() => (
                             <div>
                                 {error ? (
@@ -149,14 +178,8 @@ class Main extends Component {
                             </div>
                         )}
                     />
-                    <div>
-                        <Route
-                            path="/comics"
-                            render={() => (
-                                <ComicGrid />
-                            )}
-                        />
-                    </div>
+                    <Route path="/comics" render={() => <ComicGrid />} />
+                    <Route path="/" exact render={() => <HomePage />} />
                 </div>
             </Container>
         );
