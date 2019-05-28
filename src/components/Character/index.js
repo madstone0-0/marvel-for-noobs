@@ -5,7 +5,7 @@ const Character = ({ character }) => (
     <div className="ui">
         <figure className="grid-figure">
             <div className="grid-photo-wrap">
-                <Link to={`/${character.id}`}>
+                <Link to={`/characters/${character.id}`}>
                     <img
                         src={`${character.thumbnail.path}/portrait_fantastic.${
                             character.thumbnail.extension
@@ -17,7 +17,7 @@ const Character = ({ character }) => (
             </div>
 
             <figcaption>
-                <Link to={`/${character.id}`}>
+                <Link to={`/characters/${character.id}`}>
                     <p className="character-name">{character.name}</p>
                 </Link>
             </figcaption>

@@ -25,11 +25,11 @@ const CharacterGrid = ({
                     <div key={key}>
                         <Route
                             exact
-                            path="/"
+                            path="/characters"
                             render={() => <Character character={character} />}
                         />
                         <Route
-                            path={`/${character.id}`}
+                            path={`/characters/${character.id}`}
                             render={() => (
                                 <CharacterSingle
                                     name={character.name}

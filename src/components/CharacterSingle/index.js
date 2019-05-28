@@ -11,7 +11,7 @@ const CharacterSingle = ({
     urls,
 }) => (
     <div className="charcter-single grid-figure">
-        <Link to="/">
+        <Link to="/characters">
             <img
                 src={`${thumbnail.path}/portrait_uncanny.${
                     thumbnail.extension
@@ -50,7 +50,12 @@ const CharacterSingle = ({
             {urls.map((link, key) => (
                 <div>
                     <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
-                    <a key={key} target="_blank" rel="noopener noreferrer" href={link.url}>
+                    <a
+                        key={key}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={link.url}
+                    >
                         Read More
                     </a>
                 </div>
