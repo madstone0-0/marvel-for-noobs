@@ -6,6 +6,8 @@
     "antd": "3.22.0",
     "axios": "0.18.1",
     "logrocket": "1.0.3",
+    "moment": "^2.24.0",
+    "moment-countdown": "^0.0.3",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-ga": "2.5.7",
