@@ -4,10 +4,10 @@ import Countdown from "../Countdown";
 const timeFormat = "DD MM YYYY, h:mm a";
 
 const timeTillBlackWidow = "01 05 2020, 1:00 am";
-const timeTillEternals = "06 09 2020, 1:00 am";
-const timeTillShangChi = "21 02 2021, 1:00 am";
-const timeTillDocterStrange = "07 05 2021, 1:00 am";
-const timeTillThor = "05 09 2021, 1:00 am";
+// const timeTillEternals = "06 09 2020, 1:00 am";
+// const timeTillShangChi = "21 02 2021, 1:00 am";
+// const timeTillDocterStrange = "07 05 2021, 1:00 am";
+// const timeTillThor = "05 09 2021, 1:00 am";
 
 const HomePage = () => (
     <div>
