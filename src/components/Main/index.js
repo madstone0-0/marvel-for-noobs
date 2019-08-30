@@ -15,7 +15,6 @@ import {
     // TIMESTAMP,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
-import ComicGrid from "../ComicGrid";
 import HomePage from "../HomePage";
 
 class Main extends Component {
@@ -127,9 +126,6 @@ class Main extends Component {
                     <Menu.Item className="menu-item">
                         <Link to="/characters">Characters</Link>
                     </Menu.Item>
-                    <Menu.Item className="menu-item">
-                        <Link to="/comics">Comics</Link>
-                    </Menu.Item>
                 </Menu>
                 <div>
                     <Route
@@ -176,7 +172,6 @@ class Main extends Component {
                             </div>
                         )}
                     />
-                    <Route path="/comics" render={() => <ComicGrid />} />
                     <Route path="/" exact render={() => <HomePage />} />
                 </div>
             </Container>

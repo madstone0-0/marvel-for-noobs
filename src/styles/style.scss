@@ -41,6 +41,14 @@ body {
         display: none;
         max-width: 1200px;
         margin: 0px auto;
+
+        h3 {
+            font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -88,7 +96,7 @@ body {
 
 .character-name {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
 }
 
 .loading-text {

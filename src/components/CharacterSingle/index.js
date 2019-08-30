@@ -36,6 +36,7 @@ const CharacterSingle = ({
                 </h3>
             </div>
         ))}
+        <br />
         <h2>Events</h2>
         {events.items.map((characterEvent, key) => (
             <div key={key}>
