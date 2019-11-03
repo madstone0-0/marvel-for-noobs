@@ -39,7 +39,7 @@ class Main extends Component {
             description:
                 "I'm guessing your a noob, lets start by searching for a character",
             placement: "topRight",
-            duration: 5,
+            duration: 3,
             icon: <Icon type="smile" style={{ color: "#b71c1c" }} />,
         });
     };
