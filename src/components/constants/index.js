@@ -4,16 +4,16 @@ const PATH_BASE = "https://gateway.marvel.com:443/v1/public";
 const CHARACTERS = "/characters";
 const PATH_SEARCH_STARTS = "nameStartsWith";
 const PATH_SEARCH_IS = "name";
-const LIMIT = 50;
+const LIMIT = 130;
 const TIMESTAMP = `ts=${+new Date()}`;
 
 export {
-    API_KEY,
-    PATH_BASE,
-    CHARACTERS,
-    PATH_SEARCH_IS,
-    PATH_SEARCH_STARTS,
-    LIMIT,
-    DEFAULT_QUERY,
-    TIMESTAMP,
+	API_KEY,
+	PATH_BASE,
+	CHARACTERS,
+	PATH_SEARCH_IS,
+	PATH_SEARCH_STARTS,
+	LIMIT,
+	DEFAULT_QUERY,
+	TIMESTAMP,
 };
