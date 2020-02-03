@@ -3,7 +3,7 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
-        "antd": "3.26.7",
+        "antd": "3.26.8",
         "axios": "0.19.2",
         "logrocket": "1.0.6",
         "moment": "2.24.0",
