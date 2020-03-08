@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-- stable
+    - stable
 cache:
-  directories:
-  - node_modules
+    directories:
+        - node_modules
 script:
-- npm run build
+    - npm run build
 deploy:
-  provider: heroku
-  api_key:
-    secure: u7ocoYj9PcjBU6ndmqZyZ0l9wKKwXdP2SOy/8N59Ax4X3CxvP0+WPJNveDkV2jWj/PD3j3k90oTPOrJVuBh/M/QPNA/mlWRSxyvTtGEYUWaF/CpJij91Zce3TUpbIMLRnR2H1hbWJRBgvvLagEsQrZRP2Z+CHl04HxXbuIvEw0coUYHzwMYINEjDkNnuKA4E7SohzI04zvr6wgnFKiu44uHgDSTvDjLCEGHd2Z8DI8RDoV8YUbZs4BpIL7eGwkbqHF757FddRphDmPhmWx7fUeZFi4R3TCsGSh3EHtsYIN9Ex0qqo3U00ePccQkPF5u1JIx68e4+gNIuJiQdj2bFKnyrwHGX6O76IbHP1mjRY4GJ7MoVR56yw8IaXCdmQy1Omgi5JdThXEIytBweD77lRvoFk1oBOhGoKiw8W7pF8NCpHOnC+7ZVtp+ZNbbJBCy8QrsQQGf1IiH1itsf/705EdoCzNaIjzFSVD1QGlcI8pAR5QqcFvMJDQ9D36PDNdAsxEoMeMcGZEQQTorYyZpjGHN9KUL5oyn/CQy/RyGPpMAhTsSdOh0j6G5tmX8XMoewsM2eBvue2itOLV7qSWIxjq8Ciwpu4cmc/HjIUaEciuEr3MmFuFrPJB2AKKP2HedgN22A+/zW9elf8lfnAL4hGdSATh8zq/uwfpc4V7Yj4aU=
-  app: marvel-for-noobs-121
+    provider: heroku
+    app: marvel-for-noobs-121
+    api_key:
+        secure: HEILtfgm6BaeYzGr5PXAai0leAjWimVPkV587O1LrrgCp+UTEDE7Vf1iNkmLLPjPenpPLpsxwUGaiN4AHUhD4WVIwlP+VxpB4+ZHaRjvQoaT85M8xwLt2FHWPBdAYWVD1XDRPVXuVLW1BaAO3t2DIdfgQB92NgruAgFx70rDWyFD//JFtjIkcxZqI0yardPxuDfIS8bEHCXrqLBwuXKKak8hrei8XKQ6au8bv8y9Uwo+z4Nz7w/JcUnrF/mRlQJEri3nwRR8LxSDWUshSXUjC5GWQ5INjuJVz6oN4nz+UsSZdbKciAcVhE+m4jBiQ979s0ZRHeTqenjSVLxZxyS18Qky002wZxFVoS2W3LalqeE0AjOGs5HAvMqNgvFqiWhHUtiWp8SntZ0ufsqaUmLahp8bXNSU5n/wdj4PdfhmZH0FxowrkmAWmJA4+fPl5jiZ4R/KR0QBWxuSSy8imibDCibIBQncLL68Nr2UgqnhaA0gHxjPUU7c24TYhBbo8KmMf9h/eYXz/TKgWbYC2gzx4TqhuZ6zFZAqhDZV9hvTgJfpAkj9HC13hkbOYPPqBfFTLsDl/T60Rp1lbWL6IJ0R1YNPV3OzwBuL7aB8xDJs9JtBwdl+FB2vZD3FA/xvK1dUluC0dQKZjYC4G/Q7dcG53wRWdfwzU7fK9J3OIhsbSjQ=
