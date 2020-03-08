@@ -4,7 +4,7 @@ import { Container, Menu } from "semantic-ui-react";
 import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
-import { notification, Icon } from "antd";
+import notification from "antd";
 
 import {
     API_KEY,
@@ -40,7 +40,6 @@ class Main extends Component {
                 "I'm guessing your a noob, lets start by searching for a character",
             placement: "topRight",
             duration: 3,
-            icon: <Icon type="smile" style={{ color: "#b71c1c" }} />,
         });
     };
 
@@ -98,7 +97,7 @@ class Main extends Component {
 
     // fetchSearchedComic = searchComic => {
     //     this.setState({isLoading: true, hasNotSearchedOnce: false});
-        
+
     // }
 
     componentDidMount = () => {
@@ -146,25 +145,25 @@ class Main extends Component {
                                             <div>
                                                 {characters.length < 1 &&
                                                 hasNotSearchedOnce === false ? (
-                                                        <p className="centered">
+                                                    <p className="centered">
                                                         No results found, please
                                                         refresh
-                                                        </p>
-                                                    ) : (
-                                                        <CharacterGrid
-                                                            value={searchCharacter}
-                                                            searchCharacter={
-                                                                searchCharacter
-                                                            }
-                                                            characters={characters}
-                                                            onChange={
-                                                                this.onSearchChange
-                                                            }
-                                                            onSubmit={
-                                                                this.onSearchSubmit
-                                                            }
-                                                        />
-                                                    )}
+                                                    </p>
+                                                ) : (
+                                                    <CharacterGrid
+                                                        value={searchCharacter}
+                                                        searchCharacter={
+                                                            searchCharacter
+                                                        }
+                                                        characters={characters}
+                                                        onChange={
+                                                            this.onSearchChange
+                                                        }
+                                                        onSubmit={
+                                                            this.onSearchSubmit
+                                                        }
+                                                    />
+                                                )}
                                             </div>
                                         )}
                                     </div>
