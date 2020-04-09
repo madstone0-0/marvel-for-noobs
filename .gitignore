@@ -10,6 +10,7 @@ src/components/Search/__snapshots__/Search.test.js.snap
 src/components/CharacterSingle/__snapshots__/CharacterSingle.test.js.snap     
 src/components/CharacterGrid/__snapshots__/CharacterGrid.test.js.snap     
 src/components/Character/__snapshots__/Character.test.js.snap     
+src/components/HomePage/__snapshots__/HomePage.test.js.snap   
 # misc
 .DS_Store
 .env.local
