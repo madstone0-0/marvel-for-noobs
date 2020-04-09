@@ -1,18 +1,18 @@
 /* eslint-disable no-undef */
 import React from "react";
 import ReactDOM from "react-dom";
-import { render } from "enzyme";
-import Search from "./index";
+import { shallow } from "enzyme";
+import HomePage from "./index";
 import renderer from "react-test-renderer";
 
-describe("Search", () => {
-    it("renders withput crashing", () => {
+describe("HomePage", () => {
+    it("renders without crashing", () => {
         const div = document.createElement("div");
-        ReactDOM.render(<Search>Search</Search>, div);
+        ReactDOM.render(<HomePage />, div);
     });
 
     test("Snapshot", () => {
-        const component = renderer.create(<Search>Search</Search>);
+        const component = renderer.create(<HomePage />);
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });

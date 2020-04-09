@@ -22,7 +22,7 @@
         "watch-css": "npm run build-css && node-sass --output-style expanded --include ./src --include-path: ./node_modules src/ -o src/ --watch --recursive",
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "./node_modules/.bin/nyc ./node_modules/.bin/ava -v",
+        "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
@@ -35,15 +35,16 @@
         "not op_mini all"
     ],
     "devDependencies": {
-        "enzyme": "3.11.0",
-        "enzyme-adapter-react-16": "1.15.2",
-        "npm-run-all": "4.1.5",
-        "react-test-renderer": "16.13.0",
         "ava": "^0.16.0",
         "co-exec": "^1.0",
         "codecov": "^1.0.1",
+        "enzyme": "3.11.0",
+        "enzyme-adapter-react-16": "1.15.2",
         "ghooks": "^1.2.4",
+        "jest": "^24.9.0",
+        "npm-run-all": "4.1.5",
         "nyc": "^10.0.0",
+        "react-test-renderer": "16.13.0",
         "standard": "^8.4.0"
     }
 }

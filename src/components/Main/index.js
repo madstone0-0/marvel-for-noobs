@@ -30,7 +30,7 @@ class Main extends Component {
         };
     }
 
-    onSearchChange = event => {
+    onSearchChange = (event) => {
         return this.setState({ searchCharacter: event.target.value });
     };
 
@@ -38,7 +38,7 @@ class Main extends Component {
     //     return this.setState({searchComic: event.target.value});
     // }
 
-    onSearchSubmit = event => {
+    onSearchSubmit = (event) => {
         ReactGA.event({
             category: "Page interactions",
             action: "Searched for a character",
@@ -58,7 +58,7 @@ class Main extends Component {
 
     // }
 
-    setSearchedCharacter = result => {
+    setSearchedCharacter = (result) => {
         const results = result.data.results;
         this.setState({ characters: results, isLoading: false });
     };
@@ -68,16 +68,16 @@ class Main extends Component {
     //     this.setState({comics: results, isLoading: false});
     // }
 
-    fetchSearchedCharacter = searchCharacter => {
+    fetchSearchedCharacter = (searchCharacter) => {
         this.setState({ isLoading: true, hasNotSearchedOnce: false });
         axios
             .get(
                 `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}&limit=${LIMIT}`,
             )
-            .then(result => {
+            .then((result) => {
                 this.setSearchedCharacter(result.data);
             })
-            .catch(error => {
+            .catch((error) => {
                 this.setState({ error });
             });
     };
