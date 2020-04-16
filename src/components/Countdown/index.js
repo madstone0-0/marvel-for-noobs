@@ -1,13 +1,12 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import moment from "moment";
-
 
 class Countdown extends Component {
     state = {
         days: undefined,
         hours: undefined,
         minutes: undefined,
-        seconds: undefined
+        seconds: undefined,
     };
 
     componentDidMount() {
@@ -16,11 +15,11 @@ class Countdown extends Component {
             const then = moment(timeTillDate, timeFormat);
             const now = moment();
             const countdown = moment(then - now);
-            const days = countdown.format("DDD");
+            const days = countdown.format("DDDD");
             const hours = countdown.format("HH");
             const minutes = countdown.format("mm");
             const seconds = countdown.format("ss");
-    
+
             this.setState({ days, hours, minutes, seconds });
         }, 1000);
     }
@@ -32,7 +31,7 @@ class Countdown extends Component {
     }
 
     render() {
-        const {days, hours, minutes, seconds} = this.state;
+        const { days, hours, minutes, seconds } = this.state;
 
         // Mapping the date values to radius values
         const daysRadius = mapNumber(days, 300, 0, 0, 360);
@@ -44,26 +43,26 @@ class Countdown extends Component {
             return null;
         }
 
-        return(
+        return (
             <div>
                 <div className="countdown-wrapper">
                     <div className="countdown-item">
-                    <SVGCircle radius={daysRadius}/>
+                        <SVGCircle radius={daysRadius} />
                         {days}
                         <span>days</span>
                     </div>
                     <div className="countdown-item">
-                    <SVGCircle radius={hoursRadius}/>
+                        <SVGCircle radius={hoursRadius} />
                         {hours}
                         <span>hours</span>
                     </div>
                     <div className="countdown-item">
-                    <SVGCircle radius={minutesRadius}/>
+                        <SVGCircle radius={minutesRadius} />
                         {minutes}
                         <span>minutes</span>
                     </div>
                     <div className="countdown-item">
-                    <SVGCircle radius={secondsRadius}/>
+                        <SVGCircle radius={secondsRadius} />
                         {seconds}
                         <span>seconds</span>
                     </div>
@@ -90,7 +89,7 @@ function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 
     return {
         x: centerX + radius * Math.cos(angleInRadians),
-        y: centerY + radius * Math.sin(angleInRadians)
+        y: centerY + radius * Math.sin(angleInRadians),
     };
 }
 
@@ -111,7 +110,7 @@ function describeArc(x, y, radius, startAngle, endAngle) {
         largeArcFlag,
         0,
         end.x,
-        end.y
+        end.y,
     ].join(" ");
 
     return d;
