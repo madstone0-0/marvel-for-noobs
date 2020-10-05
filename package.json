@@ -41,7 +41,7 @@
         "react-test-renderer": "16.13.1",
         "ava": "3.11.1",
         "co-exec": "1.1.0",
-        "codecov": "3.7.2",
+        "codecov": "3.8.0",
         "ghooks": "2.0.4",
         "nyc": "15.1.0",
         "standard": "14.3.4"
