@@ -125,10 +125,10 @@ class Main extends Component {
                         <Container>
                             <h1 className="page-header">Marvel for Noobs</h1>
                         </Container>
-                        <Menu.Item className="menu-item">
+                        <Menu.Item className="menu-item header-link">
                             <Link to="/">Home</Link>
                         </Menu.Item>
-                        <Menu.Item className="menu-item">
+                        <Menu.Item className="menu-item header-link">
                             <Link to="/characters">Characters</Link>
                         </Menu.Item>
                     </Menu>
