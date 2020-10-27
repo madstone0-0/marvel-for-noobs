@@ -13,9 +13,7 @@ const CharacterSingle = ({
     <div className="charcter-single grid-figure">
         <Link to="/characters">
             <img
-                src={`${thumbnail.path}/portrait_uncanny.${
-                    thumbnail.extension
-                }`}
+                src={`${thumbnail.path}/portrait_uncanny.${thumbnail.extension}`}
                 alt={name}
                 className="single-photo"
             />
@@ -23,7 +21,7 @@ const CharacterSingle = ({
         <h2 className="character-name">{name}</h2>
         <p className="description">
             {description === ""
-                ? "No description listed for this character."
+                ? "No description listed for this character. To find more information please go to the official Marvel Wiki Using the Detail link below"
                 : description}
         </p>
         <h2>Comics</h2>
@@ -48,6 +46,7 @@ const CharacterSingle = ({
             </div>
         ))}
         <div>
+            <br />
             {urls.map((link, key) => (
                 <div>
                     <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
