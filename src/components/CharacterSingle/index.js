@@ -21,7 +21,7 @@ const CharacterSingle = ({
         <h2 className="character-name">{name}</h2>
         <p className="description">
             {description === ""
-                ? "No description listed for this character/group in the Marvel API. Please click the wiki link below the  events section to find out more at the offcial marvel website"
+                ? "No description listed for this character/group in the Marvel API. Please click the wiki link below the events section to find out more at the official marvel website"
                 : description}
         </p>
         <br />
