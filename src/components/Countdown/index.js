@@ -47,24 +47,44 @@ class Countdown extends Component {
             <div>
                 <div className="countdown-wrapper">
                     <div className="countdown-item">
-                        <SVGCircle radius={daysRadius} />
+                        <SVGCircle
+                            className="countdown-circle"
+                            radius={daysRadius}
+                        />
                         {days}
-                        <span><h4>days</h4></span>
+                        <span>
+                            <h4>days</h4>
+                        </span>
                     </div>
                     <div className="countdown-item">
-                        <SVGCircle radius={hoursRadius} />
+                        <SVGCircle
+                            className="countdown-circle"
+                            radius={hoursRadius}
+                        />
                         {hours}
-                        <span><h4>hours</h4></span>
+                        <span>
+                            <h4>hours</h4>
+                        </span>
                     </div>
                     <div className="countdown-item">
-                        <SVGCircle radius={minutesRadius} />
+                        <SVGCircle
+                            className="countdown-circle"
+                            radius={minutesRadius}
+                        />
                         {minutes}
-                        <span><h4>minutes</h4></span>
+                        <span>
+                            <h4>minutes</h4>
+                        </span>
                     </div>
                     <div className="countdown-item">
-                        <SVGCircle radius={secondsRadius} />
+                        <SVGCircle
+                            className="countdown-circle"
+                            radius={secondsRadius}
+                        />
                         {seconds}
-                        <span><h4>seconds</h4></span>
+                        <span>
+                            <h4>seconds</h4>
+                        </span>
                     </div>
                 </div>
             </div>
