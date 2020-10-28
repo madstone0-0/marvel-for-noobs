@@ -49,22 +49,22 @@ class Countdown extends Component {
                     <div className="countdown-item">
                         <SVGCircle radius={daysRadius} />
                         {days}
-                        <span>days</span>
+                        <span><h4>days</h4></span>
                     </div>
                     <div className="countdown-item">
                         <SVGCircle radius={hoursRadius} />
                         {hours}
-                        <span>hours</span>
+                        <span><h4>hours</h4></span>
                     </div>
                     <div className="countdown-item">
                         <SVGCircle radius={minutesRadius} />
                         {minutes}
-                        <span>minutes</span>
+                        <span><h4>minutes</h4></span>
                     </div>
                     <div className="countdown-item">
                         <SVGCircle radius={secondsRadius} />
                         {seconds}
-                        <span>seconds</span>
+                        <span><h4>seconds</h4></span>
                     </div>
                 </div>
             </div>
