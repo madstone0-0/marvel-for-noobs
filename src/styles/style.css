@@ -25,7 +25,7 @@ body {
 
 body a {
   text-decoration: none;
-  color: #eeeeee;
+  color: #000;
 }
 
 body a :hover {
@@ -147,6 +147,17 @@ body a .item .menu-item {
   background: #424242;
 }
 
+.dark {
+  /*
+    .countdown-svg {
+
+        .countdown-circle {
+            stroke: $grey;
+        }
+    }
+    */
+}
+
 .dark .page {
   background-color: #424242;
 }
@@ -198,10 +209,6 @@ body a .item .menu-item {
 
 .dark .countdown-item span {
   color: #fff;
-}
-
-.dark .countdown-svg .countdown-circle {
-  stroke: #eeeeee;
 }
 
 .dark .search-bar .ui.input.focus > input, .dark .search-bar .ui.input > input:focus {
