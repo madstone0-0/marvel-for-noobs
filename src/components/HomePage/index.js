@@ -3,11 +3,11 @@ import Countdown from "../Countdown";
 
 const timeFormat = "DD MM YYYY, h:mm a";
 
-const timeTillBlackWidow = "06 11 2020, 12:00 am";
-const timeTillEternals = "06 11 2020, 12:00 am";
-// const timeTillShangChi = "07 05 2021, 12:00 am";
-// const timeTillDoctorStrange = "05 05 2021, 12:00 am";
-// const timeTillThor = "05 11 2021, 12:00 am";
+const timeTillBlackWidow = "07 05 2021, 12:00 am";
+const timeTillEternals = "05 11 2021, 12:00 am";
+const timeTillShangChi = "07 05 2021, 12:00 am";
+const timeTillDoctorStrange = "05 05 2021, 12:00 am";
+const timeTillThor = "05 11 2021, 12:00 am";
 // const timeTillBlackPanther = "06 05 2021, 12:00 am";
 
 const HomePage = () => (
@@ -30,7 +30,7 @@ const HomePage = () => (
                     timeTillDate={timeTillEternals}
                 />
                 <br />
-                {/* <h3 className="countdown-name">
+                <h3 className="countdown-name">
                     Shang Chi and the Legend of the Ten Rings
                 </h3>
                 <Countdown
@@ -53,7 +53,7 @@ const HomePage = () => (
                 />
                 <br />
                 <h3 className="countdown-name">Black Panther 2</h3>
-                <Countdown
+                {/* <Countdown
                     timeFormat={timeFormat}
                     timeTillDate={timeTillBlackPanther}
                 /> */}

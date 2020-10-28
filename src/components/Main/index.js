@@ -4,6 +4,7 @@ import { Container, Menu } from "semantic-ui-react";
 import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
+import classNames from "classnames";
 
 import {
     API_KEY,
@@ -15,6 +16,7 @@ import {
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 import HomePage from "../HomePage";
+import Footer from "../Footer";
 
 class Main extends Component {
     constructor(props) {
@@ -108,85 +110,97 @@ class Main extends Component {
             error,
             isLoading,
             hasNotSearchedOnce,
+            darkTheme,
         } = this.state;
         return (
-            <div>
-                <Container>
-                    <Menu className="nav-bar">
+            <div
+                className={classNames("", {
+                    dark: darkTheme === true,
+                })}
+            >
+                <div className="page">
+                    <Container className="page-container">
+                        <Menu className="nav-bar">
+                            <div>
+                                <button
+                                    type="button"
+                                    onClick={this.toggleDarkTheme}
+                                    className="dark-button ui red medium button search-button"
+                                >
+                                    Dark Mode
+                                </button>
+                            </div>
+                            <Container>
+                                <h1 className="page-header">
+                                    Marvel for Noobs
+                                </h1>
+                            </Container>
+                            <Menu.Item className="menu-item header-link">
+                                <Link to="/">Home</Link>
+                            </Menu.Item>
+                            <Menu.Item className="menu-item header-link">
+                                <Link to="/characters">Characters</Link>
+                            </Menu.Item>
+                        </Menu>
                         <div>
-                            <button
-                                type="button"
-                                onClick={this.toggleDarkTheme}
-                                className="dark-button ui red medium button search-button"
-                            >
-                                Dark Mode
-                            </button>
+                            <Route
+                                path="/characters"
+                                render={() => (
+                                    <div>
+                                        {error ? (
+                                            <p className="centered">
+                                                Something went wrong
+                                            </p>
+                                        ) : (
+                                            <div>
+                                                {isLoading ? (
+                                                    <p className="loading-text">
+                                                        Loading...
+                                                    </p>
+                                                ) : (
+                                                    <div>
+                                                        {characters.length <
+                                                            1 &&
+                                                        hasNotSearchedOnce ===
+                                                            false ? (
+                                                            <p className="centered">
+                                                                No results
+                                                                found, please
+                                                                refresh
+                                                            </p>
+                                                        ) : (
+                                                            <CharacterGrid
+                                                                value={
+                                                                    searchCharacter
+                                                                }
+                                                                searchCharacter={
+                                                                    searchCharacter
+                                                                }
+                                                                characters={
+                                                                    characters
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .onSearchChange
+                                                                }
+                                                                onSubmit={
+                                                                    this
+                                                                        .onSearchSubmit
+                                                                }
+                                                            />
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            />
+                            <Route path="/" exact render={() => <HomePage />} />
                         </div>
-                        <Container>
-                            <h1 className="page-header">Marvel for Noobs</h1>
-                        </Container>
-                        <Menu.Item className="menu-item">
-                            <Link to="/">Home</Link>
-                        </Menu.Item>
-                        <Menu.Item className="menu-item">
-                            <Link to="/characters">Characters</Link>
-                        </Menu.Item>
-                    </Menu>
-                    <div>
-                        <Route
-                            path="/characters"
-                            render={() => (
-                                <div>
-                                    {error ? (
-                                        <p className="centered">
-                                            Something went worng
-                                        </p>
-                                    ) : (
-                                        <div>
-                                            {isLoading ? (
-                                                <p className="loading-text">
-                                                    Loading...
-                                                </p>
-                                            ) : (
-                                                <div>
-                                                    {characters.length < 1 &&
-                                                    hasNotSearchedOnce ===
-                                                        false ? (
-                                                        <p className="centered">
-                                                            No results found,
-                                                            please refresh
-                                                        </p>
-                                                    ) : (
-                                                        <CharacterGrid
-                                                            value={
-                                                                searchCharacter
-                                                            }
-                                                            searchCharacter={
-                                                                searchCharacter
-                                                            }
-                                                            characters={
-                                                                characters
-                                                            }
-                                                            onChange={
-                                                                this
-                                                                    .onSearchChange
-                                                            }
-                                                            onSubmit={
-                                                                this
-                                                                    .onSearchSubmit
-                                                            }
-                                                        />
-                                                    )}
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-                        />
-                        <Route path="/" exact render={() => <HomePage />} />
-                    </div>
-                </Container>
+                        <Footer />
+                    </Container>
+                </div>
             </div>
         );
     }

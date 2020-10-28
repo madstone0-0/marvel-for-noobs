@@ -13,9 +13,7 @@ const CharacterSingle = ({
     <div className="charcter-single grid-figure">
         <Link to="/characters">
             <img
-                src={`${thumbnail.path}/portrait_uncanny.${
-                    thumbnail.extension
-                }`}
+                src={`${thumbnail.path}/portrait_uncanny.${thumbnail.extension}`}
                 alt={name}
                 className="single-photo"
             />
@@ -23,14 +21,15 @@ const CharacterSingle = ({
         <h2 className="character-name">{name}</h2>
         <p className="description">
             {description === ""
-                ? "No description listed for this character."
+                ? "No description listed for this character/group in the Marvel API. Please click the wiki link below the events section to find out more at the official marvel website"
                 : description}
         </p>
+        <br />
         <h2>Comics</h2>
         {comics.items.map((comic, key) => (
             <div key={key}>
                 <h3>
-                    {comic.name === ""
+                    {comic.available === 0
                         ? "No comics listed for this character"
                         : comic.name}
                 </h3>
@@ -41,15 +40,18 @@ const CharacterSingle = ({
         {events.items.map((characterEvent, key) => (
             <div key={key}>
                 <h3>
-                    {characterEvent.name === ""
+                    {characterEvent.available === 0
                         ? `${name} events have not been listed`
                         : characterEvent.name}
                 </h3>
             </div>
         ))}
+        <br />
+        <br />
         <div>
             {urls.map((link, key) => (
                 <div>
+                    <br />
                     <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
                     <a
                         key={key}
