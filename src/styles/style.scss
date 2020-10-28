@@ -123,6 +123,66 @@ body {
     color: #fff;
 }
 
+/* Dark Theme */
+
+.dark {
+
+    body {
+        background-color: #424242;
+        color: #fff;
+    }
+
+    a {
+        color: #ffffff;
+        :hover {
+            text-decoration: underline;
+        }
+    }
+
+    input {
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        margin-right: 10px;
+        border: 1px solid #dddddd;
+    }
+
+    .search-bar .search-bar:focus {
+        border-color: #4285f4
+    }
+
+    .ui.nav-bar {
+        background-color: #3367d6;
+    }
+
+    .dark-button ui red medium button search-button {
+        background-color: #3368FD;
+    }
+
+    .homepage-heading {
+        color: #fff;
+
+    }
+
+    .countdown-name {
+        color: #fff;
+    }
+
+    .countdown-item {
+        color: #fff;
+    }
+
+    .countdown-svg {
+
+    }
+
+    .h4 {
+        color: #fff;
+    }
+}
+
+/*Dark theme end*/
+
 .ui.red.button,
 .ui.red.buttons .button {
     margin-top: 7px;
@@ -132,7 +192,7 @@ body {
 }
 
 .page-header {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .homepage-heading {

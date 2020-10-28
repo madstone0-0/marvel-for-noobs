@@ -3,8 +3,8 @@ import Countdown from "../Countdown";
 
 const timeFormat = "DD MM YYYY, h:mm a";
 
-const timeTillBlackWidow = "06 11 2020, 12:00 am";
-const timeTillEternals = "06 11 2020, 12:00 am";
+const timeTillBlackWidow = "07 05 2021, 12:00 am";
+const timeTillEternals = "05 11 2021, 12:00 am";
 // const timeTillShangChi = "07 05 2021, 12:00 am";
 // const timeTillDoctorStrange = "05 05 2021, 12:00 am";
 // const timeTillThor = "05 11 2021, 12:00 am";
