@@ -10,7 +10,7 @@
         "axios": "0.19.2",
         "classnames": "^2.2.6",
         "logrocket": "1.0.9",
-        "moment": "2.27.0",
+        "moment": "2.29.1",
         "moment-countdown": "0.0.3",
         "prop-types": "^15.7.2",
         "react": "16.13.1",
