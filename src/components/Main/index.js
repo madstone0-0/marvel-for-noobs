@@ -16,6 +16,7 @@ import {
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 import HomePage from "../HomePage";
+import Footer from "../Footer";
 
 class Main extends Component {
     constructor(props) {
@@ -197,6 +198,7 @@ class Main extends Component {
                             />
                             <Route path="/" exact render={() => <HomePage />} />
                         </div>
+                        <Footer />
                     </Container>
                 </div>
             </div>
