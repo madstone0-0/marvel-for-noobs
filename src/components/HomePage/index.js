@@ -52,7 +52,7 @@ const HomePage = () => (
                     timeTillDate={timeTillThor}
                 />
                 <br />
-                <h3 className="countdown-name">Black Panther 2</h3>
+                // <h3 className="countdown-name">Black Panther 2</h3>
                 {/* <Countdown
                     timeFormat={timeFormat}
                     timeTillDate={timeTillBlackPanther}
