@@ -5,9 +5,9 @@ const timeFormat = "DD MM YYYY, h:mm a";
 
 const timeTillBlackWidow = "07 05 2021, 12:00 am";
 const timeTillEternals = "05 11 2021, 12:00 am";
-const timeTillShangChi = "07 05 2021, 12:00 am";
-const timeTillDoctorStrange = "05 05 2021, 12:00 am";
-const timeTillThor = "05 11 2021, 12:00 am";
+const timeTillShangChi = "09 07 2021, 12:00 am";
+const timeTillDoctorStrange = "25 03 2022, 12:00 am";
+const timeTillThor = "06 05 2022, 12:00 am";
 // const timeTillBlackPanther = "06 05 2021, 12:00 am";
 
 const HomePage = () => (
