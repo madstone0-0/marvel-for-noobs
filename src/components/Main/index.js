@@ -135,10 +135,10 @@ class Main extends Component {
                                     Marvel for Noobs
                                 </h1>
                             </Container>
-                            <Menu.Item className="menu-item header-link">
+                            <Menu.Item className="menu-item header-link nav-button">
                                 <Link to="/">Home</Link>
                             </Menu.Item>
-                            <Menu.Item className="menu-item header-link">
+                            <Menu.Item className="menu-item header-link nav-button">
                                 <Link to="/characters">Characters</Link>
                             </Menu.Item>
                         </Menu>

@@ -3,9 +3,9 @@ import Countdown from "../Countdown";
 
 const timeFormat = "DD MM YYYY, h:mm a";
 
-const timeTillBlackWidow = "07 05 2021, 12:00 am";
+// const timeTillBlackWidow = "07 05 2021, 12:00 am";
 const timeTillEternals = "05 11 2021, 12:00 am";
-const timeTillShangChi = "09 07 2021, 12:00 am";
+// const timeTillShangChi = "09 07 2021, 12:00 am";
 const timeTillDoctorStrange = "25 03 2022, 12:00 am";
 const timeTillThor = "06 05 2022, 12:00 am";
 // const timeTillBlackPanther = "06 05 2021, 12:00 am";
@@ -16,28 +16,28 @@ const HomePage = () => (
             <h1 className="homepage-heading">Upcomimg Marvel Movies</h1>
             <br />
             <div>
-                <h3 className="countdown-name">Black Widow</h3>
+                {/* <h3 className="countdown-name">Black Widow</h3>
                 <div>
                     <Countdown
                         timeFormat={timeFormat}
                         timeTillDate={timeTillBlackWidow}
                     />
                 </div>
-                <br />
+                <br /> */}
                 <h3 className="countdown-name">Eternals</h3>
                 <Countdown
                     timeFormat={timeFormat}
                     timeTillDate={timeTillEternals}
                 />
                 <br />
-                <h3 className="countdown-name">
+                {/* <h3 className="countdown-name">
                     Shang Chi and the Legend of the Ten Rings
                 </h3>
                 <Countdown
                     timeFormat={timeFormat}
                     timeTillDate={timeTillShangChi}
                 />
-                <br />
+                <br /> */}
                 <h3 className="countdown-name">
                     Doctor Strange in the Multiverse of Madness
                 </h3>
