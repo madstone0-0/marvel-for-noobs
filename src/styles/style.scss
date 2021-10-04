@@ -17,11 +17,13 @@ body {
             text-decoration: underline;
         }
 
-        .item .menu-item {
-            color: $white;
-        }
     }
 }
+
+.menu-item.header-link.nav-button{
+    color: $white;
+}
+
 
 .page-container {
     height: 100%;
@@ -32,6 +34,7 @@ body {
     background-color: #b71c1c;
     height: 50px;
 }
+
 
 .search-bar {
     width: 400px;
