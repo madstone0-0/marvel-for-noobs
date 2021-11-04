@@ -224,6 +224,14 @@ body a :hover {
   color: #fff;
 }
 
+.dark .countdowntext-time {
+  color: #fff;
+}
+
+.dark .countdowntext-time span {
+  color: #fff;
+}
+
 .dark .search-bar .ui.input.focus > input, .dark .search-bar .ui.input > input:focus {
   border-color: #507aec;
 }
@@ -271,6 +279,22 @@ body a :hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdowntext-time {
+  color: #000;
+}
+
+.countdowntext-time .countdown-span {
+  display: table-caption;
+}
+
+.countdowntext-time span {
+  color: #000;
+  font-size: 30px;
+  font-weight: 600;
+  display: block;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
