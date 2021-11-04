@@ -194,11 +194,20 @@ body {
 
     .countdown-name {
         color: $white;
+        // font-size: 1.6rem;
     }
 
     .countdown-item {
         color: $white;
     
+        span {
+            color: $white;
+        }
+    }
+
+    .countdowntext-time {
+        color: $white;
+
         span {
             color: $white;
         }
@@ -269,6 +278,22 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.countdowntext-time {
+    color: $black;
+
+    .countdown-span {
+        display: table-caption;
+    }
+
+    span {
+        color: $black;
+        font-size: 30px;
+        font-weight: 600;
+        display: block;
+    }
+
 }
 
 .countdown-item {
