@@ -25,8 +25,6 @@ class Main extends Component {
             darkTheme: false,
             searchCharacter: "",
             characters: [],
-            // searchComic: "",
-            // comics: [],
             error: null,
             isLoading: false,
             hasNotSearchedOnce: true,
@@ -37,39 +35,20 @@ class Main extends Component {
         return this.setState({ searchCharacter: event.target.value });
     };
 
-    // onSearchChangeComics = event => {
-    //     return this.setState({searchComic: event.target.value});
-    // }
-
     onSearchSubmit = (event) => {
         ReactGA.event({
             category: "Page interactions",
             action: "Searched for a character",
         });
         const { searchCharacter } = this.state;
-        // console.log(`Searching for ${searchCharacter}`);
         this.fetchSearchedCharacter(searchCharacter);
         event.preventDefault();
     };
-
-    // onSearchSubmitComic = event => {
-    //     ReactGA.event({
-    //         category: "Page interactions",
-    //         action: "Searched for a comic",
-    //     });
-    //     const {searchComic} = this.state;
-
-    // }
 
     setSearchedCharacter = (result) => {
         const results = result.data.results;
         this.setState({ characters: results, isLoading: false });
     };
-
-    // setSearchedComic = result => {
-    //     const results = result.data.results;
-    //     this.setState({comics: results, isLoading: false});
-    // }
 
     fetchSearchedCharacter = (searchCharacter) => {
         this.setState({ isLoading: true, hasNotSearchedOnce: false });
@@ -92,11 +71,6 @@ class Main extends Component {
         });
         this.setState({ darkTheme: !this.state.darkTheme });
     };
-
-    // fetchSearchedComic = searchComic => {
-    //     this.setState({isLoading: true, hasNotSearchedOnce: false});
-
-    // }
 
     componentDidMount = () => {
         ReactGA.initialize("UA-131448417-2");
