@@ -5,6 +5,9 @@ import Search from "../Search";
 import CharacterSingle from "../CharacterSingle";
 import Character from "../Character";
 
+/**
+ * Displays all recieved character items in a grid using the Character and CharacterSingle components
+ */
 const CharacterGrid = ({
     characters,
     searchCharacter,

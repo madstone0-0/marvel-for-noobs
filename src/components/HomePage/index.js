@@ -8,6 +8,9 @@ const timeTillThor = "06 May 2022 00:00:00 GMT";
 const timeTillBlackPanther = "01 Nov 2022 00:00:00 GMT";
 const timeTillSpiderMan = "17 Dec 2021 00:00:00 GMT";
 
+/**
+ * Responsible for home page tab
+ */
 const HomePage = () => (
     <div>
         <div>

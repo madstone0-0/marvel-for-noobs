@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Displays footer
+ */
 const Footer = () => {
     return (
         <div className="centered footer">

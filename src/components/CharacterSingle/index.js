@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Character information page, Receives character data from parent components
+ * Character, CharacterGrid and Main and displays it.
+ */
 const CharacterSingle = ({
     id,
     name,
