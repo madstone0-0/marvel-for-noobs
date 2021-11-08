@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Countdown from "react-countdown";
 
 const Complete = () => <span>In theaters now!</span>;

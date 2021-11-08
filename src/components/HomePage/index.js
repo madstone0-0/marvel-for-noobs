@@ -1,5 +1,4 @@
 import React from "react";
-import Countdown from "../Countdown";
 import CountdownText from "../CountdownText";
 
 const timeTillEternals = "05 Nov 2021 00:00:00 GMT";
