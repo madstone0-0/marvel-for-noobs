@@ -10,12 +10,6 @@ const CountdownText = ({ timetill, name }) => (
             <Countdown date={timetill}>
                 <Complete />
             </Countdown>
-            {/* <div>
-                <span className="countdown-span">Days</span>
-                <span className="countdown-span">Hours</span>
-                <span className="countdown-span">Minutes</span>
-                <span className="countdown-span">Seconds</span>
-            </div> */}
         </div>
     </div>
 );
