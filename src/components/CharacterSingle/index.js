@@ -54,7 +54,7 @@ const CharacterSingle = ({
         <br />
         <div>
             {urls.map((link, key) => (
-                <div>
+                <div key={key}>
                     <br />
                     <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
                     <a
