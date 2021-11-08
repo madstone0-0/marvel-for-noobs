@@ -3,8 +3,8 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
-        "classnames": "^2.2.6",
         "axios": "0.21.2",
+        "classnames": "^2.2.6",
         "logrocket": "1.0.14",
         "moment": "2.29.1",
         "moment-countdown": "0.0.3",
