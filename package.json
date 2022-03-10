@@ -3,7 +3,7 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
-        "axios": "0.26.0",
+        "axios": "0.26.1",
         "classnames": "^2.2.6",
         "logrocket": "2.2.0",
         "moment": "2.29.1",
