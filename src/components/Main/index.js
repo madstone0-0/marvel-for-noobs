@@ -5,6 +5,7 @@ import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import classNames from "classnames";
+import Cookies from "universal-cookie";
 
 import {
     API_KEY,
@@ -64,6 +65,19 @@ class Main extends Component {
             });
     };
 
+    setDarkModeCookie = () => {
+        const cookies = new Cookies();
+        cookies.set("darkMode", this.state.darkTheme, { path: "/" });
+    };
+
+    getDarkModeCookie = () => {
+        const cookies = new Cookies();
+        const darkMode = cookies.get("darkMode");
+        if (darkMode === "true") {
+            this.setState({ darkTheme: true });
+        }
+    };
+
     toggleDarkTheme = () => {
         ReactGA.event({
             category: "Page Interactions",
@@ -75,6 +89,11 @@ class Main extends Component {
     componentDidMount = () => {
         ReactGA.initialize("UA-131448417-2");
         ReactGA.pageview(window.location.pathname + window.location.search);
+        this.getDarkModeCookie();
+    };
+
+    componentDidUpdate = () => {
+        this.setDarkModeCookie();
     };
 
     render() {
