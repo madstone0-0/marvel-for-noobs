@@ -3,6 +3,7 @@
     "version": "0.2.0",
     "private": true,
     "dependencies": {
+        "ansi-html": "0.0.8",
         "axios": "0.26.0",
         "classnames": "^2.2.6",
         "logrocket": "2.2.0",
