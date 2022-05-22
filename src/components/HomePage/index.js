@@ -3,9 +3,12 @@ import CountdownText from "../CountdownText";
 
 const timeTillEternals = "05 Nov 2021 00:00:00 GMT";
 const timeTillDoctorStrange = "25 Mar 2022 00:00:00 GMT";
-const timeTillThor = "06 May 2022 00:00:00 GMT";
-const timeTillBlackPanther = "01 Nov 2022 00:00:00 GMT";
+const timeTillThor = "08 Jul 2022 00:00:00 GMT";
+const timeTillBlackPanther = "11 Nov 2022 00:00:00 GMT";
 const timeTillSpiderMan = "17 Dec 2021 00:00:00 GMT";
+const timeTillAntMan = "17 Feb 2023 00:00:00 GMT";
+const timeTillGuardians = "05 May 2023 00:00:00 GMT";
+const timeTillMarvels = "28 Jul 2023 00:00:00 GMT";
 
 /**
  * Responsible for home page tab
@@ -18,16 +21,16 @@ const HomePage = () => (
             <div>
                 <div>
                     <CountdownText
-                        name={"Eternals"}
-                        timetill={timeTillEternals}
+                        name={"Ant-Man And The Wasp: Quantumania"}
+                        timetill={timeTillAntMan}
                     />
                 </div>
                 <br />
                 <br />
                 <div>
                     <CountdownText
-                        name={"Doctor Strange Multiverse of Madness"}
-                        timetill={timeTillDoctorStrange}
+                        name={"Guardians Of The Galaxy Vol. 3"}
+                        timetill={timeTillGuardians}
                     />
                 </div>
                 <br />
@@ -50,8 +53,8 @@ const HomePage = () => (
                 <br />
                 <div>
                     <CountdownText
-                        name={"Spider-Man: No Way Home"}
-                        timetill={timeTillSpiderMan}
+                        name={"The Marvels"}
+                        timetill={timeTillMarvels}
                     />
                 </div>
             </div>
