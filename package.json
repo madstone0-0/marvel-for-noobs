@@ -5,7 +5,7 @@
     "dependencies": {
         "axios": "0.26.0",
         "classnames": "^2.2.6",
-        "logrocket": "2.2.0",
+        "logrocket": "3.0.0",
         "moment": "2.29.1",
         "moment-countdown": "0.0.3",
         "prop-types": "^15.7.2",
