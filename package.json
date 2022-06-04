@@ -1,6 +1,6 @@
 {
     "name": "marvel-for-noobs",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "private": true,
     "dependencies": {
         "ansi-html": "0.0.9",
