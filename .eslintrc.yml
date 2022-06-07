@@ -4,7 +4,8 @@ env:
     es2021: true
     node: true
 extends: "eslint:recommended"
-# parser: "@babel/eslint-parser"
+parser: "@babel/eslint-parser"
+# requireConfigFile: false
 parserOptions:
     ecmaFeatures:
         jsx: true
