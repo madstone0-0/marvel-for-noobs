@@ -13,7 +13,6 @@ import {
     LIMIT,
     PATH_BASE,
     PATH_SEARCH_STARTS,
-    // TIMESTAMP,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 import HomePage from "../HomePage";
@@ -191,7 +190,7 @@ class Main extends Component {
                                         </div>
                                     }
                                 />
-                                <Route path="/" exact element={<HomePage />} />
+                                <Route path="/" element={<HomePage />} />
                             </Routes>
                         </div>
                         <Footer />
