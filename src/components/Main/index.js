@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
 import { Container, Menu } from "semantic-ui-react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Routes } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import classNames from "classnames";
@@ -136,60 +136,67 @@ class Main extends Component {
                             </Menu.Item>
                         </Menu>
                         <div>
-                            <Route
-                                path="/characters"
-                                render={() => (
-                                    <div>
-                                        {error ? (
-                                            <p className="centered">
-                                                Something went wrong
-                                            </p>
-                                        ) : (
-                                            <div>
-                                                {isLoading ? (
-                                                    <p className="loading-text">
-                                                        Loading...
-                                                    </p>
-                                                ) : (
-                                                    <div>
-                                                        {characters.length <
-                                                            1 &&
-                                                        hasNotSearchedOnce ===
-                                                            false ? (
-                                                            <p className="centered">
-                                                                No results
-                                                                found, please
-                                                                refresh
-                                                            </p>
-                                                        ) : (
-                                                            <CharacterGrid
-                                                                value={
-                                                                    searchCharacter
-                                                                }
-                                                                searchCharacter={
-                                                                    searchCharacter
-                                                                }
-                                                                characters={
-                                                                    characters
-                                                                }
-                                                                onChange={
-                                                                    this
-                                                                        .onSearchChange
-                                                                }
-                                                                onSubmit={
-                                                                    this
-                                                                        .onSearchSubmit
-                                                                }
-                                                            />
-                                                        )}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                            />
-                            <Route path="/" exact render={() => <HomePage />} />
+                            <Routes>
+                                <Route
+                                    path="/characters"
+                                    render={() => (
+                                        <div>
+                                            {error ? (
+                                                <p className="centered">
+                                                    Something went wrong
+                                                </p>
+                                            ) : (
+                                                <div>
+                                                    {isLoading ? (
+                                                        <p className="loading-text">
+                                                            Loading...
+                                                        </p>
+                                                    ) : (
+                                                        <div>
+                                                            {characters.length <
+                                                                1 &&
+                                                            hasNotSearchedOnce ===
+                                                                false ? (
+                                                                <p className="centered">
+                                                                    No results
+                                                                    found,
+                                                                    please
+                                                                    refresh
+                                                                </p>
+                                                            ) : (
+                                                                <CharacterGrid
+                                                                    value={
+                                                                        searchCharacter
+                                                                    }
+                                                                    searchCharacter={
+                                                                        searchCharacter
+                                                                    }
+                                                                    characters={
+                                                                        characters
+                                                                    }
+                                                                    onChange={
+                                                                        this
+                                                                            .onSearchChange
+                                                                    }
+                                                                    onSubmit={
+                                                                        this
+                                                                            .onSearchSubmit
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                />
+                                <Route
+                                    path="/"
+                                    exact
+                                    render={() => <HomePage />}
+                                />
+                            </Routes>
                         </div>
                         <Footer />
                     </Container>
