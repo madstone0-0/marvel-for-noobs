@@ -93,6 +93,9 @@ class Main extends Component {
 
     componentDidUpdate = () => {
         this.setDarkModeCookie();
+        if (performance.navigation.type === 1) {
+            window.location.href = "/";
+        }
     };
 
     render() {
