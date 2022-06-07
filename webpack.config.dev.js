@@ -7,6 +7,7 @@ const port = process.env.PORT || 3003;
 module.exports = {
     entry: "./src/index.js",
     mode: "development",
+    devtool: "inline-source-map",
     module: {
         rules: [
             {
