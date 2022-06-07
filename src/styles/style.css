@@ -149,17 +149,6 @@ body a :hover {
   background: #424242;
 }
 
-.dark {
-  /*
-    .countdown-svg {
-
-        .countdown-circle {
-            stroke: $grey;
-        }
-    }
-    */
-}
-
 .dark .page {
   background-color: #424242;
 }
