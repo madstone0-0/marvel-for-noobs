@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
 import { Container, Menu } from "semantic-ui-react";
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes, BrowserRouter, Outlet } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
 import classNames from "classnames";
@@ -138,8 +138,8 @@ class Main extends Component {
                         <div>
                             <Routes>
                                 <Route
-                                    path="/characters"
-                                    render={() => (
+                                    path="characters/*"
+                                    element={
                                         <div>
                                             {error ? (
                                                 <p className="centered">
@@ -189,14 +189,11 @@ class Main extends Component {
                                                 </div>
                                             )}
                                         </div>
-                                    )}
+                                    }
                                 />
-                                <Route
-                                    path="/"
-                                    exact
-                                    render={() => <HomePage />}
-                                />
+                                <Route path="/" exact element={<HomePage />} />
                             </Routes>
+                            {/* <Outlet /> */}
                         </div>
                         <Footer />
                     </Container>
