@@ -203,6 +203,7 @@ const Main = () => {
                             />
                             <Route path="/" element={<HomePage />} />
                         </Routes>
+                        <Footer />
                     </div>
                 </Container>
             </div>
