@@ -1,6 +1,6 @@
 # Marvel for Noobs
 
-A marvel Wiki Marvel for Noobs.
+A marvel Wiki [Marvel for Noobs](https://marvel-for-noobs.cyclic.app).
 
 
 ## Features
@@ -19,5 +19,5 @@ A marvel Wiki Marvel for Noobs.
 - `git clone https://github.com/madstone0-0/marvel-for-noobs.git`
 - `cd marvel-for-noobs`
 - `npm install`
-- `npm start`
-- visit <http://localhost:3000/>
+- `npm run start-dev`
+- visit <http://localhost:3003/>
