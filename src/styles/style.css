@@ -22,12 +22,10 @@ h1 {
 body {
   background-color: #f4f4f4;
 }
-
 body a {
   text-decoration: none;
   color: #000;
 }
-
 body a :hover {
   color: #E57373;
   text-decoration: underline;
@@ -52,11 +50,9 @@ body a :hover {
   margin: 10px auto;
   padding-bottom: 10px;
 }
-
 .search-bar .search-button {
   margin-left: 10px;
 }
-
 .search-bar .ui.input.focus > input,
 .search-bar .ui.input > input:focus {
   border-color: #e53935;
@@ -68,16 +64,13 @@ body a :hover {
   max-width: 1200px;
   margin: 0px auto;
 }
-
 .character-grid .character-single {
   max-width: 1200px;
   margin: 0px auto;
 }
-
 .character-grid .character-single h3 {
   font-size: 1.4rem;
 }
-
 .character-grid .character-single p {
   font-size: 1.5rem;
 }
@@ -105,7 +98,6 @@ body a :hover {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-
 .single-photo .grid-figure, .single-photo .single-photo {
   box-shadow: none;
   margin: 0 2rem 0 0;
@@ -114,7 +106,6 @@ body a :hover {
   flex: 1 0 60%;
   max-width: 60%;
 }
-
 .single-photo .description {
   flex: 1 0 40%;
   max-width: 40%;
@@ -129,7 +120,7 @@ body a :hover {
 .loading-text, .centered {
   font-size: 2rem;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .dark-button {
@@ -151,20 +142,16 @@ body a :hover {
 .dark .page {
   background-color: #424242;
 }
-
 .dark .page .page-container {
   background-color: #424242;
 }
-
 .dark a {
   color: #eeeeee;
 }
-
 .dark a :hover {
   text-decoration: underline;
   color: #E57373;
 }
-
 .dark input {
   padding: 10px;
   border-radius: 5px;
@@ -172,51 +159,39 @@ body a :hover {
   margin-right: 10px;
   border: 1px solid #dddddd;
 }
-
 .dark .search-bar .search-bar:focus {
   border-color: #4285f4;
 }
-
 .dark .ui.nav-bar {
   background-color: #3367d6;
 }
-
 .dark .dark-button.ui.red.medium.button.search-button {
   background-color: #3368FD;
 }
-
 .dark .homepage-heading {
   color: #fff;
 }
-
 .dark .countdown-name {
   color: #fff;
 }
-
 .dark .countdown-item {
   color: #fff;
 }
-
 .dark .countdown-item span {
   color: #fff;
 }
-
 .dark .countdowntext-time {
   color: #fff;
 }
-
 .dark .countdowntext-time span {
   color: #fff;
 }
-
 .dark .search-bar .ui.input.focus > input, .dark .search-bar .ui.input > input:focus {
   border-color: #507aec;
 }
-
 .dark .search-bar .ui.red.large.button.search-button {
   background-color: #3368FD;
 }
-
 .dark .grid-figure, .dark .single-photo {
   background: #424242;
   box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
@@ -245,7 +220,6 @@ body a :hover {
   color: #fff;
   font-size: 14px;
 }
-
 .menu-item :focus {
   box-shadow: #ec0808;
 }
@@ -260,11 +234,9 @@ body a :hover {
 .countdowntext-time {
   color: #000;
 }
-
 .countdowntext-time .countdown-span {
   display: table-caption;
 }
-
 .countdowntext-time span {
   color: #000;
   font-size: 30px;
@@ -286,7 +258,6 @@ body a :hover {
   width: 100px;
   height: 100px;
 }
-
 .countdown-item span {
   color: #333;
   font-size: 12px;
@@ -317,14 +288,12 @@ h5:first-child {
 }
 
 .footer {
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   display: block;
 }
-
 .footer :last-child {
-  border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
+  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
-
 .footer h4 {
   font-size: 1.5rem;
 }
