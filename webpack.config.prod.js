@@ -14,7 +14,6 @@ module.exports = {
     output: {
         filename: "bundle.[contenthash].js",
         path: path.resolve(__dirname, "dist"),
-        publicPath: "/marvel-for-noobs/",
     },
     mode: "production",
     module: {
