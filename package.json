@@ -24,7 +24,7 @@
         "watch-css": "npm run build-css && node-sass --output-style expanded --include ./src --include-path: ./node_modules src/ -o src/ --watch --recursive",
         "start-dev": "webpack serve --config webpack.config.dev.js --hot",
         "build": "webpack --config webpack.config.prod.js",
-        "start": "node server.js",
+        "start": "node server.js"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -64,7 +64,6 @@
         "less-loader": "^11.0.0",
         "mini-css-extract-plugin": "^2.6.1",
         "node-sass": "^7.0.1",
-        "optimize-css-assets-webpack-plugin": "^6.0.1",
         "prettier": "^2.7.1",
         "resolve-url-loader": "^5.0.0",
         "source-map": "^0.7.4",
