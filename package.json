@@ -25,6 +25,8 @@
         "start-dev": "webpack serve --config webpack.config.dev.js --hot",
         "build": "webpack --config webpack.config.prod.js",
         "start": "node server.js",
+        "predeploy": "npm run build",
+        "deploy": "npm run start"
     },
     "eslintConfig": {
         "extends": "react-app"
