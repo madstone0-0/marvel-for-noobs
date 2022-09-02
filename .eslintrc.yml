@@ -15,9 +15,6 @@ plugins:
     - "@babel"
     - react
 rules:
-    indent:
-        - warn
-        - 4
     linebreak-style:
         - warn
         - windows
