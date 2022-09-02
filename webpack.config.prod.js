@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const { extendDefaultPlugins } = require("svgo");
 
 module.exports = {
     entry: "./src/index.js",
@@ -85,34 +84,13 @@ module.exports = {
         }),
         new ImageMinimizerPlugin({
             minimizer: {
-                implementation: ImageMinimizerPlugin.imageminMinify,
+                implementation: ImageMinimizerPlugin.squooshMinify,
                 options: {
-                    plugins: [
-                        ["gifsicle", { interlaced: true }],
-                        ["jpegtran", { progressive: true }],
-                        ["optipng", { optimizationLevel: 5 }],
-                        [
-                            "svgo",
-                            {
-                                name: "preset-default",
-                                params: {
-                                    overrides: {
-                                        removeViewBox: {
-                                            active: false,
-                                        },
-
-                                        addAttributesToSVGElement: {
-                                            attributes: [
-                                                {
-                                                    xmlns: "http://www.w3.org/2000/svg",
-                                                },
-                                            ],
-                                        },
-                                    },
-                                },
-                            },
-                        ],
-                    ],
+                    encodeOptions: {
+                        jpeg: {
+                            quality: 100,
+                        },
+                    },
                 },
             },
         }),
