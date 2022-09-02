@@ -14,7 +14,7 @@ const CharacterSingle = ({
     events,
     urls,
 }) => (
-    <div className="charcter-single grid-figure">
+    <div className="character-single grid-figure">
         <Link to="/characters">
             <img
                 src={`${thumbnail.path}/portrait_uncanny.${thumbnail.extension}`}

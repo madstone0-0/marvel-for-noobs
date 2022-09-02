@@ -63,17 +63,13 @@ body a :hover {
 }
 
 .character-grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: 0px auto;
 }
 
 .character-grid .character-single {
-  display: none;
   max-width: 1200px;
   margin: 0px auto;
 }
@@ -91,26 +87,19 @@ body a :hover {
 }
 
 .grid-figure, .single-photo {
-  -ms-flex-preferred-size: 2.68rem;
-      flex-basis: 2.68rem;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-basis: 2.68rem;
+  flex-grow: 1;
+  flex-shrink: 0;
   margin: 2rem 2rem 2rem 2rem;
   padding: 1rem;
   background: white;
-  -webkit-box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
-          box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
+  box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
   position: relative;
 }
 
 .single-photo {
   max-width: 900px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background: whitesmoke;
   margin-bottom: 20px;
@@ -118,21 +107,16 @@ body a :hover {
 }
 
 .single-photo .grid-figure, .single-photo .single-photo {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   margin: 0 2rem 0 0;
   border: 0;
   padding: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 60%;
-          flex: 1 0 60%;
+  flex: 1 0 60%;
   max-width: 60%;
 }
 
 .single-photo .description {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 40%;
-          flex: 1 0 40%;
+  flex: 1 0 40%;
   max-width: 40%;
 }
 
@@ -235,8 +219,7 @@ body a :hover {
 
 .dark .grid-figure, .dark .single-photo {
   background: #424242;
-  -webkit-box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
-          box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
+  box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
 }
 
 /*Dark theme end*/
@@ -264,22 +247,14 @@ body a :hover {
 }
 
 .menu-item :focus {
-  -webkit-box-shadow: #ec0808;
-          box-shadow: #ec0808;
+  box-shadow: #ec0808;
 }
 
 .countdown-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .countdowntext-time {
@@ -300,19 +275,10 @@ body a :hover {
 .countdown-item {
   color: #111;
   font-size: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   line-height: 30px;
   margin: 10px;
   padding-top: 10px;
