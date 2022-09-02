@@ -24,6 +24,7 @@ jobs:
 
     - name: Build
       run: |
+        git config --global user.name "madstone0-0"
         npm install
         npm run build
         npm run deploy
