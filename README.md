@@ -2,7 +2,6 @@
 
 A marvel Wiki [Marvel for Noobs](https://marvel-for-noobs-121.herokuapp.com).
 
-[![Build Status](https://travis-ci.org/madstone0-0/marvel-for-noobs.svg?branch=master)](https://travis-ci.org/madstone0-0/marvel-for-noobs)
 
 ## Features
 - uses:
