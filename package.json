@@ -25,7 +25,6 @@
         "start-dev": "webpack serve --config webpack.config.dev.js --hot",
         "build": "webpack --config webpack.config.prod.js",
         "start": "node server.js",
-        "heroku-postbuild": "npm run build"
     },
     "eslintConfig": {
         "extends": "react-app"

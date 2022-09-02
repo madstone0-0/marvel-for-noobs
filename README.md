@@ -1,6 +1,6 @@
 # Marvel for Noobs
 
-A marvel Wiki [Marvel for Noobs](https://marvel-for-noobs-121.herokuapp.com).
+A marvel Wiki Marvel for Noobs.
 
 
 ## Features
