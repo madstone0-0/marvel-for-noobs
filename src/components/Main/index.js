@@ -34,9 +34,6 @@ const Main = () => {
         ReactGA.pageview(window.location.pathname + window.location.search);
         getDarkModeCookie();
         // getStoredCharacters();
-        // if (performance.navigation.type === 1) {
-        //     window.location.href = "/";
-        // }
     }, []);
 
     useEffect(() => {
