@@ -42,7 +42,7 @@ const movies = [
 const HomePage = () => (
     <div>
         <div>
-            <h1 className="homepage-heading">Upcomimg Marvel Movies</h1>
+            <h1 className="homepage-heading">Upcoming Marvel Movies</h1>
             <br />
             <div className="countdowns">
                 {movies.map((movie, key) => {
