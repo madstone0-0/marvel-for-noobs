@@ -11,7 +11,11 @@ const Footer = () => {
                 <h4>
                     <footer>
                         Created By{" "}
-                        <a href="https://github.com/madstone0-0">madstone0-0</a>
+                        <a href="https://github.com/madstone0-0">madstone0-0</a>{" "}
+                        and{" "}
+                        <a href="https://github.com/hadiahmad676">
+                            Hadiahmad676
+                        </a>
                         <p>
                             <a href="http://marvel.com">
                                 Data provided by Marvel. © 2022 MARVEL
