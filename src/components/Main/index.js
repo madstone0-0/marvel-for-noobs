@@ -30,7 +30,6 @@ const Main = () => {
     const [hasNotSearchedOnce, hasSearchedOnce] = useState(true);
 
     const cookies = new Cookies();
-    const searchCharacterCache = new Map();
 
     useEffect(() => {
         ReactGA.initialize("UA-131448417-2");
@@ -85,24 +84,7 @@ const Main = () => {
         e.preventDefault();
     };
 
-    const next = () => {
-        const currOffset =
-            characterCount < LIMIT ? offset + characterCount : offset + LIMIT;
-        fetchSearchedCharacter(searchCharacter, currOffset);
-        updateOffset(currOffset);
-    };
-
-    const previous = () => {
-        const currOffset =
-            characterCount < LIMIT ? offset - characterCount : offset - LIMIT;
-        fetchSearchedCharacter(searchCharacter, currOffset);
-        updateOffset(currOffset);
-    };
-
     const setCharacter = (result) => {
-        console.log({ result });
-        console.log({ count: result.data.data.count });
-        console.log({ offset: result.data.data.offset });
         // const oldCharacters =
         // results && characters[searchCharacter]
         // ? characters[searchCharacter]
@@ -111,7 +93,6 @@ const Main = () => {
         // console.log({ updatedCharacters });
         updateCount(result.data.data.count);
         updateCharacterArray(result.data.data.results);
-        console.log({ characters });
     };
 
     const fetchSearchedCharacter = (searchCharacter, offset = 0) => {
@@ -129,6 +110,20 @@ const Main = () => {
             .catch((error) => {
                 updateErrorState(error);
             });
+    };
+
+    const next = () => {
+        const currOffset =
+            characterCount < LIMIT ? offset + characterCount : offset + LIMIT;
+        fetchSearchedCharacter(searchCharacter, currOffset);
+        updateOffset(currOffset);
+    };
+
+    const previous = () => {
+        const currOffset =
+            characterCount < LIMIT ? offset - characterCount : offset - LIMIT;
+        fetchSearchedCharacter(searchCharacter, currOffset);
+        updateOffset(currOffset);
     };
 
     const setDarkModeCookie = () => {
@@ -237,12 +232,6 @@ const Main = () => {
                             <div></div>
                         ) : (
                             <div className="nav-buttons">
-                                <Button
-                                    className="ui red large button"
-                                    onClick={next}
-                                >
-                                    Next
-                                </Button>
                                 {offset === 0 ? (
                                     <div></div>
                                 ) : (
@@ -253,6 +242,13 @@ const Main = () => {
                                         Previous
                                     </Button>
                                 )}
+
+                                <Button
+                                    className="ui red large button"
+                                    onClick={next}
+                                >
+                                    Next
+                                </Button>
                             </div>
                         )}
                         <Footer />
