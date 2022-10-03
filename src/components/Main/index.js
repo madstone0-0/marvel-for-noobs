@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Menu } from "semantic-ui-react";
+import { Button, Container, Menu } from "semantic-ui-react";
 import { Route, Link, Routes } from "react-router-dom";
 import axios from "axios";
 import ReactGA from "react-ga";
@@ -12,6 +12,7 @@ import {
     LIMIT,
     PATH_BASE,
     PATH_SEARCH_STARTS,
+    OFFSET,
 } from "../constants";
 import CharacterGrid from "../CharacterGrid";
 import HomePage from "../HomePage";
@@ -19,6 +20,8 @@ import Footer from "../Footer";
 import { element } from "prop-types";
 
 const Main = () => {
+    const [characterCount, updateCount] = useState(LIMIT);
+    const [offset, updateOffset] = useState(0);
     const [darkTheme, updateDarkTheme] = useState(false);
     const [searchCharacter, updateSearchCharacter] = useState("");
     const [characters, updateCharacterArray] = useState([]);
@@ -82,15 +85,45 @@ const Main = () => {
         e.preventDefault();
     };
 
-    const fetchSearchedCharacter = (searchCharacter) => {
+    const next = () => {
+        const currOffset =
+            characterCount < LIMIT ? offset + characterCount : offset + LIMIT;
+        fetchSearchedCharacter(searchCharacter, currOffset);
+        updateOffset(currOffset);
+    };
+
+    const previous = () => {
+        const currOffset =
+            characterCount < LIMIT ? offset - characterCount : offset - LIMIT;
+        fetchSearchedCharacter(searchCharacter, currOffset);
+        updateOffset(currOffset);
+    };
+
+    const setCharacter = (result) => {
+        console.log({ result });
+        console.log({ count: result.data.data.count });
+        console.log({ offset: result.data.data.offset });
+        // const oldCharacters =
+        // results && characters[searchCharacter]
+        // ? characters[searchCharacter]
+        // : [];
+        // const updatedCharacters = [...characters, ...results];
+        // console.log({ updatedCharacters });
+        updateCount(result.data.data.count);
+        updateCharacterArray(result.data.data.results);
+        console.log({ characters });
+    };
+
+    const fetchSearchedCharacter = (searchCharacter, offset = 0) => {
         updateLoadingState(true);
         hasSearchedOnce(false);
+        updateOffset(offset);
         axios
             .get(
-                `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}&limit=${LIMIT}`,
+                `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}&limit=${LIMIT}&offset=${offset}`,
             )
             .then((result) => {
-                updateCharacterArray(result.data.data.results);
+                setCharacter(result);
                 updateLoadingState(false);
             })
             .catch((error) => {
@@ -200,6 +233,28 @@ const Main = () => {
                             />
                             <Route path="/" element={<HomePage />} />
                         </Routes>
+                        {isLoading || hasNotSearchedOnce ? (
+                            <div></div>
+                        ) : (
+                            <div className="nav-buttons">
+                                <Button
+                                    className="ui red large button"
+                                    onClick={next}
+                                >
+                                    Next
+                                </Button>
+                                {offset === 0 ? (
+                                    <div></div>
+                                ) : (
+                                    <Button
+                                        className="ui red large button"
+                                        onClick={previous}
+                                    >
+                                        Previous
+                                    </Button>
+                                )}
+                            </div>
+                        )}
                         <Footer />
                     </div>
                 </Container>

@@ -127,7 +127,7 @@ body a {
   color: #000;
 }
 body a :hover {
-  color: #E57373;
+  color: #e57373;
   text-decoration: underline;
 }
 
@@ -223,7 +223,8 @@ body a :hover {
 }
 
 /* Dark Theme */
-.dark, .dark html {
+.dark,
+.dark html {
   height: 100%;
   width: 100%;
   color: #ffffff;
@@ -241,7 +242,7 @@ body a :hover {
 }
 .dark a :hover {
   text-decoration: underline;
-  color: #E57373;
+  color: #e57373;
 }
 .dark input {
   padding: 10px;
@@ -257,10 +258,13 @@ body a :hover {
   background-color: #3367d6;
 }
 .dark .nav-button a:hover {
-  color: #E57373;
+  color: #e57373;
 }
 .dark .dark-button.ui.red.medium.button.search-button {
-  background-color: #3368FD;
+  background-color: #3368fd;
+}
+.dark .nav-buttons > button {
+  background-color: #3368fd !important;
 }
 .dark .countdown-name {
   color: #fff;
@@ -271,18 +275,19 @@ body a :hover {
 .dark .countdowntext-time span {
   color: #fff;
 }
-.dark .search-bar .ui.input.focus > input, .dark .search-bar .ui.input > input:focus {
+.dark .search-bar .ui.input.focus > input,
+.dark .search-bar .ui.input > input:focus {
   border-color: #507aec;
 }
 .dark .search-bar .ui.red.large.button.search-button {
-  background-color: #3368FD;
+  background-color: #3368fd;
 }
 .dark .grid-figure, .dark .single-photo {
   background: #424242;
   box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
 }
 .dark .card-header {
-  background: linear-gradient(to right, #3368FD, #696969);
+  background: linear-gradient(to right, #3368fd, #696969);
 }
 
 /*Dark theme end*/
@@ -327,6 +332,12 @@ body a :hover {
 
 .card-body {
   padding: 30px 20px;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 h1:first-child,

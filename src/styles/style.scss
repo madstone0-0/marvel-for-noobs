@@ -11,24 +11,21 @@ body {
     a {
         text-decoration: none;
         color: $black;
-        
+
         :hover {
             color: $lightred;
             text-decoration: underline;
         }
-
     }
 }
 
-.nav-button a{
+.nav-button a {
     color: $white;
-    
 }
 
 .nav-button a:hover {
     color: #1e70bf;
 }
-
 
 .page-container {
     height: 100%;
@@ -39,7 +36,6 @@ body {
     background-color: $light_main;
     height: 50px;
 }
-
 
 .search-bar {
     width: 400px;
@@ -126,7 +122,8 @@ body {
 
 /* Dark Theme */
 
-.dark, .dark html {
+.dark,
+.dark html {
     height: 100%;
     width: 100%;
     color: #ffffff;
@@ -134,10 +131,9 @@ body {
 }
 
 .dark {
-
     .page {
         background-color: $dark_bg;
-        
+
         .page-container {
             background-color: $dark_bg;
         }
@@ -160,7 +156,7 @@ body {
     }
 
     .search-bar .search-bar:focus {
-        border-color: #4285f4
+        border-color: #4285f4;
     }
 
     .ui.nav-bar {
@@ -172,7 +168,11 @@ body {
     }
 
     .dark-button.ui.red.medium.button.search-button {
-        background-color: #3368FD;
+        background-color: #3368fd;
+    }
+
+    .nav-buttons > button {
+        background-color: #3368fd !important;
     }
 
     .countdown-name {
@@ -189,15 +189,14 @@ body {
     }
 
     .search-bar {
-
-        .ui.input.focus > input,.ui.input > input:focus {
+        .ui.input.focus > input,
+        .ui.input > input:focus {
             border-color: #507aec;
         }
 
         .ui.red.large.button.search-button {
-            background-color: #3368FD;
+            background-color: #3368fd;
         }
-
     }
 
     // Grid
@@ -209,9 +208,8 @@ body {
 
     // Countdown Card Header
     .card-header {
-        background: linear-gradient(to right, #3368FD, #696969);;
+        background: linear-gradient(to right, #3368fd, #696969);
     }
-
 }
 
 /*Dark theme end*/
@@ -243,7 +241,6 @@ body {
     // border-top: 1px solid $light_main;
     margin-bottom: 50px;
     transition: 0.3s;
-    
 }
 
 .card:hover {
@@ -261,6 +258,12 @@ body {
     padding: 30px 20px;
 }
 
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 h1:first-child,
 h2:first-child,
 h3:first-child,
@@ -270,10 +273,10 @@ h5:first-child {
 }
 
 .footer {
-    padding: .75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     display: block;
     :last-child {
-        border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
+        border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
     }
 
     h4 {
