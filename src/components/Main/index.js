@@ -68,6 +68,21 @@ const Main = () => {
         updateCharacterArray(result.data.data.results);
     };
 
+    const getFreshData = (url, cacheResponse) => {
+        axios
+            .get(url)
+            .then((result) => {
+                setCharacter(result);
+                cacheResponse && writeToCache(url, result);
+                updateLoadingState(false);
+            })
+            .catch((error) => {
+                updateErrorState(error);
+            });
+    };
+
+    const getCacheData = (searchCharacter) => readFromCache(searchCharacter);
+
     const fetchSearchedCharacter = (
         searchCharacter,
         offset = 0,
@@ -87,21 +102,6 @@ const Main = () => {
             getFreshData(url, true);
         }
     };
-
-    const getFreshData = (url, cacheResponse) => {
-        axios
-            .get(url)
-            .then((result) => {
-                setCharacter(result);
-                cacheResponse && writeToCache(url, result);
-                updateLoadingState(false);
-            })
-            .catch((error) => {
-                updateErrorState(error);
-            });
-    };
-
-    const getCacheData = (searchCharacter) => readFromCache(searchCharacter);
 
     const changeCurrentView = (e) => {
         console.log(e.target);
