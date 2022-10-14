@@ -62,7 +62,16 @@ body {
         // display: none;
         max-width: 100%;
         margin: 0px auto;
+
+        .description {
+            padding: 0px 20px;
+        }
     }
+}
+
+.character-grid-single {
+    @extend .character-grid;
+    display: block;
 }
 
 .grid-photo {

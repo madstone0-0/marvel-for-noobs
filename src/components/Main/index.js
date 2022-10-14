@@ -1,4 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, {
+    useState,
+    useEffect,
+    useRef,
+    useMemo,
+    useLayoutEffect,
+} from "react";
 import { Button, Container, Menu } from "semantic-ui-react";
 import { Route, Link, Routes } from "react-router-dom";
 import axios from "axios";
@@ -21,6 +27,7 @@ import { element } from "prop-types";
 
 const Main = () => {
     const [characterCount, updateCount] = useState(LIMIT);
+    const [prevCharCount, updatePrevCharCount] = useState(0);
     const [offset, updateOffset] = useState(0);
     const [darkTheme, updateDarkTheme] = useState(false);
     const [searchCharacter, updateSearchCharacter] = useState("");
@@ -28,6 +35,7 @@ const Main = () => {
     const [error, updateErrorState] = useState(null);
     const [isLoading, updateLoadingState] = useState(false);
     const [hasNotSearchedOnce, hasSearchedOnce] = useState(true);
+    const [currentView, changeView] = useState("grid");
 
     const cookies = new Cookies();
 
@@ -112,16 +120,27 @@ const Main = () => {
             });
     };
 
+    const changeCurrentView = (e) => {
+        console.log(e.target);
+        const target = e.target.className;
+        if (target === "grid-photo") {
+            changeView("single");
+        } else {
+            changeView("grid");
+        }
+    };
+
     const next = () => {
         const currOffset =
             characterCount < LIMIT ? offset + characterCount : offset + LIMIT;
+        updatePrevCharCount(characterCount);
         fetchSearchedCharacter(searchCharacter, currOffset);
         updateOffset(currOffset);
     };
 
     const previous = () => {
         const currOffset =
-            characterCount < LIMIT ? offset - characterCount : offset - LIMIT;
+            prevCharCount < LIMIT ? offset - prevCharCount : offset - LIMIT;
         fetchSearchedCharacter(searchCharacter, currOffset);
         updateOffset(currOffset);
     };
@@ -201,26 +220,59 @@ const Main = () => {
                                                                 refresh
                                                             </p>
                                                         ) : (
-                                                            <CharacterGrid
-                                                                value={
-                                                                    searchCharacter
-                                                                }
-                                                                searchCharacter={
-                                                                    searchCharacter
-                                                                }
-                                                                characters={
-                                                                    characters
-                                                                }
-                                                                onChange={
-                                                                    onSearchChange
-                                                                }
-                                                                onSubmit={
-                                                                    onSearchSubmit
-                                                                }
-                                                            />
+                                                            <div>
+                                                                <CharacterGrid
+                                                                    value={
+                                                                        searchCharacter
+                                                                    }
+                                                                    searchCharacter={
+                                                                        searchCharacter
+                                                                    }
+                                                                    characters={
+                                                                        characters
+                                                                    }
+                                                                    onChange={
+                                                                        onSearchChange
+                                                                    }
+                                                                    onSubmit={
+                                                                        onSearchSubmit
+                                                                    }
+                                                                    currentView={
+                                                                        currentView
+                                                                    }
+                                                                    changeCurrentView={
+                                                                        changeCurrentView
+                                                                    }
+                                                                />
+                                                            </div>
                                                         )}
                                                     </div>
                                                 )}
+                                            </div>
+                                        )}
+                                        {isLoading ||
+                                        hasNotSearchedOnce ||
+                                        currentView !== "grid" ? (
+                                            <div></div>
+                                        ) : (
+                                            <div className="nav-buttons">
+                                                {offset === 0 ? (
+                                                    <div></div>
+                                                ) : (
+                                                    <Button
+                                                        className="ui red large button"
+                                                        onClick={previous}
+                                                    >
+                                                        Previous
+                                                    </Button>
+                                                )}
+
+                                                <Button
+                                                    className="ui red large button"
+                                                    onClick={next}
+                                                >
+                                                    Next
+                                                </Button>
                                             </div>
                                         )}
                                     </div>
@@ -228,29 +280,6 @@ const Main = () => {
                             />
                             <Route path="/" element={<HomePage />} />
                         </Routes>
-                        {isLoading || hasNotSearchedOnce ? (
-                            <div></div>
-                        ) : (
-                            <div className="nav-buttons">
-                                {offset === 0 ? (
-                                    <div></div>
-                                ) : (
-                                    <Button
-                                        className="ui red large button"
-                                        onClick={previous}
-                                    >
-                                        Previous
-                                    </Button>
-                                )}
-
-                                <Button
-                                    className="ui red large button"
-                                    onClick={next}
-                                >
-                                    Next
-                                </Button>
-                            </div>
-                        )}
                         <Footer />
                     </div>
                 </Container>
