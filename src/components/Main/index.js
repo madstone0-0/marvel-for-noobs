@@ -24,6 +24,7 @@ import CharacterGrid from "../CharacterGrid";
 import HomePage from "../HomePage";
 import Footer from "../Footer";
 import { element } from "prop-types";
+import { readFromCache, writeToCache } from "../utils/cache";
 
 const Main = () => {
     const [characterCount, updateCount] = useState(LIMIT);
@@ -43,28 +44,11 @@ const Main = () => {
         ReactGA.initialize("UA-131448417-2");
         ReactGA.pageview(window.location.pathname + window.location.search);
         getDarkModeCookie();
-        // getStoredCharacters();
     }, []);
 
     useEffect(() => {
         setDarkModeCookie();
     }, [darkTheme]);
-
-    // useEffect(() => {
-    //     searchCharacterCache.set(searchCharacter, characters);
-    //     window.localStorage.setItem(
-    //         searchCharacter.toLocaleLowerCase(),
-    //         JSON.stringify(searchCharacterCache.get(searchCharacter)),
-    //     );
-    // }, [characters]);
-
-    // const getStoredCharacters = () => {
-    //     const keys = Object.keys(localStorage);
-    //     keys.forEach((key) => {
-    //         searchCharacterCache.set(key, Object(localStorage.getItem(key)));
-    //     });
-    //     console.log(searchCharacterCache);
-    // };
 
     const onSearchChange = (e) => {
         return updateSearchCharacter(e.target.value);
@@ -76,49 +60,48 @@ const Main = () => {
             action: "Searched for a character",
         });
         fetchSearchedCharacter(searchCharacter);
-        // console.log(searchCharacterCache);
-        // if (!searchCharacterCache.has(searchCharacter.toLocaleLowerCase())) {
-        //     fetchSearchedCharacter(searchCharacter);
-        //     searchCharacterCache.set(
-        //         searchCharacter.toLocaleLowerCase(),
-        //         characters,
-        //     );
-        //     console.log(searchCharacterCache);
-        //     console.log(searchCharacterCache.size);
-        // }
-        // updateCharacterArray(
-        //     searchCharacterCache.get(searchCharacter.toLocaleLowerCase()),
-        // );
         e.preventDefault();
     };
 
     const setCharacter = (result) => {
-        // const oldCharacters =
-        // results && characters[searchCharacter]
-        // ? characters[searchCharacter]
-        // : [];
-        // const updatedCharacters = [...characters, ...results];
-        // console.log({ updatedCharacters });
         updateCount(result.data.data.count);
         updateCharacterArray(result.data.data.results);
     };
 
-    const fetchSearchedCharacter = (searchCharacter, offset = 0) => {
+    const fetchSearchedCharacter = (
+        searchCharacter,
+        offset = 0,
+        cacheResponse = false,
+    ) => {
         updateLoadingState(true);
         hasSearchedOnce(false);
         updateOffset(offset);
+
+        const url = `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter.toLowerCase()}&${API_KEY}&limit=${LIMIT}&offset=${offset}`;
+
+        if (getCacheData(searchCharacter) !== null) {
+            cacheResponse = true;
+            setCharacter(readFromCache(url));
+            updateLoadingState(false);
+        } else {
+            getFreshData(url, true);
+        }
+    };
+
+    const getFreshData = (url, cacheResponse) => {
         axios
-            .get(
-                `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter}&${API_KEY}&limit=${LIMIT}&offset=${offset}`,
-            )
+            .get(url)
             .then((result) => {
                 setCharacter(result);
+                cacheResponse && writeToCache(url, result);
                 updateLoadingState(false);
             })
             .catch((error) => {
                 updateErrorState(error);
             });
     };
+
+    const getCacheData = (searchCharacter) => readFromCache(searchCharacter);
 
     const changeCurrentView = (e) => {
         console.log(e.target);
