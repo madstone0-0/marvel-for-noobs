@@ -13,10 +13,12 @@ const CharacterSingle = ({
     comics,
     events,
     urls,
+    changeCurrentView,
 }) => (
     <div className="character-single grid-figure">
         <Link to="/characters">
             <img
+                onClick={changeCurrentView}
                 src={`${thumbnail.path}/portrait_uncanny.${thumbnail.extension}`}
                 alt={name}
                 className="single-photo"

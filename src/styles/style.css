@@ -25,6 +25,9 @@ h1 {
   font-size: 2.4rem;
   padding-bottom: 1rem;
 }
+.character-single .description {
+  text-align: justify;
+}
 
 .character-name {
   font-size: 1.3rem;
@@ -162,15 +165,22 @@ body a :hover {
   border-color: #e53935;
 }
 
-.character-grid {
+.character-grid, .character-grid-single {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
   margin: 0px auto;
 }
-.character-grid .character-single {
+.character-grid .character-single, .character-grid-single .character-single {
   max-width: 100%;
   margin: 0px auto;
+}
+.character-grid .character-single .description, .character-grid-single .character-single .description {
+  padding: 0px 20px;
+}
+
+.character-grid-single {
+  display: block;
 }
 
 .grid-photo {

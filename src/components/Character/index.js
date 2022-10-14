@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
  * Single Character item displayed in CharacterGrid can be clicked on to
  * show more information about character (CharacterSingle)
  */
-const Character = ({ character }) => (
-    <div className="ui">
+const Character = ({ character, changeCurrentView }) => (
+    <div onClick={changeCurrentView} className="ui">
         <figure className="grid-figure">
             <div className="grid-photo-wrap">
                 <Link key={character.id} to={`${character.id}`}>
