@@ -277,9 +277,9 @@ const Main = () => {
                                 />
                                 <Route path="/" element={<HomePage />} />
                             </Routes>
-                            <Footer />
                         </Container>
                     </NavBar>
+                    <Footer />
                 </MediaContextProvider>
             </div>
         </div>

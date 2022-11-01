@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Icon, Menu, Sidebar } from "semantic-ui-react";
+import { Icon, Menu, Sidebar } from "semantic-ui-react";
 
 const NavBarMobile = ({
     items,
@@ -35,9 +35,7 @@ const NavBarMobile = ({
                             Dark Mode
                         </button>
                     </div>
-                    <Container>
-                        <h1 className="page-header">Marvel for Noobs</h1>
-                    </Container>
+                    <h1 className="page-header">Marvel for Noobs</h1>
                     <Menu.Item onClick={onToggle}>
                         <Icon name="sidebar" />
                     </Menu.Item>

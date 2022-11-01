@@ -27,6 +27,18 @@ h1 {
     color: #fff;
 }
 
+body {
+    a {
+        text-decoration: none;
+        color: $black;
+
+        :hover {
+            color: $lightred;
+            text-decoration: underline;
+        }
+    }
+}
+
 .character-single {
     h3 {
         font-size: 1.4rem;
@@ -57,16 +69,24 @@ h1 {
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.nav-button a {
+    color: $white;
+}
+
+.nav-button a:hover {
+    color: #1e70bf;
+}
+
 .centered {
     @extend .loading-text;
 }
 
 .page-header {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 
 .homepage-heading {
-    font-size: 2.9rem;
+    font-size: 2.2rem;
     color: #000000;
     text-align: center;
 }
@@ -133,7 +153,22 @@ h1 {
     font-size: 1.4rem;
 }
 
+.character-name {
+    text-align: center;
+    padding: 5px;
+}
+
 /* Dark Theme */
+
+.dark-button {
+    color: #fff;
+}
+
+.dark,
+.dark html {
+    color: $white;
+}
+
 .dark {
     .homepage-heading {
         color: $white;
@@ -145,5 +180,112 @@ h1 {
         span {
             color: $white;
         }
+    }
+
+    .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
+        a {
+            color: $white;
+        }
+    }
+
+    .ui.menu {
+        a.item {
+            color: $white;
+        }
+    }
+
+    a {
+        color: $grey;
+        :hover {
+            text-decoration: underline;
+            color: $lightred;
+        }
+    }
+
+    .nav-button a:hover {
+        color: $lightred;
+    }
+
+    .countdown-name {
+        color: $white;
+        // font-size: 1.6rem;
+    }
+
+    .countdowntext-time {
+        color: $white;
+
+        span {
+            color: $white;
+        }
+    }
+}
+
+.footer {
+    h4 {
+        font-size: 1.5rem;
+    }
+}
+
+// Mobile Styles
+
+@media screen and (max-width: 540px) {
+    .character-single {
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1.3rem;
+        }
+
+        .character-name {
+            font-size: 2rem;
+            padding-bottom: 1rem;
+        }
+
+        .description {
+            text-align: justify;
+        }
+    }
+
+    .character-name {
+        font-size: 1.1rem;
+    }
+
+    .page-header {
+        font-size: 1.5rem;
+    }
+
+    .homepage-heading {
+        font-size: 2rem;
+    }
+
+    .countdown-item {
+        font-size: 1.8rem;
+
+        span {
+            font-size: 0.75rem;
+        }
+    }
+
+    .countdown-name {
+        font-size: 1rem;
+    }
+
+    .countdowntext-time {
+        span {
+            color: $black;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+        }
+    }
+
+    .card-header {
+        font-size: 0.75rem;
+    }
+
+    .card-body {
+        font-size: 1rem;
     }
 }

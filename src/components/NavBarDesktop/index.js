@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Menu } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 
 const NavBarDesktop = ({ items, toggleDarkTheme }) => (
     <Menu className="nav-bar">
@@ -13,9 +13,7 @@ const NavBarDesktop = ({ items, toggleDarkTheme }) => (
                 Dark Mode
             </button>
         </div>
-        <Container>
-            <h1 className="page-header">Marvel for Noobs</h1>
-        </Container>
+        <h1 className="page-header">Marvel for Noobs</h1>
         {items.map((item) => (
             <Menu.Item className="menu-item header-link nav-button">
                 <Link to={item.to}>{item.content}</Link>

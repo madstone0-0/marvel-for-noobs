@@ -15,6 +15,15 @@ h1 {
   color: #fff;
 }
 
+body a {
+  text-decoration: none;
+  color: #000;
+}
+body a :hover {
+  color: #e57373;
+  text-decoration: underline;
+}
+
 .character-single h3 {
   font-size: 1.4rem;
 }
@@ -39,12 +48,20 @@ h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.nav-button a {
+  color: #fff;
+}
+
+.nav-button a:hover {
+  color: #1e70bf;
+}
+
 .page-header {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .homepage-heading {
-  font-size: 2.9rem;
+  font-size: 2.2rem;
   color: #000000;
   text-align: center;
 }
@@ -107,7 +124,21 @@ h1 {
   font-size: 1.4rem;
 }
 
+.character-name {
+  text-align: center;
+  padding: 5px;
+}
+
 /* Dark Theme */
+.dark-button {
+  color: #fff;
+}
+
+.dark,
+.dark html {
+  color: #fff;
+}
+
 .dark .homepage-heading {
   color: #fff;
 }
@@ -117,7 +148,81 @@ h1 {
 .dark .countdown-item span {
   color: #fff;
 }
+.dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu a {
+  color: #fff;
+}
+.dark .ui.menu a.item {
+  color: #fff;
+}
+.dark a {
+  color: #eeeeee;
+}
+.dark a :hover {
+  text-decoration: underline;
+  color: #e57373;
+}
+.dark .nav-button a:hover {
+  color: #e57373;
+}
+.dark .countdown-name {
+  color: #fff;
+}
+.dark .countdowntext-time {
+  color: #fff;
+}
+.dark .countdowntext-time span {
+  color: #fff;
+}
 
+.footer h4 {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 540px) {
+  .character-single h3 {
+    font-size: 1.2rem;
+  }
+  .character-single p {
+    font-size: 1.3rem;
+  }
+  .character-single .character-name {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+  .character-single .description {
+    text-align: justify;
+  }
+  .character-name {
+    font-size: 1.1rem;
+  }
+  .page-header {
+    font-size: 1.5rem;
+  }
+  .homepage-heading {
+    font-size: 2rem;
+  }
+  .countdown-item {
+    font-size: 1.8rem;
+  }
+  .countdown-item span {
+    font-size: 0.75rem;
+  }
+  .countdown-name {
+    font-size: 1rem;
+  }
+  .countdowntext-time span {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: block;
+  }
+  .card-header {
+    font-size: 0.75rem;
+  }
+  .card-body {
+    font-size: 1rem;
+  }
+}
 #app {
   height: 100%;
 }
@@ -125,26 +230,15 @@ h1 {
 body {
   background-color: #f4f4f4;
 }
-body a {
-  text-decoration: none;
-  color: #000;
-}
-body a :hover {
-  color: #e57373;
-  text-decoration: underline;
-}
-
-.nav-button a {
-  color: #fff;
-}
-
-.nav-button a:hover {
-  color: #1e70bf;
-}
 
 .page-container {
   height: 100%;
   width: 100%;
+}
+
+.page-header {
+  margin: 10px auto;
+  line-height: inherit;
 }
 
 .link-list {
@@ -165,7 +259,7 @@ body a :hover {
 }
 
 .search-bar {
-  width: 400px;
+  width: 308px;
   margin: 10px auto;
   padding-bottom: 10px;
 }
@@ -231,17 +325,11 @@ body a :hover {
   max-width: 40%;
 }
 
-.character-name {
-  text-align: center;
-  padding: 5px;
-}
-
 .dark-button {
   width: 110px;
   height: 32px;
   margin: 5px;
   margin-top: 7px;
-  color: #fff;
 }
 
 /* Dark Theme */
@@ -249,7 +337,6 @@ body a :hover {
 .dark html {
   height: 100%;
   width: 100%;
-  color: #ffffff;
   background: #424242;
 }
 
@@ -268,21 +355,8 @@ body a :hover {
 .dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
   background-color: #424242;
 }
-.dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu a {
-  color: #fff;
-}
 .dark .ui.menu {
   background-color: #424242;
-}
-.dark .ui.menu a.item {
-  color: #fff;
-}
-.dark a {
-  color: #eeeeee;
-}
-.dark a :hover {
-  text-decoration: underline;
-  color: #e57373;
 }
 .dark input {
   padding: 10px;
@@ -297,23 +371,11 @@ body a :hover {
 .dark .ui.nav-bar {
   background-color: #3367d6;
 }
-.dark .nav-button a:hover {
-  color: #e57373;
-}
 .dark .dark-button.ui.red.medium.button.search-button {
   background-color: #3368fd;
 }
 .dark .nav-buttons > button {
   background-color: #3368fd !important;
-}
-.dark .countdown-name {
-  color: #fff;
-}
-.dark .countdowntext-time {
-  color: #fff;
-}
-.dark .countdowntext-time span {
-  color: #fff;
 }
 .dark .search-bar .ui.input.focus > input,
 .dark .search-bar .ui.input > input:focus {
@@ -328,6 +390,9 @@ body a :hover {
 }
 .dark .card-header {
   background: linear-gradient(to right, #3368fd, #696969);
+}
+.dark .footer {
+  background-color: #424242;
 }
 
 /*Dark theme end*/
@@ -380,14 +445,6 @@ body a :hover {
   justify-content: space-between;
 }
 
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child {
-  margin-top: 10px;
-}
-
 .footer {
   padding: 0.75rem 1.25rem;
   display: block;
@@ -395,6 +452,12 @@ h5:first-child {
 .footer :last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
-.footer h4 {
-  font-size: 1.5rem;
+
+@media screen and (max-width: 768px) {
+  .countdowns {
+    display: grid;
+  }
+  .card {
+    width: 100%;
+  }
 }
