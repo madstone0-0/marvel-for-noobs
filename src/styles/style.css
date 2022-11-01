@@ -247,6 +247,12 @@ body a :hover {
 .dark .page .page-container {
   background-color: #424242;
 }
+.dark .pushable > * {
+  background-color: #424242;
+}
+.dark .fresnel-container {
+  background-color: #424242;
+}
 .dark a {
   color: #eeeeee;
 }

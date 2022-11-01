@@ -1,30 +1,37 @@
-import React, {
-    useState,
-    useEffect,
-    useRef,
-    useMemo,
-    useLayoutEffect,
-} from "react";
-import { Button, Container, Menu } from "semantic-ui-react";
-import { Route, Link, Routes } from "react-router-dom";
+import { createMedia } from "@artsy/fresnel";
 import axios from "axios";
-import ReactGA from "react-ga";
 import classNames from "classnames";
+import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
+import { Link, Route, Routes } from "react-router-dom";
+import { Button, Container } from "semantic-ui-react";
 import Cookies from "universal-cookie";
 
+import CharacterGrid from "../CharacterGrid";
 import {
     API_KEY,
     CHARACTERS,
     LIMIT,
     PATH_BASE,
     PATH_SEARCH_STARTS,
-    OFFSET,
 } from "../constants";
-import CharacterGrid from "../CharacterGrid";
-import HomePage from "../HomePage";
 import Footer from "../Footer";
-import { element } from "prop-types";
+import HomePage from "../HomePage";
+import NavBar from "../NavBar";
 import { readFromCache, writeToCache } from "../utils/cache";
+
+const AppMedia = createMedia({
+    breakpoints: {
+        mobile: 320,
+        tablet: 768,
+        computer: 992,
+        largeScreen: 1200,
+        widescreen: 1920,
+    },
+});
+
+const mediaStyles = AppMedia.createMediaStyle();
+const { Media, MediaContextProvider } = AppMedia;
 
 const Main = () => {
     const [characterCount, updateCount] = useState(LIMIT);
@@ -37,8 +44,19 @@ const Main = () => {
     const [isLoading, updateLoadingState] = useState(false);
     const [hasNotSearchedOnce, hasSearchedOnce] = useState(true);
     const [currentView, changeView] = useState("grid");
+    const [visible, isVisible] = useState(false);
 
     const cookies = new Cookies();
+
+    const links = [
+        { as: Link, content: "Home", key: "home", to: "/" },
+        {
+            as: Link,
+            content: "Characters",
+            key: "characters",
+            to: "/characters",
+        },
+    ];
 
     useEffect(() => {
         ReactGA.initialize("UA-131448417-2");
@@ -49,6 +67,12 @@ const Main = () => {
     useEffect(() => {
         setDarkModeCookie();
     }, [darkTheme]);
+
+    const handlePusher = () => {
+        if (visible) isVisible(false);
+    };
+
+    const handleToggle = () => isVisible(!visible);
 
     const onSearchChange = (e) => {
         return updateSearchCharacter(e.target.value);
@@ -153,119 +177,110 @@ const Main = () => {
                 dark: darkTheme === true,
             })}
         >
-            <div className="page">
-                <Container className="page-container">
-                    <Menu className="nav-bar">
-                        <div>
-                            <button
-                                type="button"
-                                onClick={toggleDarkTheme}
-                                className="dark-button ui red medium button search-button"
-                            >
-                                Dark Mode
-                            </button>
-                        </div>
+            <style>{mediaStyles}</style>
+            <div>
+                <MediaContextProvider>
+                    <NavBar
+                        Media={Media}
+                        handlePusher={handlePusher}
+                        handleToggle={handleToggle}
+                        toggleDarkTheme={toggleDarkTheme}
+                        links={links}
+                        visible={visible}
+                    >
                         <Container>
-                            <h1 className="page-header">Marvel for Noobs</h1>
-                        </Container>
-                        <Menu.Item className="menu-item header-link nav-button">
-                            <Link to="/">Home</Link>
-                        </Menu.Item>
-                        <Menu.Item className="menu-item header-link nav-button">
-                            <Link to="/characters">Characters</Link>
-                        </Menu.Item>
-                    </Menu>
-                    <div>
-                        <Routes>
-                            <Route
-                                path="characters/*"
-                                element={
-                                    <div>
-                                        {error ? (
-                                            <p className="centered">
-                                                Something went wrong
-                                            </p>
-                                        ) : (
-                                            <div>
-                                                {isLoading ? (
-                                                    <p className="loading-text">
-                                                        Loading...
-                                                    </p>
-                                                ) : (
-                                                    <div>
-                                                        {characters.length <
-                                                            1 &&
-                                                        hasNotSearchedOnce ===
-                                                            false ? (
-                                                            <p className="centered">
-                                                                No results
-                                                                found, please
-                                                                refresh
-                                                            </p>
-                                                        ) : (
-                                                            <div>
-                                                                <CharacterGrid
-                                                                    value={
-                                                                        searchCharacter
-                                                                    }
-                                                                    searchCharacter={
-                                                                        searchCharacter
-                                                                    }
-                                                                    characters={
-                                                                        characters
-                                                                    }
-                                                                    onChange={
-                                                                        onSearchChange
-                                                                    }
-                                                                    onSubmit={
-                                                                        onSearchSubmit
-                                                                    }
-                                                                    currentView={
-                                                                        currentView
-                                                                    }
-                                                                    changeCurrentView={
-                                                                        changeCurrentView
-                                                                    }
-                                                                />
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-                                        {isLoading ||
-                                        hasNotSearchedOnce ||
-                                        currentView !== "grid" ? (
-                                            <div></div>
-                                        ) : (
-                                            <div className="nav-buttons">
-                                                {offset === 0 ? (
-                                                    <div></div>
-                                                ) : (
+                            <Routes>
+                                <Route
+                                    path="characters/*"
+                                    element={
+                                        <div>
+                                            {error ? (
+                                                <p className="centered">
+                                                    Something went wrong
+                                                </p>
+                                            ) : (
+                                                <div>
+                                                    {isLoading ? (
+                                                        <p className="loading-text">
+                                                            Loading...
+                                                        </p>
+                                                    ) : (
+                                                        <div>
+                                                            {characters.length <
+                                                                1 &&
+                                                            hasNotSearchedOnce ===
+                                                                false ? (
+                                                                <p className="centered">
+                                                                    No results
+                                                                    found,
+                                                                    please
+                                                                    refresh
+                                                                </p>
+                                                            ) : (
+                                                                <div>
+                                                                    <CharacterGrid
+                                                                        value={
+                                                                            searchCharacter
+                                                                        }
+                                                                        searchCharacter={
+                                                                            searchCharacter
+                                                                        }
+                                                                        characters={
+                                                                            characters
+                                                                        }
+                                                                        onChange={
+                                                                            onSearchChange
+                                                                        }
+                                                                        onSubmit={
+                                                                            onSearchSubmit
+                                                                        }
+                                                                        currentView={
+                                                                            currentView
+                                                                        }
+                                                                        changeCurrentView={
+                                                                            changeCurrentView
+                                                                        }
+                                                                    />
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                            {isLoading ||
+                                            hasNotSearchedOnce ||
+                                            currentView !== "grid" ? (
+                                                <div></div>
+                                            ) : (
+                                                <div className="nav-buttons">
+                                                    {offset === 0 ? (
+                                                        <div></div>
+                                                    ) : (
+                                                        <Button
+                                                            className="ui red large button"
+                                                            onClick={previous}
+                                                        >
+                                                            Previous
+                                                        </Button>
+                                                    )}
+
                                                     <Button
                                                         className="ui red large button"
-                                                        onClick={previous}
+                                                        onClick={next}
                                                     >
-                                                        Previous
+                                                        Next
                                                     </Button>
-                                                )}
-
-                                                <Button
-                                                    className="ui red large button"
-                                                    onClick={next}
-                                                >
-                                                    Next
-                                                </Button>
-                                            </div>
-                                        )}
-                                    </div>
-                                }
-                            />
-                            <Route path="/" element={<HomePage />} />
-                        </Routes>
-                        <Footer />
-                    </div>
-                </Container>
+                                                </div>
+                                            )}
+                                        </div>
+                                    }
+                                />
+                                <Route path="/" element={<HomePage />} />
+                            </Routes>
+                            <Footer />
+                        </Container>
+                    </NavBar>
+                </MediaContextProvider>
             </div>
         </div>
     );

@@ -148,6 +148,14 @@ body {
         }
     }
 
+    .pushable > * {
+        background-color: $dark_bg;
+    }
+
+    .fresnel-container {
+        background-color: $dark_bg;
+    }
+
     a {
         color: $grey;
         :hover {
