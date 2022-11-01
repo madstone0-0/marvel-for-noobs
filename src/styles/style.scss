@@ -32,9 +32,21 @@ body {
     width: 100%;
 }
 
+.link-list {
+    min-height: 100vh;
+}
+
 .ui.nav-bar {
     background-color: $light_main;
     height: 50px;
+}
+
+.ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
+    background-color: $light_bg;
+}
+
+.ui.vertical.menu {
+    background-color: $light_bg;
 }
 
 .search-bar {
@@ -154,6 +166,22 @@ body {
 
     .fresnel-container {
         background-color: $dark_bg;
+    }
+
+    .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
+        background-color: $dark_bg;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .ui.menu {
+        background-color: $dark_bg;
+
+        a.item {
+            color: $white;
+        }
     }
 
     a {

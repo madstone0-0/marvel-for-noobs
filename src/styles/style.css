@@ -147,9 +147,21 @@ body a :hover {
   width: 100%;
 }
 
+.link-list {
+  min-height: 100vh;
+}
+
 .ui.nav-bar {
   background-color: #b71c1c;
   height: 50px;
+}
+
+.ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
+  background-color: #f4f4f4;
+}
+
+.ui.vertical.menu {
+  background-color: #f4f4f4;
 }
 
 .search-bar {
@@ -252,6 +264,18 @@ body a :hover {
 }
 .dark .fresnel-container {
   background-color: #424242;
+}
+.dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
+  background-color: #424242;
+}
+.dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu a {
+  color: #fff;
+}
+.dark .ui.menu {
+  background-color: #424242;
+}
+.dark .ui.menu a.item {
+  color: #fff;
 }
 .dark a {
   color: #eeeeee;

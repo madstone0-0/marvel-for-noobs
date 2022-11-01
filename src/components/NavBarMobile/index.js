@@ -12,18 +12,18 @@ const NavBarMobile = ({
     return (
         <Sidebar.Pushable>
             <Sidebar
+                className="nav-sidebar"
                 as={Menu}
                 animation="overlay"
                 icon="labeled"
-                inverted
                 items={items}
                 vertical
                 visible={visible}
             ></Sidebar>
             <Sidebar.Pushable
+                className="link-list"
                 dimmed={visible}
                 onClick={onPusherClick}
-                style={{ minHeight: "100vh" }}
             >
                 <Menu className="nav-bar" fixed="top">
                     <div>
