@@ -1,8 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 // import "semantic-ui-css/semantic.js";
+import { BrowserRouter } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import css from "./styles/style.css";
 import Main from "./components/Main";

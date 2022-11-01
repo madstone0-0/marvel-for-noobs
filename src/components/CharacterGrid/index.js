@@ -1,10 +1,11 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, ScrollRestoration } from "react-router-dom";
 
 import Search from "../Search";
 import CharacterSingle from "../CharacterSingle";
 import Character from "../Character";
 import classNames from "classnames";
+import RestoreScrollOnMount from "../utils/RestoreScrollOnMount";
 
 /**
  * Displays all received character items in a grid using the Character and CharacterSingle components
@@ -20,6 +21,7 @@ const CharacterGrid = ({
 }) => {
     return (
         <div>
+            <RestoreScrollOnMount view={currentView} />
             <Search
                 value={value}
                 children="Search"

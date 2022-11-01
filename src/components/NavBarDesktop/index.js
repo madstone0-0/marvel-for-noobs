@@ -15,7 +15,10 @@ const NavBarDesktop = ({ items, toggleDarkTheme }) => (
         </div>
         <h1 className="page-header">Marvel for Noobs</h1>
         {items.map((item) => (
-            <Menu.Item className="menu-item header-link nav-button">
+            <Menu.Item
+                key={item.key}
+                className="menu-item header-link nav-button"
+            >
                 <Link to={item.to}>{item.content}</Link>
             </Menu.Item>
         ))}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
 
 /**
  * Character information page, Receives character data from parent components
@@ -16,6 +17,7 @@ const CharacterSingle = ({
     changeCurrentView,
 }) => (
     <div className="character-single grid-figure">
+        <ScrollToTopOnMount />
         <Link to="/characters">
             <img
                 onClick={changeCurrentView}

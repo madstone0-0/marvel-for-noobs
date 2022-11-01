@@ -460,4 +460,8 @@ body {
   .card {
     width: 100%;
   }
+  .grid-figure, .single-photo {
+    padding: 0;
+    margin: 2rem auto;
+  }
 }

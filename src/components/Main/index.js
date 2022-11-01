@@ -18,6 +18,7 @@ import {
 import Footer from "../Footer";
 import HomePage from "../HomePage";
 import NavBar from "../NavBar";
+import { saveState, getState } from "../utils/stateSaver";
 import { readFromCache, writeToCache } from "../utils/cache";
 
 const AppMedia = createMedia({
@@ -132,6 +133,7 @@ const Main = () => {
         const target = e.target.className;
         if (target === "grid-photo") {
             changeView("single");
+            saveState("CharacterGrid", { scrollY: window.scrollY });
         } else {
             changeView("grid");
         }
@@ -143,6 +145,7 @@ const Main = () => {
         updatePrevCharCount(characterCount);
         fetchSearchedCharacter(searchCharacter, currOffset);
         updateOffset(currOffset);
+        saveState("CharacterGrid", { scrollY: 0 });
     };
 
     const previous = () => {
@@ -150,6 +153,7 @@ const Main = () => {
             prevCharCount < LIMIT ? offset - prevCharCount : offset - LIMIT;
         fetchSearchedCharacter(searchCharacter, currOffset);
         updateOffset(currOffset);
+        saveState("CharacterGrid", { scrollY: 0 });
     };
 
     const setDarkModeCookie = () => {
