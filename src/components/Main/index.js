@@ -129,7 +129,6 @@ const Main = () => {
     };
 
     const changeCurrentView = (e) => {
-        console.log(e.target);
         const target = e.target.className;
         if (target === "grid-photo") {
             changeView("single");
