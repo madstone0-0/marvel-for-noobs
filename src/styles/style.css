@@ -424,6 +424,10 @@ body {
   transition: 0.3s;
 }
 
+.countdown-image {
+  max-width: 900px;
+}
+
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
@@ -431,6 +435,7 @@ body {
 
 .card-header {
   padding: 50px 10px;
+  max-height: 900px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
 }

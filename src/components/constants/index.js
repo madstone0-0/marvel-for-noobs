@@ -7,6 +7,12 @@ const PATH_SEARCH_IS = "name";
 const LIMIT = 50;
 const TIMESTAMP = `ts=${+new Date()}`;
 
+const MOVIE_PATH_BASE = "https://mcuapi.herokuapp.com/api/v1";
+const MOVIES = "/movies";
+const MOVIES_LIMIT = 10;
+const MOVIES_COLUMNS = "title,release_date,cover_url";
+const MOVIES_ORDER = "chronology,DESC";
+
 export {
     API_KEY,
     PATH_BASE,
@@ -16,4 +22,9 @@ export {
     LIMIT,
     DEFAULT_QUERY,
     TIMESTAMP,
+    MOVIE_PATH_BASE,
+    MOVIES,
+    MOVIES_LIMIT,
+    MOVIES_COLUMNS,
+    MOVIES_ORDER,
 };

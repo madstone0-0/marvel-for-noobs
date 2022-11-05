@@ -1,5 +1,14 @@
-import React from "react";
-import CountdownText from "../CountdownText";
+import React, { useEffect, useState } from "react";
+import CountdownCard from "../CountdownCard";
+import axios from "axios";
+
+import {
+    MOVIE_PATH_BASE,
+    MOVIES,
+    MOVIES_LIMIT,
+    MOVIES_COLUMNS,
+    MOVIES_ORDER,
+} from "../constants";
 
 const movies = [
     {
@@ -39,28 +48,88 @@ const movies = [
 /**
  * Responsible for home page tab
  */
-const HomePage = () => (
-    <div>
+const HomePage = () => {
+    const [upcomingMovies, setMovies] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const setUpcomingMovies = (data) => {
+        const new_data = [];
+        data.forEach((movie) => {
+            const release_date = new Date(movie.release_date);
+            new_data.push({
+                name: movie.title,
+                timeTill: `${("00" + release_date.getUTCDate()).slice(
+                    -2,
+                )} ${release_date.toLocaleDateString("en-US", {
+                    month: "short",
+                })} ${release_date.getUTCFullYear()} 00:00:00 UTC`,
+                cover: movie.cover_url,
+            });
+        });
+        console.log({ new_data });
+        setMovies(new_data);
+    };
+
+    const getMovies = () => {
+        const url = `${MOVIE_PATH_BASE}${MOVIES}?limit=${MOVIES_LIMIT}&columns=${MOVIES_COLUMNS}&order=${MOVIES_ORDER}`;
+        axios
+            .get(url)
+            .then((res) => {
+                setLoading(false);
+                const data = res.data.data;
+                setUpcomingMovies(data);
+                console.log({ data });
+            })
+            .catch((err) => {
+                setError(err);
+                setLoading(false);
+                console.log(err);
+            });
+    };
+
+    useEffect(() => {
+        getMovies();
+    }, []);
+
+    return (
         <div>
-            <h1 className="homepage-heading">Upcoming Marvel Movies</h1>
-            <br />
-            <div className="countdowns">
-                {movies.map((movie, key) => {
-                    return (
-                        <div className="card" key={key}>
-                            <CountdownText
-                                name={movie.name}
-                                timetill={movie.timeTill}
-                            />
-                            <br />
-                            <br />
-                        </div>
-                    );
-                })}
+            <div>
+                <h1 className="homepage-heading">Upcoming Marvel Movies</h1>
+                <br />
+                <div className="countdowns">
+                    {isLoading ? (
+                        <h2>Loading...</h2>
+                    ) : error ? (
+                        movies.map((movie, key) => {
+                            return (
+                                <div className="card" key={key}>
+                                    <CountdownCard
+                                        name={movie.name}
+                                        timeTill={movie.timeTill}
+                                        cover={movie.cover}
+                                    />
+                                </div>
+                            );
+                        })
+                    ) : (
+                        upcomingMovies.map((movie, key) => {
+                            return (
+                                <div className="card" key={key}>
+                                    <CountdownCard
+                                        name={movie.name}
+                                        timeTill={movie.timeTill}
+                                        cover={movie.cover}
+                                    />
+                                </div>
+                            );
+                        })
+                    )}
+                </div>
+                <h4 style={{ textAlign: "center" }}>More coming soon</h4>
             </div>
-            <h4 style={{ textAlign: "center" }}>More coming soon</h4>
         </div>
-    </div>
-);
+    );
+};
 
 export default HomePage;
