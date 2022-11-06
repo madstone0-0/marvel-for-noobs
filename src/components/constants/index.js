@@ -9,7 +9,7 @@ const TIMESTAMP = `ts=${+new Date()}`;
 
 const MOVIE_PATH_BASE = "https://mcuapi.herokuapp.com/api/v1";
 const MOVIES = "/movies";
-const MOVIES_LIMIT = 10;
+const MOVIES_LIMIT = 12;
 const MOVIES_COLUMNS = "title,release_date,cover_url";
 const MOVIES_ORDER = "chronology,DESC";
 

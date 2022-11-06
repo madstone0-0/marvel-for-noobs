@@ -64,6 +64,7 @@ body a :hover {
   font-size: 2.2rem;
   color: #000000;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .menu-item {
@@ -112,6 +113,7 @@ body a :hover {
   letter-spacing: 0.125rem;
   text-align: center;
   text-transform: uppercase;
+  font-size: 1.5rem;
 }
 
 .card-header {
@@ -391,6 +393,9 @@ body {
 .dark .card-header {
   background: linear-gradient(to right, #3368fd, #696969);
 }
+.dark .card-name {
+  background: linear-gradient(to right, #3368fd, #696969);
+}
 .dark .footer {
   background-color: #424242;
 }
@@ -409,6 +414,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .countdowns {
@@ -425,7 +431,12 @@ body {
 }
 
 .countdown-image {
-  max-width: 900px;
+  display: block;
+  max-width: 550px;
+  max-height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card:hover {
@@ -434,14 +445,17 @@ body {
 }
 
 .card-header {
-  padding: 50px 10px;
+  padding: 140px 10px;
   max-height: 900px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
 }
 
-.card-body {
-  padding: 30px 20px;
+.card-name {
+  padding: 50px 10px;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #b71c1c, #696969);
+  color: #f4f4f4;
 }
 
 .nav-buttons {

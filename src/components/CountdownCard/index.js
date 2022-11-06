@@ -18,12 +18,24 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
  * Displays a countdown for movies
  */
 const CountdownCard = ({ timeTill, name, cover }) => (
-    <div style={{ backgroundImage: `url(${cover})` }}>
+    <div>
         {/* <img className="countdown-image" src={cover}></img> */}
-        <div className="card-header">
-            <h3 className="countdown-name">{name}</h3>
-        </div>
+        <div
+            style={{
+                backgroundImage: `url(${cover})`,
+                display: "block",
+                // maxWidth: "451px",
+                // maxHeight: "670px",
+                width: "auto",
+                height: "auto",
+                backgroundPosition: "center",
+            }}
+            className="card-header"
+        ></div>
         <div className="card-body">
+            <div className="card-name">
+                <h3 className="countdown-name">{name}</h3>
+            </div>
             <div className="countdown-wrapper countdowntext-time">
                 <Countdown renderer={renderer} date={timeTill}>
                     <Complete />
