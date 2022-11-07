@@ -204,6 +204,18 @@ body {
         }
     }
 
+    .card {
+        > a * {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        > a:hover * {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+
     .nav-button a:hover {
         color: $lightred;
     }
@@ -218,6 +230,22 @@ body {
 
         span {
             color: $white;
+        }
+    }
+}
+
+.card {
+    > a * {
+        text-decoration: none;
+        > * h3 {
+            color: #fff;
+        }
+    }
+
+    > a:hover * {
+        text-decoration: none;
+        > * h3 {
+            color: #fff;
         }
     }
 }

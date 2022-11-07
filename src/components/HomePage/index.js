@@ -9,49 +9,15 @@ import {
     MOVIES_COLUMNS,
     MOVIES_ORDER,
 } from "../constants";
-
-const movies = [
-    {
-        name: "Ant-Man and the Wasp: Quantumania",
-        timeTill: "17 Feb 2023 00:00:00 GMT",
-    },
-    {
-        name: "Guardians Of The Galaxy Vol. 3",
-        timeTill: "05 May 2023 00:00:00 GMT",
-    },
-    {
-        name: "Thor: Love and Thunder",
-        timeTill: "08 Jul 2022 00:00:00 GMT",
-    },
-    {
-        name: "Black Panther 2",
-        timeTill: "11 Nov 2022 00:00:00 GMT",
-    },
-    {
-        name: "The Marvels",
-        timeTill: "28 Jul 2023 00:00:00 GMT",
-    },
-    {
-        name: "Blade",
-        timeTill: "03 Nov 2023 00:00:00 GMT",
-    },
-    {
-        name: "Captain America: New World Order",
-        timeTill: "03 May 2024 00:00:00 GMT",
-    },
-    {
-        name: "Thunderbolts",
-        timeTill: "26 Jul 2024 00:00:00 GMT",
-    },
-];
+import { readFromCache, writeToCache } from "../utils/cache";
 
 /**
  * Responsible for home page tab
  */
 const HomePage = () => {
     const [upcomingMovies, setMovies] = useState([]);
-    const [isLoading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [isLoading, updateLoadingState] = useState(true);
+    const [error, updateErrorState] = useState(null);
 
     const setUpcomingMovies = (data) => {
         const new_data = [];
@@ -65,31 +31,43 @@ const HomePage = () => {
                     month: "short",
                 })} ${release_date.getUTCFullYear()} 00:00:00 UTC`,
                 cover: movie.cover_url,
+                trailer: movie.trailer_url === null ? "" : movie.trailer_url,
             });
         });
-        console.log({ new_data });
         setMovies(new_data);
     };
 
-    const getMovies = () => {
-        const url = `${MOVIE_PATH_BASE}${MOVIES}?limit=${MOVIES_LIMIT}&columns=${MOVIES_COLUMNS}&order=${MOVIES_ORDER}`;
+    const getFreshData = (url, cacheResponse) => {
         axios
             .get(url)
             .then((res) => {
-                setLoading(false);
+                updateLoadingState(false);
                 const data = res.data.data;
+                cacheResponse && writeToCache(url, data);
                 setUpcomingMovies(data);
-                console.log({ data });
             })
             .catch((err) => {
-                setError(err);
-                setLoading(false);
-                console.log(err);
+                updateErrorState(err);
+                updateLoadingState(false);
             });
     };
 
+    const getCacheData = (url) => readFromCache(url);
+
+    const getMovies = (cacheResponse = false) => {
+        const url = `${MOVIE_PATH_BASE}${MOVIES}?limit=${MOVIES_LIMIT}&columns=${MOVIES_COLUMNS}&order=${MOVIES_ORDER}`;
+
+        if (getCacheData(url) !== null) {
+            cacheResponse = true;
+            setUpcomingMovies(readFromCache(url));
+            updateLoadingState(false);
+        } else {
+            getFreshData(url, cacheResponse);
+        }
+    };
+
     useEffect(() => {
-        getMovies();
+        getMovies(true);
     }, []);
 
     return (
@@ -101,32 +79,38 @@ const HomePage = () => {
                     {isLoading ? (
                         <h2>Loading...</h2>
                     ) : error ? (
-                        movies.map((movie, key) => {
-                            return (
-                                <div className="card" key={key}>
-                                    <CountdownCard
-                                        name={movie.name}
-                                        timeTill={movie.timeTill}
-                                        cover={movie.cover}
-                                    />
-                                </div>
-                            );
-                        })
+                        <p className="centered">
+                            Something went wrong, please check your internet
+                            connection and refresh the page
+                        </p>
                     ) : (
                         upcomingMovies.map((movie, key) => {
-                            return (
-                                <div className="card" key={key}>
-                                    <CountdownCard
-                                        name={movie.name}
-                                        timeTill={movie.timeTill}
-                                        cover={movie.cover}
-                                    />
-                                </div>
-                            );
+                            if (movie.trailer !== "") {
+                                return (
+                                    <div className="card" key={key}>
+                                        <a target="_blank" href={movie.trailer}>
+                                            <CountdownCard
+                                                name={movie.name}
+                                                timeTill={movie.timeTill}
+                                                cover={movie.cover}
+                                            />
+                                        </a>
+                                    </div>
+                                );
+                            } else {
+                                return (
+                                    <div className="card" key={key}>
+                                        <CountdownCard
+                                            name={movie.name}
+                                            timeTill={movie.timeTill}
+                                            cover={movie.cover}
+                                        />
+                                    </div>
+                                );
+                            }
                         })
                     )}
                 </div>
-                <h4 style={{ textAlign: "center" }}>More coming soon</h4>
             </div>
         </div>
     );

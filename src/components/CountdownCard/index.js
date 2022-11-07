@@ -19,16 +19,14 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
  */
 const CountdownCard = ({ timeTill, name, cover }) => (
     <div>
-        {/* <img className="countdown-image" src={cover}></img> */}
         <div
             style={{
                 backgroundImage: `url(${cover})`,
                 display: "block",
-                // maxWidth: "451px",
-                // maxHeight: "670px",
                 width: "auto",
                 height: "auto",
                 backgroundPosition: "center",
+                backgroundSize: "cover",
             }}
             className="card-header"
         ></div>

@@ -163,6 +163,14 @@ body a :hover {
   text-decoration: underline;
   color: #e57373;
 }
+.dark .card > a * {
+  text-decoration: none;
+  color: #fff;
+}
+.dark .card > a:hover * {
+  text-decoration: none;
+  color: #fff;
+}
 .dark .nav-button a:hover {
   color: #e57373;
 }
@@ -173,6 +181,19 @@ body a :hover {
   color: #fff;
 }
 .dark .countdowntext-time span {
+  color: #fff;
+}
+
+.card > a * {
+  text-decoration: none;
+}
+.card > a * > * h3 {
+  color: #fff;
+}
+.card > a:hover * {
+  text-decoration: none;
+}
+.card > a:hover * > * h3 {
   color: #fff;
 }
 
@@ -414,7 +435,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .countdowns {
@@ -428,6 +449,10 @@ body {
   backdrop-filter: #f4f4f4;
   margin-bottom: 50px;
   transition: 0.3s;
+}
+
+.card > a {
+  text-decoration: none;
 }
 
 .countdown-image {
@@ -445,14 +470,14 @@ body {
 }
 
 .card-header {
-  padding: 140px 10px;
+  padding: 100px 10px;
   max-height: 900px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
 }
 
 .card-name {
-  padding: 50px 10px;
+  padding: 30px 10px;
   margin-bottom: 15px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
@@ -462,6 +487,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.movie-reload {
+  display: inline;
 }
 
 .footer {
@@ -482,5 +511,11 @@ body {
   .grid-figure, .single-photo {
     padding: 0;
     margin: 2rem auto;
+  }
+  .card-header {
+    padding: 50px 10px;
+  }
+  .card-name {
+    padding: 20px 10px;
   }
 }
