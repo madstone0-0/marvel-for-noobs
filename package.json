@@ -23,6 +23,7 @@
         "watch-css": "npm run build-css && sass ./src/styles/style.scss ./src/styles/style.css --no-source-map --load-path='./src' --style=expanded --watch",
         "start-dev": "webpack serve --config webpack.config.dev.js --hot",
         "build": "webpack --config webpack.config.prod.js",
+        "postinstall": "npm prune",
         "start": "node server.js"
     },
     "eslintConfig": {
