@@ -37,7 +37,7 @@ body {
 }
 
 .search-bar {
-    width: 308px;
+    width: 29%;
     margin: 10px auto;
     padding-bottom: 10px;
 
@@ -47,7 +47,7 @@ body {
 
     .ui.input.focus > input,
     .ui.input > input:focus {
-        border-color: #e53935;
+        border-color: $light_sec;
     }
 }
 
@@ -165,29 +165,29 @@ body {
     }
 
     .search-bar .search-bar:focus {
-        border-color: #4285f4;
+        border-color: $dark_sec;
     }
 
     .ui.nav-bar {
-        background-color: #3367d6;
+        background-color: $dark_button;
     }
 
     .dark-button.ui.red.medium.button.search-button {
-        background-color: #3368fd;
+        background-color: lighten($dark_button, 3%);
     }
 
     .nav-buttons > button {
-        background-color: #3368fd !important;
+        background-color: $dark_button !important;
     }
 
     .search-bar {
         .ui.input.focus > input,
         .ui.input > input:focus {
-            border-color: #507aec;
+            border-color: $dark_button;
         }
 
         .ui.red.large.button.search-button {
-            background-color: #3368fd;
+            background-color: $dark_button;
         }
     }
 
@@ -200,11 +200,11 @@ body {
 
     // Countdown Card Header
     .card-header {
-        background: linear-gradient(to right, #3368fd, #696969);
+        background: linear-gradient(to right, $dark_sec, $gradient_end);
     }
 
     .card-name {
-        background: linear-gradient(to right, #3368fd, #696969);
+        background: linear-gradient(to right, $dark_sec, $gradient_end);
     }
 
     .footer {
@@ -239,7 +239,6 @@ body {
 .card {
     width: 40%;
     backdrop-filter: $light_bg;
-    // border-top: 1px solid $light_main;
     margin-bottom: 50px;
     transition: 0.3s;
 }
@@ -265,14 +264,14 @@ body {
 .card-header {
     padding: 100px 10px;
     max-height: 900px;
-    background: linear-gradient(to right, $light_main, #696969);
+    background: linear-gradient(to right, $light_main, $gradient_end);
     color: $light_bg;
 }
 
 .card-name {
     padding: 30px 10px;
     margin-bottom: 15px;
-    background: linear-gradient(to right, $light_main, #696969);
+    background: linear-gradient(to right, $light_main, $gradient_end);
     color: $light_bg;
 }
 
@@ -290,7 +289,7 @@ body {
     padding: 0.75rem 1.25rem;
     display: block;
     :last-child {
-        border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+        border-radius: 0 0 $calc_border_rad $calc_border_rad;
     }
 }
 

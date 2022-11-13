@@ -282,7 +282,7 @@ body {
 }
 
 .search-bar {
-  width: 308px;
+  width: 29%;
   margin: 10px auto;
   padding-bottom: 10px;
 }
@@ -395,27 +395,27 @@ body {
   background-color: #3367d6;
 }
 .dark .dark-button.ui.red.medium.button.search-button {
-  background-color: #3368fd;
+  background-color: #4070d9;
 }
 .dark .nav-buttons > button {
-  background-color: #3368fd !important;
+  background-color: #3367d6 !important;
 }
 .dark .search-bar .ui.input.focus > input,
 .dark .search-bar .ui.input > input:focus {
-  border-color: #507aec;
+  border-color: #3367d6;
 }
 .dark .search-bar .ui.red.large.button.search-button {
-  background-color: #3368fd;
+  background-color: #3367d6;
 }
 .dark .grid-figure, .dark .single-photo {
   background: #424242;
   box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
 }
 .dark .card-header {
-  background: linear-gradient(to right, #3368fd, #696969);
+  background: linear-gradient(to right, #4285f4, #696969);
 }
 .dark .card-name {
-  background: linear-gradient(to right, #3368fd, #696969);
+  background: linear-gradient(to right, #4285f4, #696969);
 }
 .dark .footer {
   background-color: #424242;

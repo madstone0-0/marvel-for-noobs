@@ -1,2 +1,3 @@
 $flex_basis: 0.33;
 $calc_flex_basis: (1- $flex_basis) * 4rem;
+$calc_border_rad: calc(0.25rem - 1px);
