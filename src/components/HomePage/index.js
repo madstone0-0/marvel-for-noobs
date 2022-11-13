@@ -34,7 +34,7 @@ const HomePage = () => {
                 trailer: movie.trailer_url === null ? "" : movie.trailer_url,
             });
         });
-        setMovies(new_data);
+        setMovies(new_data.reverse());
     };
 
     const getFreshData = (url, cacheResponse) => {
