@@ -1,6 +1,6 @@
 {
     "name": "marvel-for-noobs",
-    "version": "0.3.0",
+    "version": "0.3.2",
     "private": true,
     "dependencies": {
         "@artsy/fresnel": "6.1.0",
