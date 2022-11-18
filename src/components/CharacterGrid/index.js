@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Search from "../Search";
-import CharacterSingle from "../CharacterSingle";
-import Character from "../Character";
 import classNames from "classnames";
+import Character from "../Character";
+import CharacterSingle from "../CharacterSingle";
+import Search from "../Search";
 import RestoreScrollOnMount from "../utils/RestoreScrollOnMount";
 
 /**
@@ -67,7 +67,6 @@ const CharacterGrid = ({
                                     }
                                 />
                             </Routes>
-                            {/* <Character character={character} /> */}
                         </div>
                     );
                 })}

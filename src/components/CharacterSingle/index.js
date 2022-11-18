@@ -33,44 +33,46 @@ const CharacterSingle = ({
                 : description}
         </p>
         <br />
-        <h2>Comics</h2>
-        {comics.items.map((comic, key) => (
-            <div key={key}>
-                <h3>
-                    {comic.available === 0
-                        ? "No comics listed for this character"
-                        : comic.name}
-                </h3>
-            </div>
-        ))}
-        <br />
-        <h2>Events</h2>
-        {events.items.map((characterEvent, key) => (
-            <div key={key}>
-                <h3>
-                    {characterEvent.available === 0
-                        ? `${name} events have not been listed`
-                        : characterEvent.name}
-                </h3>
-            </div>
-        ))}
-        <br />
-        <br />
-        <div>
-            {urls.map((link, key) => (
+        <div className="extras">
+            <h2>Comics</h2>
+            {comics.items.map((comic, key) => (
                 <div key={key}>
-                    <br />
-                    <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
-                    <a
-                        key={key}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={link.url}
-                    >
-                        Read More
-                    </a>
+                    <h3>
+                        {comic.available === 0
+                            ? "No comics listed for this character"
+                            : comic.name}
+                    </h3>
                 </div>
             ))}
+            <br />
+            <h2>Events</h2>
+            {events.items.map((characterEvent, key) => (
+                <div key={key}>
+                    <h3>
+                        {characterEvent.available === 0
+                            ? `${name} events have not been listed`
+                            : characterEvent.name}
+                    </h3>
+                </div>
+            ))}
+            <br />
+            <br />
+            <div>
+                {urls.map((link, key) => (
+                    <div key={key}>
+                        <br />
+                        <h3 style={{ marginTop: "5px" }}>{link.type}</h3>
+                        <a
+                            key={key}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={link.url}
+                        >
+                            Read More
+                        </a>
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
 );
