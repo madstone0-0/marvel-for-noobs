@@ -302,10 +302,18 @@ body {
     }
 
     .card-header {
-        padding: 50px 10px;
+        padding: 50px 0.625rem;
     }
 
     .card-name {
-        padding: 20px 10px;
+        padding: 20px 0.625rem;
+    }
+
+    .dark-button.ui.red.medium.button.dark-mode-button {
+        width: 45px;
+    }
+
+    .single-photo {
+        max-width: 260px;
     }
 }
