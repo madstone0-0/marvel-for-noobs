@@ -11,7 +11,7 @@ p {
 h1 {
   text-align: center;
   font-weight: 400;
-  margin: 10px auto 10px auto;
+  margin: 0.625rem auto 0.625rem auto;
   color: #fff;
 }
 
@@ -32,7 +32,6 @@ body a :hover {
 }
 .character-single .character-name {
   font-size: 2.4rem;
-  padding-bottom: 1rem;
 }
 .character-single .description {
   text-align: justify;
@@ -128,7 +127,6 @@ body a :hover {
 
 .character-name {
   text-align: center;
-  padding: 5px;
 }
 
 /* Dark Theme */
@@ -216,10 +214,10 @@ body a :hover {
     text-align: justify;
   }
   .character-name {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
   .page-header {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .homepage-heading {
     font-size: 2rem;
@@ -260,7 +258,7 @@ body {
 }
 
 .page-header {
-  margin: 10px auto;
+  margin: 0.625rem auto;
   line-height: inherit;
 }
 
@@ -269,6 +267,7 @@ body {
 }
 
 .ui.nav-bar {
+  align-items: center;
   background-color: #b71c1c;
   height: 50px;
 }
@@ -282,12 +281,13 @@ body {
 }
 
 .search-bar {
-  width: 29%;
-  margin: 10px auto;
-  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
 }
 .search-bar .search-button {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 .search-bar .ui.input.focus > input,
 .search-bar .ui.input > input:focus {
@@ -299,13 +299,16 @@ body {
   flex-wrap: wrap;
   max-width: 100%;
   margin: 0px auto;
+  justify-content: center;
 }
 .character-grid .character-single, .character-grid-single .character-single {
   max-width: 100%;
   margin: 0px auto;
 }
-.character-grid .character-single .description, .character-grid-single .character-single .description {
-  padding: 0px 20px;
+.character-grid .character-single .description, .character-grid-single .character-single .description,
+.character-grid .character-single .extras,
+.character-grid-single .character-single .extras {
+  padding: 20px 20px;
 }
 
 .character-grid-single {
@@ -369,23 +372,17 @@ body {
 .dark .page .page-container {
   background-color: #424242;
 }
-.dark .pushable > * {
-  background-color: #424242;
-}
-.dark .fresnel-container {
-  background-color: #424242;
-}
-.dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
-  background-color: #424242;
-}
+.dark .pushable > *,
+.dark .fresnel-container,
+.dark .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu,
 .dark .ui.menu {
   background-color: #424242;
 }
 .dark input {
-  padding: 10px;
+  padding: 0.625rem;
   border-radius: 5px;
   outline: none;
-  margin-right: 10px;
+  margin-right: 0.625rem;
   border: 1px solid #dddddd;
 }
 .dark .search-bar .search-bar:focus {
@@ -394,7 +391,8 @@ body {
 .dark .ui.nav-bar {
   background-color: #3367d6;
 }
-.dark .dark-button.ui.red.medium.button.search-button {
+.dark .dark-button.ui.red.medium.button.search-button,
+.dark .dark-button.ui.red.medium.button.dark-mode-button {
   background-color: #4070d9;
 }
 .dark .nav-buttons > button {
@@ -408,12 +406,10 @@ body {
   background-color: #3367d6;
 }
 .dark .grid-figure, .dark .single-photo {
-  background: #424242;
+  background: #474747;
   box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
 }
-.dark .card-header {
-  background: linear-gradient(to right, #4285f4, #696969);
-}
+.dark .card-header,
 .dark .card-name {
   background: linear-gradient(to right, #4285f4, #696969);
 }
@@ -466,18 +462,18 @@ body {
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 40px -0.625rem rgba(0, 0, 0, 0.25);
 }
 
 .card-header {
-  padding: 100px 10px;
+  padding: 100px 0.625rem;
   max-height: 900px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
 }
 
 .card-name {
-  padding: 30px 10px;
+  padding: 30px 0.625rem;
   margin-bottom: 15px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
@@ -509,13 +505,19 @@ body {
     width: 100%;
   }
   .grid-figure, .single-photo {
-    padding: 0;
+    padding: 0.313rem;
     margin: 2rem auto;
   }
   .card-header {
-    padding: 50px 10px;
+    padding: 50px 0.625rem;
   }
   .card-name {
-    padding: 20px 10px;
+    padding: 20px 0.625rem;
+  }
+  .dark-button.ui.red.medium.button.dark-mode-button {
+    width: 45px;
+  }
+  .single-photo {
+    max-width: 260px;
   }
 }
