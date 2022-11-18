@@ -15,7 +15,7 @@ body {
 }
 
 .page-header {
-    margin: 10px auto;
+    margin: 0.625rem auto;
     line-height: inherit;
 }
 
@@ -24,6 +24,7 @@ body {
 }
 
 .ui.nav-bar {
+    align-items: center;
     background-color: $light_main;
     height: 50px;
 }
@@ -37,17 +38,18 @@ body {
 }
 
 .search-bar {
-    width: 308px;
-    margin: 10px auto;
-    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
 
     .search-button {
-        margin-left: 10px;
+        margin-left: 0.625rem;
     }
 
     .ui.input.focus > input,
     .ui.input > input:focus {
-        border-color: #e53935;
+        border-color: $light_sec;
     }
 }
 
@@ -56,14 +58,16 @@ body {
     flex-wrap: wrap;
     max-width: 100%;
     margin: 0px auto;
+    justify-content: center;
 
     .character-single {
         // display: none;
         max-width: 100%;
         margin: 0px auto;
 
-        .description {
-            padding: 0px 20px;
+        .description,
+        .extras {
+            padding: 20px 20px;
         }
     }
 }
@@ -140,71 +144,60 @@ body {
         }
     }
 
-    .pushable > * {
-        background-color: $dark_bg;
-    }
-
-    .fresnel-container {
-        background-color: $dark_bg;
-    }
-
-    .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu {
-        background-color: $dark_bg;
-    }
-
+    .pushable > *,
+    .fresnel-container,
+    .ui.vertical.labeled.icon.ui.overlay.left.visible.sidebar.nav-sidebar.menu,
     .ui.menu {
         background-color: $dark_bg;
     }
 
     input {
-        padding: 10px;
+        padding: 0.625rem;
         border-radius: 5px;
         outline: none;
-        margin-right: 10px;
+        margin-right: 0.625rem;
         border: 1px solid #dddddd;
     }
 
     .search-bar .search-bar:focus {
-        border-color: #4285f4;
+        border-color: $dark_sec;
     }
 
     .ui.nav-bar {
-        background-color: #3367d6;
+        background-color: $dark_button;
     }
 
-    .dark-button.ui.red.medium.button.search-button {
-        background-color: #3368fd;
+    .dark-button.ui.red.medium.button.search-button,
+    .dark-button.ui.red.medium.button.dark-mode-button {
+        background-color: lighten($dark_button, 3%);
     }
 
     .nav-buttons > button {
-        background-color: #3368fd !important;
+        background-color: $dark_button !important;
     }
 
     .search-bar {
         .ui.input.focus > input,
         .ui.input > input:focus {
-            border-color: #507aec;
+            border-color: $dark_button;
         }
 
         .ui.red.large.button.search-button {
-            background-color: #3368fd;
+            background-color: $dark_button;
         }
     }
 
     // Grid
 
     .grid-figure {
-        background: $dark_bg;
+        background: lighten($dark_bg, 2%);
         box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
     }
 
     // Countdown Card Header
-    .card-header {
-        background: linear-gradient(to right, #3368fd, #696969);
-    }
-
+    .card-header,
     .card-name {
-        background: linear-gradient(to right, #3368fd, #696969);
+        background: linear-gradient(to right, $dark_sec, $gradient_end);
     }
 
     .footer {
@@ -239,7 +232,6 @@ body {
 .card {
     width: 40%;
     backdrop-filter: $light_bg;
-    // border-top: 1px solid $light_main;
     margin-bottom: 50px;
     transition: 0.3s;
 }
@@ -259,20 +251,20 @@ body {
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 40px -0.625rem rgba(0, 0, 0, 0.25);
 }
 
 .card-header {
-    padding: 100px 10px;
+    padding: 100px 0.625rem;
     max-height: 900px;
-    background: linear-gradient(to right, $light_main, #696969);
+    background: linear-gradient(to right, $light_main, $gradient_end);
     color: $light_bg;
 }
 
 .card-name {
-    padding: 30px 10px;
+    padding: 30px 0.625rem;
     margin-bottom: 15px;
-    background: linear-gradient(to right, $light_main, #696969);
+    background: linear-gradient(to right, $light_main, $gradient_end);
     color: $light_bg;
 }
 
@@ -290,7 +282,7 @@ body {
     padding: 0.75rem 1.25rem;
     display: block;
     :last-child {
-        border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+        border-radius: 0 0 $calc_border_rad $calc_border_rad;
     }
 }
 
@@ -305,15 +297,23 @@ body {
     }
 
     .grid-figure {
-        padding: 0;
+        padding: 0.313rem;
         margin: 2rem auto;
     }
 
     .card-header {
-        padding: 50px 10px;
+        padding: 50px 0.625rem;
     }
 
     .card-name {
-        padding: 20px 10px;
+        padding: 20px 0.625rem;
+    }
+
+    .dark-button.ui.red.medium.button.dark-mode-button {
+        width: 45px;
+    }
+
+    .single-photo {
+        max-width: 260px;
     }
 }

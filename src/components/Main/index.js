@@ -18,8 +18,8 @@ import {
 import Footer from "../Footer";
 import HomePage from "../HomePage";
 import NavBar from "../NavBar";
-import { saveState, getState } from "../utils/stateSaver";
 import { readFromCache, writeToCache } from "../utils/cache";
+import { getState, saveState } from "../utils/stateSaver";
 
 const AppMedia = createMedia({
     breakpoints: {
@@ -220,31 +220,29 @@ const Main = () => {
                                                                     refresh
                                                                 </p>
                                                             ) : (
-                                                                <div>
-                                                                    <CharacterGrid
-                                                                        value={
-                                                                            searchCharacter
-                                                                        }
-                                                                        searchCharacter={
-                                                                            searchCharacter
-                                                                        }
-                                                                        characters={
-                                                                            characters
-                                                                        }
-                                                                        onChange={
-                                                                            onSearchChange
-                                                                        }
-                                                                        onSubmit={
-                                                                            onSearchSubmit
-                                                                        }
-                                                                        currentView={
-                                                                            currentView
-                                                                        }
-                                                                        changeCurrentView={
-                                                                            changeCurrentView
-                                                                        }
-                                                                    />
-                                                                </div>
+                                                                <CharacterGrid
+                                                                    value={
+                                                                        searchCharacter
+                                                                    }
+                                                                    searchCharacter={
+                                                                        searchCharacter
+                                                                    }
+                                                                    characters={
+                                                                        characters
+                                                                    }
+                                                                    onChange={
+                                                                        onSearchChange
+                                                                    }
+                                                                    onSubmit={
+                                                                        onSearchSubmit
+                                                                    }
+                                                                    currentView={
+                                                                        currentView
+                                                                    }
+                                                                    changeCurrentView={
+                                                                        changeCurrentView
+                                                                    }
+                                                                />
                                                             )}
                                                         </div>
                                                     )}

@@ -30,9 +30,9 @@ const NavBarMobile = ({
                         <button
                             type="button"
                             onClick={toggleDarkTheme}
-                            className="dark-button ui red medium button search-button"
+                            className="dark-button ui red medium button dark-mode-button"
                         >
-                            Dark Mode
+                            <Icon name="moon" />
                         </button>
                     </div>
                     <h1 className="page-header">Marvel for Noobs</h1>
