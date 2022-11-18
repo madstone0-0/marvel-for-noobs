@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -75,6 +76,31 @@ module.exports = {
                 minifyCSS: true,
                 minifyURLs: true,
             },
+        }),
+
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+            filename: "200.html",
+            favicon: "./public/favicon.ico",
+            inject: true,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+        }),
+
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "./CNAME", to: path.resolve(__dirname, "dist") },
+            ],
         }),
 
         new CleanWebpackPlugin(),
