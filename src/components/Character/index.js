@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -26,5 +27,10 @@ const Character = ({ character, changeCurrentView }) => (
         </figure>
     </div>
 );
+
+Character.propTypes = {
+    character: PropTypes.array,
+    changeCurrentView: PropTypes.func,
+};
 
 export default Character;

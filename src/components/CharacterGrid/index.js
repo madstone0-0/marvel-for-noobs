@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import classNames from "classnames";
+import PropTypes from "prop-types";
 import Character from "../Character";
 import CharacterSingle from "../CharacterSingle";
 import Search from "../Search";
@@ -73,6 +74,16 @@ const CharacterGrid = ({
             </div>
         </div>
     );
+};
+
+CharacterGrid.propTypes = {
+    characters: PropTypes.array,
+    searchCharacter: PropTypes.string,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    value: PropTypes.string,
+    currentView: PropTypes.string,
+    changeCurrentView: PropTypes.func,
 };
 
 export default CharacterGrid;

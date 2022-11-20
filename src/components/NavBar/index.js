@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Container } from "semantic-ui-react";
 import NavBarDesktop from "../NavBarDesktop";
@@ -42,6 +43,16 @@ const NavBar = ({
             </Media>
         </div>
     );
+};
+
+NavBar.propTypes = {
+    handlePusher: PropTypes.func,
+    handleToggle: PropTypes.func,
+    Media: PropTypes.func,
+    links: PropTypes.array,
+    toggleDarkTheme: PropTypes.func,
+    visible: PropTypes.bool,
+    children: PropTypes.node,
 };
 
 export default NavBar;

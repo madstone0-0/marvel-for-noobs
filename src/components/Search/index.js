@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Input } from "semantic-ui-react";
 
@@ -18,5 +19,12 @@ const Search = ({ value, onChange, onSubmit, children }) => (
         </button>
     </form>
 );
+
+Search.propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    children: PropTypes.node,
+};
 
 export default Search;

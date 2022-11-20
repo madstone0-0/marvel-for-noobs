@@ -1,13 +1,13 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CountdownCard from "../CountdownCard";
-import axios from "axios";
 
 import {
-    MOVIE_PATH_BASE,
     MOVIES,
-    MOVIES_LIMIT,
     MOVIES_COLUMNS,
+    MOVIES_LIMIT,
     MOVIES_ORDER,
+    MOVIE_PATH_BASE,
 } from "../constants";
 import { readFromCache, writeToCache } from "../utils/cache";
 

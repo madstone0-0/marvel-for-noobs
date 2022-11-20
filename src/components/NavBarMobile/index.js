@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Icon, Menu, Sidebar } from "semantic-ui-react";
 
@@ -44,6 +45,15 @@ const NavBarMobile = ({
             </Sidebar.Pushable>
         </Sidebar.Pushable>
     );
+};
+
+NavBarMobile.propTypes = {
+    items: PropTypes.array,
+    visible: PropTypes.bool,
+    onPusherClick: PropTypes.func,
+    toggleDarkTheme: PropTypes.func,
+    onToggle: PropTypes.func,
+    children: PropTypes.node,
 };
 
 export default NavBarMobile;

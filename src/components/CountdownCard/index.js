@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Countdown from "react-countdown";
 
@@ -15,7 +16,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 };
 
 /**
- * Displays a countdown for movies
+ * Displays a card countdown for movies
  */
 const CountdownCard = ({ timeTill, name, cover }) => (
     <div>
@@ -42,5 +43,11 @@ const CountdownCard = ({ timeTill, name, cover }) => (
         </div>
     </div>
 );
+
+CountdownCard.propTypes = {
+    timeTill: PropTypes.string,
+    name: PropTypes.string,
+    cover: PropTypes.string,
+};
 
 export default CountdownCard;

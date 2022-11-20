@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
@@ -24,5 +25,10 @@ const NavBarDesktop = ({ items, toggleDarkTheme }) => (
         ))}
     </Menu>
 );
+
+NavBarDesktop.propTypes = {
+    items: PropTypes.array,
+    toggleDarkTheme: PropTypes.func,
+};
 
 export default NavBarDesktop;

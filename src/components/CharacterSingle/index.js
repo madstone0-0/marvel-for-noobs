@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
@@ -94,5 +95,16 @@ const CharacterSingle = ({
         </div>
     </div>
 );
+
+CharacterSingle.propTypes = {
+    id: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    thumbnail: PropTypes.string,
+    comics: PropTypes.array,
+    events: PropTypes.array,
+    urls: PropTypes.array,
+    changeCurrentView: PropTypes.func,
+};
 
 export default CharacterSingle;
