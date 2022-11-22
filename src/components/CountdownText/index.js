@@ -19,7 +19,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
  * Displays a countdown for movies
  */
 const CountdownText = ({ timeTill, name }) => (
-    <div>
+    <>
         <div className="card-header">
             <h3 className="countdown-name">{name}</h3>
         </div>
@@ -30,7 +30,7 @@ const CountdownText = ({ timeTill, name }) => (
                 </Countdown>
             </div>
         </div>
-    </div>
+    </>
 );
 
 CountdownText.propTypes = {

@@ -20,7 +20,7 @@ const NavBar = ({
     children,
 }) => {
     return (
-        <div>
+        <>
             <Media at="mobile">
                 <NavBarMobile
                     items={links}
@@ -41,7 +41,7 @@ const NavBar = ({
                     {children}
                 </Container>
             </Media>
-        </div>
+        </>
     );
 };
 

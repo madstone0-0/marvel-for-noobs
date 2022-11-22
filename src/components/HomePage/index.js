@@ -71,48 +71,46 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div>
-            <div>
-                <h1 className="homepage-heading">Upcoming Marvel Movies</h1>
-                <br />
-                <div className="countdowns">
-                    {isLoading ? (
-                        <h2>Loading...</h2>
-                    ) : error ? (
-                        <p className="centered">
-                            Something went wrong, please check your internet
-                            connection and refresh the page
-                        </p>
-                    ) : (
-                        upcomingMovies.map((movie, key) => {
-                            if (movie.trailer !== "") {
-                                return (
-                                    <div className="card" key={key}>
-                                        <a target="_blank" href={movie.trailer}>
-                                            <CountdownCard
-                                                name={movie.name}
-                                                timeTill={movie.timeTill}
-                                                cover={movie.cover}
-                                            />
-                                        </a>
-                                    </div>
-                                );
-                            } else {
-                                return (
-                                    <div className="card" key={key}>
+        <>
+            <h1 className="homepage-heading">Upcoming Marvel Movies</h1>
+            <br />
+            <div className="countdowns">
+                {isLoading ? (
+                    <h2>Loading...</h2>
+                ) : error ? (
+                    <p className="centered">
+                        Something went wrong, please check your internet
+                        connection and refresh the page
+                    </p>
+                ) : (
+                    upcomingMovies.map((movie, key) => {
+                        if (movie.trailer !== "") {
+                            return (
+                                <div className="card" key={key}>
+                                    <a target="_blank" href={movie.trailer}>
                                         <CountdownCard
                                             name={movie.name}
                                             timeTill={movie.timeTill}
                                             cover={movie.cover}
                                         />
-                                    </div>
-                                );
-                            }
-                        })
-                    )}
-                </div>
+                                    </a>
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div className="card" key={key}>
+                                    <CountdownCard
+                                        name={movie.name}
+                                        timeTill={movie.timeTill}
+                                        cover={movie.cover}
+                                    />
+                                </div>
+                            );
+                        }
+                    })
+                )}
             </div>
-        </div>
+        </>
     );
 };
 

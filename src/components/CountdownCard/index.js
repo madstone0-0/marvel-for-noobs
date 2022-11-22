@@ -19,7 +19,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
  * Displays a card countdown for movies
  */
 const CountdownCard = ({ timeTill, name, cover }) => (
-    <div>
+    <>
         <div
             style={{
                 backgroundImage: `url(${cover})`,
@@ -41,7 +41,7 @@ const CountdownCard = ({ timeTill, name, cover }) => (
                 </Countdown>
             </div>
         </div>
-    </div>
+    </>
 );
 
 CountdownCard.propTypes = {

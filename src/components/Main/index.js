@@ -196,19 +196,19 @@ const Main = () => {
                                 <Route
                                     path="characters/*"
                                     element={
-                                        <div>
+                                        <>
                                             {error ? (
                                                 <p className="centered">
                                                     Something went wrong
                                                 </p>
                                             ) : (
-                                                <div>
+                                                <>
                                                     {isLoading ? (
                                                         <p className="loading-text">
                                                             Loading...
                                                         </p>
                                                     ) : (
-                                                        <div>
+                                                        <>
                                                             {characters.length <
                                                                 1 &&
                                                             hasNotSearchedOnce ===
@@ -244,14 +244,14 @@ const Main = () => {
                                                                     }
                                                                 />
                                                             )}
-                                                        </div>
+                                                        </>
                                                     )}
-                                                </div>
+                                                </>
                                             )}
                                             {isLoading ||
                                             hasNotSearchedOnce ||
                                             currentView !== "grid" ? (
-                                                <div></div>
+                                                <></>
                                             ) : (
                                                 <div className="nav-buttons">
                                                     {offset === 0 ? (
@@ -273,7 +273,7 @@ const Main = () => {
                                                     </Button>
                                                 </div>
                                             )}
-                                        </div>
+                                        </>
                                     }
                                 />
                                 <Route path="/" element={<HomePage />} />

@@ -21,7 +21,7 @@ const CharacterGrid = ({
     changeCurrentView,
 }) => {
     return (
-        <div>
+        <>
             <RestoreScrollOnMount view={currentView} />
             <Search
                 value={value}
@@ -72,7 +72,7 @@ const CharacterGrid = ({
                     );
                 })}
             </div>
-        </div>
+        </>
     );
 };
 

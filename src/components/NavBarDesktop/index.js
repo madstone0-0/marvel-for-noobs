@@ -5,7 +5,7 @@ import { Menu } from "semantic-ui-react";
 
 const NavBarDesktop = ({ items, toggleDarkTheme }) => (
     <Menu className="nav-bar">
-        <div>
+        <>
             <button
                 type="button"
                 onClick={toggleDarkTheme}
@@ -13,7 +13,7 @@ const NavBarDesktop = ({ items, toggleDarkTheme }) => (
             >
                 Dark Mode
             </button>
-        </div>
+        </>
         <h1 className="page-header">Marvel for Noobs</h1>
         {items.map((item) => (
             <Menu.Item

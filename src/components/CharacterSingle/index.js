@@ -72,7 +72,7 @@ const CharacterSingle = ({
             )}
             <br />
             <br />
-            <div>
+            <>
                 {urls
                     .filter((link) => link.type !== "wiki")
                     .map((link, key) => (
@@ -91,7 +91,7 @@ const CharacterSingle = ({
                             </a>
                         </div>
                     ))}
-            </div>
+            </>
         </div>
     </div>
 );

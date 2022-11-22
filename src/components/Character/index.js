@@ -29,7 +29,7 @@ const Character = ({ character, changeCurrentView }) => (
 );
 
 Character.propTypes = {
-    character: PropTypes.array,
+    character: PropTypes.object,
     changeCurrentView: PropTypes.func,
 };
 

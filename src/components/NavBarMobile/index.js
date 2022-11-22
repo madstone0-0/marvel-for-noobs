@@ -27,7 +27,7 @@ const NavBarMobile = ({
                 onClick={onPusherClick}
             >
                 <Menu className="nav-bar" fixed="top">
-                    <div>
+                    <>
                         <button
                             type="button"
                             onClick={toggleDarkTheme}
@@ -35,7 +35,7 @@ const NavBarMobile = ({
                         >
                             <Icon name="moon" />
                         </button>
-                    </div>
+                    </>
                     <h1 className="page-header">Marvel for Noobs</h1>
                     <Menu.Item onClick={onToggle}>
                         <Icon name="sidebar" />
