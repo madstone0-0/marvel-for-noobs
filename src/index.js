@@ -1,17 +1,19 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-// import "semantic-ui-css/semantic.js";
 import { BrowserRouter } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 
-import css from "./styles/style.css";
+import CharacterProvider from "./components/CharacterProvider";
 import Main from "./components/Main";
+import css from "./styles/style.css";
 
 const container = document.getElementById("app");
 const root = createRoot(container);
 const router = (
     <BrowserRouter>
-        <Main />
+        <CharacterProvider>
+            <Main />
+        </CharacterProvider>
     </BrowserRouter>
 );
 

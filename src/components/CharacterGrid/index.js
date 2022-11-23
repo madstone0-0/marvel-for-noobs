@@ -5,30 +5,26 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import Character from "../Character";
 import CharacterSingle from "../CharacterSingle";
+import { useCharacters } from "../hooks/character-info-hook";
 import Search from "../Search";
 import RestoreScrollOnMount from "../utils/RestoreScrollOnMount";
 
 /**
  * Displays all received character items in a grid using the Character and CharacterSingle components
  */
-const CharacterGrid = ({
-    characters,
-    searchCharacter,
-    onChange,
-    onSubmit,
-    value,
-    currentView,
-    changeCurrentView,
-}) => {
+const CharacterGrid = () => {
+    const {
+        characters,
+        searchCharacter,
+        searchChange,
+        searchSubmit,
+        currentView,
+        changeCurrentView,
+    } = useCharacters();
     return (
         <>
             <RestoreScrollOnMount view={currentView} />
-            <Search
-                value={value}
-                children="Search"
-                onSubmit={onSubmit}
-                onChange={onChange}
-            />
+            <Search children="Search" />
             <div
                 className={classNames("character-grid", {
                     "character-grid-single": currentView !== "grid",
@@ -41,12 +37,7 @@ const CharacterGrid = ({
                                 <Route
                                     path="/"
                                     element={
-                                        <Character
-                                            character={character}
-                                            changeCurrentView={
-                                                changeCurrentView
-                                            }
-                                        />
+                                        <Character character={character} />
                                     }
                                 />
                                 <Route
@@ -54,16 +45,7 @@ const CharacterGrid = ({
                                     path={`${character.id}`}
                                     element={
                                         <CharacterSingle
-                                            changeCurrentView={
-                                                changeCurrentView
-                                            }
-                                            name={character.name}
-                                            id={character.id}
-                                            description={character.description}
-                                            thumbnail={character.thumbnail}
-                                            comics={character.comics}
-                                            events={character.events}
-                                            urls={character.urls}
+                                            character={character}
                                         />
                                     }
                                 />
@@ -74,16 +56,6 @@ const CharacterGrid = ({
             </div>
         </>
     );
-};
-
-CharacterGrid.propTypes = {
-    characters: PropTypes.array,
-    searchCharacter: PropTypes.string,
-    onChange: PropTypes.func,
-    onSubmit: PropTypes.func,
-    value: PropTypes.string,
-    currentView: PropTypes.string,
-    changeCurrentView: PropTypes.func,
 };
 
 export default CharacterGrid;

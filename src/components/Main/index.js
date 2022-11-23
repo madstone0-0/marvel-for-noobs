@@ -1,13 +1,15 @@
 import { createMedia } from "@artsy/fresnel";
 import axios from "axios";
 import classNames from "classnames";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactGA from "react-ga";
 import { Link, Route, Routes } from "react-router-dom";
 import { Button, Container } from "semantic-ui-react";
 import Cookies from "universal-cookie";
+import { useCharacters } from "../hooks/character-info-hook";
 
 import CharacterGrid from "../CharacterGrid";
+import { CharacterContext } from "../CharacterProvider";
 import {
     API_KEY,
     CHARACTERS,
@@ -35,17 +37,23 @@ const mediaStyles = AppMedia.createMediaStyle();
 const { Media, MediaContextProvider } = AppMedia;
 
 const Main = () => {
-    const [characterCount, updateCount] = useState(LIMIT);
-    const [prevCharCount, updatePrevCharCount] = useState(0);
-    const [offset, updateOffset] = useState(0);
     const [darkTheme, updateDarkTheme] = useState(false);
-    const [searchCharacter, updateSearchCharacter] = useState("");
-    const [characters, updateCharacterArray] = useState([]);
-    const [error, updateErrorState] = useState(null);
-    const [isLoading, updateLoadingState] = useState(false);
-    const [hasNotSearchedOnce, hasSearchedOnce] = useState(true);
-    const [currentView, changeView] = useState("grid");
     const [visible, isVisible] = useState(false);
+
+    const {
+        isLoading,
+        error,
+        hasNotSearchedOnce,
+        currentView,
+        offset,
+        characters,
+        previous,
+        next,
+        changeCurrentView,
+        fetchSearchedCharacter,
+        onSearchChange,
+        onSearchSubmit,
+    } = useCharacters();
 
     const cookies = new Cookies();
 
@@ -75,88 +83,8 @@ const Main = () => {
 
     const handleToggle = () => isVisible(!visible);
 
-    const onSearchChange = (e) => {
-        return updateSearchCharacter(e.target.value);
-    };
-
-    const onSearchSubmit = (e) => {
-        ReactGA.event({
-            category: "Page interactions",
-            action: "Searched for a character",
-        });
-        fetchSearchedCharacter(searchCharacter);
-        e.preventDefault();
-    };
-
-    const setCharacter = (result) => {
-        updateCount(result.data.data.count);
-        updateCharacterArray(result.data.data.results);
-    };
-
-    const getFreshData = (url, cacheResponse) => {
-        axios
-            .get(url)
-            .then((result) => {
-                setCharacter(result);
-                cacheResponse && writeToCache(url, result);
-                updateLoadingState(false);
-            })
-            .catch((error) => {
-                updateErrorState(error);
-            });
-    };
-
-    const getCacheData = (searchCharacter) => readFromCache(searchCharacter);
-
-    const fetchSearchedCharacter = (
-        searchCharacter,
-        offset = 0,
-        cacheResponse = false,
-    ) => {
-        updateLoadingState(true);
-        hasSearchedOnce(false);
-        updateOffset(offset);
-
-        const url = `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter.toLowerCase()}&${API_KEY}&limit=${LIMIT}&offset=${offset}`;
-
-        if (getCacheData(searchCharacter) !== null) {
-            cacheResponse = true;
-            setCharacter(readFromCache(url));
-            updateLoadingState(false);
-        } else {
-            getFreshData(url, true);
-        }
-    };
-
-    const changeCurrentView = (e) => {
-        const target = e.target.className;
-        if (target === "grid-photo") {
-            changeView("single");
-            saveState("CharacterGrid", { scrollY: window.scrollY });
-        } else {
-            changeView("grid");
-        }
-    };
-
-    const next = () => {
-        const currOffset =
-            characterCount < LIMIT ? offset + characterCount : offset + LIMIT;
-        updatePrevCharCount(characterCount);
-        fetchSearchedCharacter(searchCharacter, currOffset);
-        updateOffset(currOffset);
-        saveState("CharacterGrid", { scrollY: 0 });
-    };
-
-    const previous = () => {
-        const currOffset =
-            prevCharCount < LIMIT ? offset - prevCharCount : offset - LIMIT;
-        fetchSearchedCharacter(searchCharacter, currOffset);
-        updateOffset(currOffset);
-        saveState("CharacterGrid", { scrollY: 0 });
-    };
-
     const setDarkModeCookie = () => {
-        cookies.set("darkMode", darkTheme, { path: "/" });
+        cookies.set("darkMode", darkTheme, { path: "/", sameSite: true });
     };
 
     const getDarkModeCookie = () => {
@@ -220,29 +148,7 @@ const Main = () => {
                                                                     refresh
                                                                 </p>
                                                             ) : (
-                                                                <CharacterGrid
-                                                                    value={
-                                                                        searchCharacter
-                                                                    }
-                                                                    searchCharacter={
-                                                                        searchCharacter
-                                                                    }
-                                                                    characters={
-                                                                        characters
-                                                                    }
-                                                                    onChange={
-                                                                        onSearchChange
-                                                                    }
-                                                                    onSubmit={
-                                                                        onSearchSubmit
-                                                                    }
-                                                                    currentView={
-                                                                        currentView
-                                                                    }
-                                                                    changeCurrentView={
-                                                                        changeCurrentView
-                                                                    }
-                                                                />
+                                                                <CharacterGrid />
                                                             )}
                                                         </>
                                                     )}
