@@ -24,7 +24,7 @@
         "start-dev": "webpack serve --config webpack.config.dev.js --hot",
         "build": "webpack --config webpack.config.prod.js",
         "start": "node server.js",
-        "surge-deploy": "cd dist && surge"
+        "surge-deploy": "npm run build && cd dist && surge"
     },
     "eslintConfig": {
         "extends": "react-app"
