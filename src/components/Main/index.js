@@ -84,7 +84,11 @@ const Main = () => {
     const handleToggle = () => isVisible(!visible);
 
     const setDarkModeCookie = () => {
-        cookies.set("darkMode", darkTheme, { path: "/", sameSite: true });
+        cookies.set("darkMode", darkTheme, {
+            path: "/",
+            sameSite: true,
+            expires: false,
+        });
     };
 
     const getDarkModeCookie = () => {
