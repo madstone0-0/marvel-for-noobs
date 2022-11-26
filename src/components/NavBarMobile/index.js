@@ -23,7 +23,7 @@ const NavBarMobile = ({
             ></Sidebar>
             <Sidebar.Pushable
                 className="link-list"
-                dimmed={visible}
+                dimmed={visible.toString()}
                 onClick={onPusherClick}
             >
                 <Menu className="nav-bar" fixed="top">
