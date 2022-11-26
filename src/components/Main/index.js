@@ -1,7 +1,13 @@
 import { createMedia } from "@artsy/fresnel";
 import axios from "axios";
 import classNames from "classnames";
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+    useContext,
+    useEffect,
+    useLayoutEffect,
+    useReducer,
+    useState,
+} from "react";
 import ReactGA from "react-ga";
 import { Link, Route, Routes } from "react-router-dom";
 import { Button, Container } from "semantic-ui-react";
@@ -70,10 +76,13 @@ const Main = () => {
     useEffect(() => {
         ReactGA.initialize("UA-131448417-2");
         ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
+
+    useLayoutEffect(() => {
         getDarkModeCookie();
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setDarkModeCookie();
     }, [darkTheme]);
 
