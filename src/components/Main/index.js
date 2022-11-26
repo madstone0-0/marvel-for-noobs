@@ -43,7 +43,10 @@ const mediaStyles = AppMedia.createMediaStyle();
 const { Media, MediaContextProvider } = AppMedia;
 
 const Main = () => {
-    const [darkTheme, updateDarkTheme] = useState(false);
+    const [darkTheme, updateDarkTheme] = useReducer(
+        (darkMode) => !darkMode,
+        false,
+    );
     const [visible, isVisible] = useState(false);
 
     const {
@@ -102,9 +105,7 @@ const Main = () => {
 
     const getDarkModeCookie = () => {
         const darkMode = cookies.get("darkMode");
-        if (darkMode === "true") {
-            updateDarkTheme(true);
-        }
+        if (darkMode === "true") updateDarkTheme(true);
     };
 
     const toggleDarkTheme = () => {
@@ -112,12 +113,12 @@ const Main = () => {
             category: "Page Interactions",
             action: "Enabled dark theme",
         });
-        updateDarkTheme(!darkTheme);
+        updateDarkTheme();
     };
 
     return (
         <div
-            className={classNames("", {
+            className={classNames("main", {
                 dark: darkTheme === true,
             })}
         >
