@@ -1,11 +1,10 @@
 root: true
 env:
     browser: true
-    es2021: true
+    es6: true
     node: true
 extends: ["eslint:recommended"]
 parser: "@babel/eslint-parser"
-# requireConfigFile: false
 parserOptions:
     ecmaFeatures:
         jsx: true
@@ -14,6 +13,7 @@ parserOptions:
 plugins:
     - "@babel"
     - react
+    - react-hooks
 rules:
     linebreak-style:
         - warn
