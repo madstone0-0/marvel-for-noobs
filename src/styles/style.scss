@@ -9,6 +9,11 @@ body {
     background-color: $light_bg;
 }
 
+.main,
+.main.dark {
+    transition: ease-in-out 0.3s;
+}
+
 .page-container {
     height: 100%;
     width: 100%;
@@ -17,6 +22,7 @@ body {
 .page-header {
     margin: 0.625rem auto;
     line-height: inherit;
+    border-radius: 25px 25px 0 0;
 }
 
 .link-list {
@@ -45,6 +51,11 @@ body {
 
     .search-button {
         margin-left: 0.625rem;
+    }
+
+    .search-input > input {
+        border-radius: 10px;
+        min-width: 300px;
     }
 
     .ui.input.focus > input,
@@ -79,6 +90,7 @@ body {
 
 .grid-photo {
     width: 300px;
+    border-radius: 10px;
 }
 
 .grid-figure {
@@ -88,10 +100,16 @@ body {
     margin: 2rem 2rem 2rem 2rem;
     padding: 1rem;
 
-    // border-radius: 25px;
     background: white;
     box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
     position: relative;
+    transition: ease-in-out 0.2s;
+    border-radius: 10px;
+}
+
+.ui > .grid-figure:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px -0.625rem rgba(0, 0, 0, 0.25);
 }
 
 .single-photo {
@@ -234,6 +252,7 @@ body {
     backdrop-filter: $light_bg;
     margin-bottom: 50px;
     transition: 0.3s;
+    border-radius: 25px;
 }
 
 .card > a {
@@ -259,6 +278,7 @@ body {
     max-height: 900px;
     background: linear-gradient(to right, $light_main, $gradient_end);
     color: $light_bg;
+    border-radius: 25px 25px 0 0;
 }
 
 .card-name {
@@ -301,6 +321,10 @@ body {
         margin: 2rem auto;
     }
 
+    .ui > .grid-figure:hover {
+        transform: scale(1.02);
+    }
+
     .card-header {
         padding: 50px 0.625rem;
     }
@@ -315,5 +339,11 @@ body {
 
     .single-photo {
         max-width: 260px;
+    }
+
+    .search-bar {
+        .search-input > input {
+            min-width: 0px;
+        }
     }
 }

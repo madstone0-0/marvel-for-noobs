@@ -11,6 +11,7 @@ const Search = ({ children }) => {
     return (
         <form className="search-bar" onSubmit={searchSubmit}>
             <Input
+                className="search-input"
                 type="text"
                 size="large"
                 onChange={searchChange}

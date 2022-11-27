@@ -19,9 +19,9 @@ body a {
   text-decoration: none;
   color: #000;
 }
-body a :hover {
+body a:hover {
   color: #e57373;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .character-single h3 {
@@ -157,9 +157,9 @@ body a :hover {
 .dark a {
   color: #eeeeee;
 }
-.dark a :hover {
-  text-decoration: underline;
-  color: #e57373;
+.dark a:hover {
+  text-decoration: none;
+  color: #4285f4;
 }
 .dark .card > a * {
   text-decoration: none;
@@ -252,6 +252,11 @@ body {
   background-color: #f4f4f4;
 }
 
+.main,
+.main.dark {
+  transition: ease-in-out 0.3s;
+}
+
 .page-container {
   height: 100%;
   width: 100%;
@@ -260,6 +265,7 @@ body {
 .page-header {
   margin: 0.625rem auto;
   line-height: inherit;
+  border-radius: 25px 25px 0 0;
 }
 
 .link-list {
@@ -289,6 +295,10 @@ body {
 .search-bar .search-button {
   margin-left: 0.625rem;
 }
+.search-bar .search-input > input {
+  border-radius: 10px;
+  min-width: 300px;
+}
 .search-bar .ui.input.focus > input,
 .search-bar .ui.input > input:focus {
   border-color: #e53935;
@@ -317,6 +327,7 @@ body {
 
 .grid-photo {
   width: 300px;
+  border-radius: 10px;
 }
 
 .grid-figure, .single-photo {
@@ -328,6 +339,13 @@ body {
   background: white;
   box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.03);
   position: relative;
+  transition: ease-in-out 0.2s;
+  border-radius: 10px;
+}
+
+.ui > .grid-figure:hover, .ui > .single-photo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px -0.625rem rgba(0, 0, 0, 0.25);
 }
 
 .single-photo {
@@ -445,6 +463,7 @@ body {
   backdrop-filter: #f4f4f4;
   margin-bottom: 50px;
   transition: 0.3s;
+  border-radius: 25px;
 }
 
 .card > a {
@@ -470,6 +489,7 @@ body {
   max-height: 900px;
   background: linear-gradient(to right, #b71c1c, #696969);
   color: #f4f4f4;
+  border-radius: 25px 25px 0 0;
 }
 
 .card-name {
@@ -508,6 +528,9 @@ body {
     padding: 0.313rem;
     margin: 2rem auto;
   }
+  .ui > .grid-figure:hover, .ui > .single-photo:hover {
+    transform: scale(1.02);
+  }
   .card-header {
     padding: 50px 0.625rem;
   }
@@ -519,5 +542,8 @@ body {
   }
   .single-photo {
     max-width: 260px;
+  }
+  .search-bar .search-input > input {
+    min-width: 0px;
   }
 }
