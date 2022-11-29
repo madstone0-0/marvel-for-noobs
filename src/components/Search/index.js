@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Input } from "semantic-ui-react";
-import { useCharacters } from "../hooks/character-info-hook";
+import { useCharacters } from "../hooks";
 
 /**
  * Search bar component

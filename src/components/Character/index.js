@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCharacters } from "../hooks/character-info-hook";
+import { useCharacters } from "../hooks";
 
 /**
  * Single Character item displayed in CharacterGrid can be clicked on to

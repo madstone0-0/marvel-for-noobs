@@ -12,7 +12,7 @@ import ReactGA from "react-ga";
 import { Link, Route, Routes } from "react-router-dom";
 import { Button, Container } from "semantic-ui-react";
 import Cookies from "universal-cookie";
-import { useCharacters } from "../hooks/character-info-hook";
+import { useCharacters } from "../hooks";
 
 import CharacterGrid from "../CharacterGrid";
 import { CharacterContext } from "../CharacterProvider";

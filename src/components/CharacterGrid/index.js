@@ -5,7 +5,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import Character from "../Character";
 import CharacterSingle from "../CharacterSingle";
-import { useCharacters } from "../hooks/character-info-hook";
+import { useCharacters } from "../hooks";
 import Search from "../Search";
 import RestoreScrollOnMount from "../utils/RestoreScrollOnMount";
 

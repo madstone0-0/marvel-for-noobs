@@ -31,7 +31,7 @@ const HomePage = () => {
                     month: "short",
                 })} ${release_date.getUTCFullYear()} 00:00:00 UTC`,
                 cover: movie.cover_url,
-                trailer: movie.trailer_url === null ? "" : movie.trailer_url,
+                trailer: movie.trailer_url && movie.trailer_url,
             });
         });
         setMovies(new_data.reverse());
@@ -84,7 +84,7 @@ const HomePage = () => {
                     </p>
                 ) : (
                     upcomingMovies.map((movie, key) => {
-                        if (movie.trailer !== "") {
+                        if (movie.trailer !== null) {
                             return (
                                 <div className="card" key={key}>
                                     <a target="_blank" href={movie.trailer}>
