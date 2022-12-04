@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
+import ComicGrid from "../ComicGrid";
 import { useCharacters } from "../hooks";
 import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
 
@@ -45,15 +46,7 @@ const CharacterSingle = ({ character }) => {
                 {comics.available === 0 ? (
                     <h3> Comics have not been listed for this character</h3>
                 ) : (
-                    comics.items.map((comic, key) => (
-                        <div key={key}>
-                            <h3>
-                                {comic.available === 0
-                                    ? "No comics listed for this character"
-                                    : comic.name}
-                            </h3>
-                        </div>
-                    ))
+                    <ComicGrid collectionURI={comics.collectionURI} />
                 )}
                 <br />
                 <h2>Events</h2>

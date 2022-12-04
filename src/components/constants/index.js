@@ -6,6 +6,9 @@ const PATH_SEARCH_STARTS = "nameStartsWith";
 const PATH_SEARCH_IS = "name";
 const LIMIT = 50;
 const TIMESTAMP = `ts=${+new Date()}`;
+const FORMAT_COMIC = "formatType=comic";
+const ORDER_BY_ISSUE_NUMBER = "orderBy=issueNumber";
+const ORDER_BY_ON_SALE_DATE = "orderBy=onsaleDate";
 
 const MOVIE_PATH_BASE = "https://mcuapi.herokuapp.com/api/v1";
 const MOVIES = "/movies";
@@ -27,4 +30,7 @@ export {
     MOVIES_LIMIT,
     MOVIES_COLUMNS,
     MOVIES_ORDER,
+    FORMAT_COMIC,
+    ORDER_BY_ISSUE_NUMBER,
+    ORDER_BY_ON_SALE_DATE,
 };
