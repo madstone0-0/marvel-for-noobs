@@ -85,7 +85,7 @@ body {
 }
 
 .nav-button a:hover {
-    color: #1e70bf;
+    color: $lightred;
 }
 
 .centered {
@@ -228,7 +228,7 @@ body {
     }
 
     .nav-button a:hover {
-        color: $lightred;
+        color: lighten($dark_sec, 0.4);
     }
 
     .countdown-name {
