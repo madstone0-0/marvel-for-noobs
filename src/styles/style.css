@@ -52,7 +52,7 @@ body a:hover {
 }
 
 .nav-button a:hover {
-  color: #1e70bf;
+  color: #e57373;
 }
 
 .page-header {
@@ -170,7 +170,7 @@ body a:hover {
   color: #fff;
 }
 .dark .nav-button a:hover {
-  color: #e57373;
+  color: #4486f4;
 }
 .dark .countdown-name {
   color: #fff;
