@@ -24,7 +24,7 @@ const CharacterGrid = () => {
     return (
         <>
             <RestoreScrollOnMount view={currentView} />
-            <Search children="Search" />
+            <Search>Search</Search>
             <div
                 className={classNames("character-grid", {
                     "character-grid-single": currentView !== "grid",

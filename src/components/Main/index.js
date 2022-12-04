@@ -12,7 +12,6 @@ import ReactGA from "react-ga";
 import { Link, Route, Routes } from "react-router-dom";
 import { Button, Container } from "semantic-ui-react";
 import Cookies from "universal-cookie";
-import { useCharacters } from "../hooks";
 
 import CharacterGrid from "../CharacterGrid";
 import { CharacterContext } from "../CharacterProvider";
@@ -25,6 +24,7 @@ import {
 } from "../constants";
 import Footer from "../Footer";
 import HomePage from "../HomePage";
+import { useCharacters } from "../hooks";
 import NavBar from "../NavBar";
 import { readFromCache, writeToCache } from "../utils/cache";
 import { getState, saveState } from "../utils/stateSaver";
