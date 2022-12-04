@@ -7,10 +7,11 @@ import {
     ORDER_BY_ISSUE_NUMBER,
     ORDER_BY_ON_SALE_DATE,
 } from "../constants";
+import Grid from "../Grid";
 
 const ComicGrid = ({ collectionURI }) => {
     const [comics, setComics] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [offset, setOffset] = useState(0);
     const [total, setTotal] = useState(0);
@@ -38,11 +39,13 @@ const ComicGrid = ({ collectionURI }) => {
             .get(
                 `${collectionURI}?${FORMAT_COMIC}&${ORDER_BY_ON_SALE_DATE}&${API_KEY}&offset=${offset}&limit=${LIMIT}`,
             )
-            .then(handleComics)
+            .then((res) => {
+                handleComics(res);
+                setLoading(false);
+            })
             .catch((err) => {
                 setError(err);
             });
-        setLoading(false);
     };
 
     useEffect(() => {
@@ -55,14 +58,23 @@ const ComicGrid = ({ collectionURI }) => {
         return (
             <>
                 {comics.map((comic, key) => (
-                    <div key={key}>
-                        <img
-                            src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                            alt={comic.title}
-                        />
-                        <p>{comic.title}</p>
+                    <div className="ui">
+                        <figure className="grid-figure">
+                            <div className="grid-photo-wrap">
+                                <img
+                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                                    alt={comic.title}
+                                    className="grid-photo"
+                                />
+                            </div>
+
+                            <figcaption>
+                                <p className="character-name">{comic.title}</p>
+                            </figcaption>
+                        </figure>
                     </div>
                 ))}
+                {/* <Grid data={comics} /> */}
                 <button onClick={prev}>Prev</button>
                 <button onClick={next}>Next</button>
             </>
