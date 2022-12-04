@@ -11,7 +11,7 @@ const Character = ({ character }) => {
     const { changeCurrentView } = useCharacters();
     const { id, name, thumbnail } = character;
     return (
-        <div onClick={changeCurrentView} className="ui">
+        <div onClick={changeCurrentView}>
             <figure className="grid-figure">
                 <div className="grid-photo-wrap">
                     <Link key={id} to={`${id}`}>

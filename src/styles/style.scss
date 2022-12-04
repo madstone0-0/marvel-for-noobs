@@ -64,6 +64,8 @@ body {
     }
 }
 
+/* Character Grid Start */
+
 .character-grid {
     display: flex;
     flex-wrap: wrap;
@@ -105,9 +107,12 @@ body {
     position: relative;
     transition: ease-in-out 0.2s;
     border-radius: 10px;
+    max-width: fit-content;
+    min-width: 310px;
+    min-height: 500px;
 }
 
-.ui > .grid-figure:hover {
+div > figure.grid-figure:hover {
     transform: scale(1.1);
     box-shadow: 0 0 40px -0.625rem rgba(0, 0, 0, 0.25);
 }
@@ -136,6 +141,32 @@ body {
         max-width: 40%;
     }
 }
+
+/* Character Grid End */
+
+/* Comic Grid Start */
+
+.comic-grid {
+    @extend .character-grid;
+    max-width: fit-content;
+}
+
+.comic-grid-figure {
+    @extend .grid-figure;
+    min-width: 280px;
+    min-height: 450px;
+}
+
+.comic-grid-photo {
+    @extend .grid-photo;
+    max-width: 280px;
+}
+
+// .grid-comic-photo-wrap {
+//     max-width: 270px;
+// }
+
+/* Comic Grid End */
 
 .dark-button {
     width: 110px;
@@ -321,7 +352,7 @@ body {
         margin: 2rem auto;
     }
 
-    .ui > .grid-figure:hover {
+    div > figure.grid-figure:hover {
         transform: scale(1.02);
     }
 

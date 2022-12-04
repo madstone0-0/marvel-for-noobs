@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Button } from "semantic-ui-react";
+import Comic from "../Comic";
 import {
     API_KEY,
     FORMAT_COMIC,
@@ -8,6 +10,8 @@ import {
     ORDER_BY_ON_SALE_DATE,
 } from "../constants";
 import Grid from "../Grid";
+import { readFromCache, writeToCache } from "../utils/cache";
+import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
 
 const ComicGrid = ({ collectionURI }) => {
     const [comics, setComics] = useState([]);
@@ -26,30 +30,56 @@ const ComicGrid = ({ collectionURI }) => {
     };
 
     const next = () => {
-        setOffset(offset + LIMIT);
+        setOffset(offset + LIMIT + 50);
+        window.scrollTo({
+            top: window.innerHeight * 0.4,
+            left: window.innerWidth * 0.4,
+            behavior: "smooth",
+        });
     };
 
     const prev = () => {
-        setOffset(offset - LIMIT);
+        setOffset(offset - LIMIT - 50);
+        window.scrollTo({
+            top: window.innerHeight * 0.4,
+            left: window.innerWidth * 0.4,
+            behavior: "smooth",
+        });
     };
 
-    const fetchComics = (uri) => {
+    const getFreshData = (uri, cacheResponse) => {
         setLoading(true);
         axios
-            .get(
-                `${collectionURI}?${FORMAT_COMIC}&${ORDER_BY_ON_SALE_DATE}&${API_KEY}&offset=${offset}&limit=${LIMIT}`,
-            )
+            .get(uri)
             .then((res) => {
                 handleComics(res);
+                cacheResponse && writeToCache(uri, res);
                 setLoading(false);
             })
             .catch((err) => {
+                console.log({ err });
                 setError(err);
+                setLoading(false);
             });
     };
 
+    const getCacheData = (key) => readFromCache(key);
+
+    const fetchComics = (uri, cacheResponse = false) => {
+        if (getCacheData(uri) !== null) {
+            cacheResponse = true;
+            handleComics(readFromCache(uri));
+            setLoading(false);
+        } else {
+            getFreshData(uri, true);
+        }
+    };
+
     useEffect(() => {
-        fetchComics(collectionURI);
+        const uri = `${collectionURI}?${FORMAT_COMIC}&${ORDER_BY_ON_SALE_DATE}&${API_KEY}&offset=${offset}&limit=${
+            LIMIT + 50
+        }`;
+        fetchComics(uri);
     }, [offset]);
 
     if (error) return <p>There was an error loading comics</p>;
@@ -57,26 +87,25 @@ const ComicGrid = ({ collectionURI }) => {
     if (comics)
         return (
             <>
-                {comics.map((comic, key) => (
-                    <div className="ui">
-                        <figure className="grid-figure">
-                            <div className="grid-photo-wrap">
-                                <img
-                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                                    alt={comic.title}
-                                    className="grid-photo"
-                                />
-                            </div>
+                <div className="comic-grid">
+                    {comics.map((comic, key) => (
+                        <Comic comic={comic} />
+                    ))}
+                    {/* <Grid data={comics} /> */}
+                </div>
+                <div className="nav-buttons">
+                    {offset === 0 ? (
+                        <div></div>
+                    ) : (
+                        <Button className="ui red large button" onClick={prev}>
+                            Previous
+                        </Button>
+                    )}
 
-                            <figcaption>
-                                <p className="character-name">{comic.title}</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                ))}
-                {/* <Grid data={comics} /> */}
-                <button onClick={prev}>Prev</button>
-                <button onClick={next}>Next</button>
+                    <Button className="ui red large button" onClick={next}>
+                        Next
+                    </Button>
+                </div>
             </>
         );
 };

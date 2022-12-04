@@ -42,7 +42,7 @@ const CharacterSingle = ({ character }) => {
             </p>
             <br />
             <div className="extras">
-                <h2>Comics</h2>
+                <h2 style={{ textAlign: "center" }}>Comics</h2>
                 {comics.available === 0 ? (
                     <h3> Comics have not been listed for this character</h3>
                 ) : (
