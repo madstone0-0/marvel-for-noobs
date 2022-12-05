@@ -26,6 +26,7 @@ import Footer from "../Footer";
 import HomePage from "../HomePage";
 import { useCharacters } from "../hooks";
 import NavBar from "../NavBar";
+import NavButtons from "../NavButtons";
 import { readFromCache, writeToCache } from "../utils/cache";
 import { getState, saveState } from "../utils/stateSaver";
 
@@ -173,25 +174,11 @@ const Main = () => {
                                             currentView !== "grid" ? (
                                                 <></>
                                             ) : (
-                                                <div className="nav-buttons">
-                                                    {offset === 0 ? (
-                                                        <div></div>
-                                                    ) : (
-                                                        <Button
-                                                            className="ui red large button"
-                                                            onClick={previous}
-                                                        >
-                                                            Previous
-                                                        </Button>
-                                                    )}
-
-                                                    <Button
-                                                        className="ui red large button"
-                                                        onClick={next}
-                                                    >
-                                                        Next
-                                                    </Button>
-                                                </div>
+                                                <NavButtons
+                                                    next={next}
+                                                    previous={previous}
+                                                    offset={offset}
+                                                />
                                             )}
                                         </>
                                     }

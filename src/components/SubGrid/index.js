@@ -1,20 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button } from "semantic-ui-react";
-import {
-    API_KEY,
-    FORMAT_COMIC,
-    LIMIT_MAX,
-    ORDER_BY_ISSUE_NUMBER,
-    ORDER_BY_ON_SALE_DATE,
-} from "../constants";
+import { LIMIT_MAX } from "../constants";
 import NavButtons from "../NavButtons";
 import SubGridItem from "../SubGridItem";
 import { readFromCache, writeToCache } from "../utils/cache";
-import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
 
-const ComicGrid = ({ collectionURI }) => {
-    const [comics, setComics] = useState([]);
+const SubGrid = ({ uri }) => {
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [offset, setOffset] = useState(0);
@@ -22,12 +14,12 @@ const ComicGrid = ({ collectionURI }) => {
     const [count, setCount] = useState(0);
     const [prevCount, setPrevCount] = useState(0);
 
-    const handleComics = (res) => {
+    const handleData = (res) => {
         const data = res.data.data;
         const total = data.total;
         const results = data.results;
         const count = data.count;
-        setComics(results);
+        setData(results);
         setTotal(total);
         setCount(count);
     };
@@ -60,7 +52,7 @@ const ComicGrid = ({ collectionURI }) => {
         axios
             .get(uri)
             .then((res) => {
-                handleComics(res);
+                handleData(res);
                 cacheResponse && writeToCache(uri, res);
                 setLoading(false);
             })
@@ -72,10 +64,10 @@ const ComicGrid = ({ collectionURI }) => {
 
     const getCacheData = (key) => readFromCache(key);
 
-    const fetchComics = (uri, cacheResponse = false) => {
+    const fetchData = (uri, cacheResponse = false) => {
         if (getCacheData(uri) !== null) {
             cacheResponse = true;
-            handleComics(readFromCache(uri));
+            handleData(readFromCache(uri));
             setLoading(false);
         } else {
             getFreshData(uri, true);
@@ -83,27 +75,31 @@ const ComicGrid = ({ collectionURI }) => {
     };
 
     useEffect(() => {
-        const uri = `${collectionURI}?${FORMAT_COMIC}&${ORDER_BY_ON_SALE_DATE}&${API_KEY}&offset=${offset}&limit=${LIMIT_MAX}`;
-        fetchComics(uri);
+        fetchData(`${uri}&offset=${offset}`);
     }, [offset]);
 
-    if (error) return <p>There was an error loading comics</p>;
+    if (error)
+        return <p className="centered">There was an error retrieving data</p>;
     if (loading) return <p className="loading-text">Loading...</p>;
-    if (comics)
+    if (data)
         return (
             <>
                 {count === 0 ? (
-                    <p className="centered">No more comics</p>
+                    <p className="centered">No more Items</p>
                 ) : (
-                    <div className="comic-grid">
-                        {comics.map((comic, key) => (
-                            <SubGridItem key={comic.id} data={comic} />
+                    <div className="sub-grid">
+                        {data.map((item) => (
+                            <SubGridItem key={item.id} data={item} />
                         ))}
                     </div>
                 )}
-                <NavButtons next={next} previous={prev} offset={offset} />
+                {total !== count ? (
+                    <NavButtons next={next} previous={prev} offset={offset} />
+                ) : (
+                    <></>
+                )}
             </>
         );
 };
 
-export default ComicGrid;
+export default SubGrid;

@@ -2,7 +2,15 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import ComicGrid from "../ComicGrid";
+import {
+    API_KEY,
+    FORMAT_COMIC,
+    LIMIT_MAX,
+    ORDER_BY_ON_SALE_DATE,
+    ORDER_BY_START_DATE_DESC,
+} from "../constants";
 import { useCharacters } from "../hooks";
+import SubGrid from "../SubGrid";
 import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
 
 /**
@@ -42,26 +50,22 @@ const CharacterSingle = ({ character }) => {
             </p>
             <br />
             <div className="extras">
-                <h2 style={{ textAlign: "center" }}>Comics</h2>
+                <h2>Comics</h2>
                 {comics.available === 0 ? (
                     <h3> Comics have not been listed for this character</h3>
                 ) : (
-                    <ComicGrid collectionURI={comics.collectionURI} />
+                    <SubGrid
+                        uri={`${comics.collectionURI}?${FORMAT_COMIC}&${ORDER_BY_ON_SALE_DATE}&${API_KEY}&limit=${LIMIT_MAX}`}
+                    />
                 )}
                 <br />
                 <h2>Events</h2>
                 {events.available === 0 ? (
                     <h3> Events have not been listed for this character</h3>
                 ) : (
-                    events.items.map((characterEvent, key) => (
-                        <div key={key}>
-                            <h3>
-                                {events.available === 0
-                                    ? `${name} events have not been listed`
-                                    : characterEvent.name}
-                            </h3>
-                        </div>
-                    ))
+                    <SubGrid
+                        uri={`${events.collectionURI}?${ORDER_BY_START_DATE_DESC}&${API_KEY}`}
+                    />
                 )}
                 <br />
                 <br />

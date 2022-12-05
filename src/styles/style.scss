@@ -81,13 +81,16 @@ body {
         .description,
         .extras {
             padding: 20px 20px;
+            > h2 {
+                text-align: center;
+                font-size: 2.29rem;
+            }
         }
     }
 }
 
 .character-grid-single {
     @extend .character-grid;
-    display: block;
 }
 
 .grid-photo {
@@ -144,29 +147,29 @@ div > figure.grid-figure:hover {
 
 /* Character Grid End */
 
-/* Comic Grid Start */
-
-.comic-grid {
+.sub-grid {
     @extend .character-grid;
     max-width: fit-content;
 }
 
-.comic-grid-figure {
+/* SubGridItem Start */
+
+.data-grid-figure {
     @extend .grid-figure;
     min-width: 280px;
     min-height: 450px;
 }
 
-.comic-grid-photo {
+.data-grid-photo {
     @extend .grid-photo;
     max-width: 280px;
 }
 
-// .grid-comic-photo-wrap {
+// .grid-data-photo-wrap {
 //     max-width: 270px;
 // }
 
-/* Comic Grid End */
+/* SubGridItem End */
 
 .dark-button {
     width: 110px;
@@ -354,6 +357,19 @@ div > figure.grid-figure:hover {
 
     div > figure.grid-figure:hover {
         transform: scale(1.02);
+    }
+
+    .data-grid-photo {
+        max-width: 120px;
+    }
+
+    .data-grid-figure {
+        min-width: 120px;
+        min-height: fit-content;
+    }
+
+    div > figure.data-grid-figure:hover {
+        transform: scale(1.01);
     }
 
     .card-header {

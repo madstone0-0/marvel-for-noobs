@@ -41,7 +41,7 @@ body a:hover {
   font-size: 1.3rem;
 }
 
-.comic-title {
+.data-title {
   font-size: 1.4rem;
   text-align: center;
 }
@@ -205,10 +205,10 @@ body a:hover {
 }
 
 @media screen and (max-width: 540px) {
-  .character-single h3 {
+  .character-single > h3 {
     font-size: 1.2rem;
   }
-  .character-single p {
+  .character-single > p {
     font-size: 1.3rem;
   }
   .character-single .character-name {
@@ -216,10 +216,14 @@ body a:hover {
     padding-bottom: 1rem;
   }
   .character-single .description {
-    text-align: justify;
+    text-align: start;
   }
   .character-name {
     font-size: 1.4rem;
+  }
+  .data-title {
+    font-size: 1rem;
+    text-align: center;
   }
   .page-header {
     font-size: 1.8rem;
@@ -310,34 +314,37 @@ body {
 }
 
 /* Character Grid Start */
-.character-grid, .comic-grid, .character-grid-single {
+.character-grid, .sub-grid, .character-grid-single {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
   margin: 0px auto;
   justify-content: center;
 }
-.character-grid .character-single, .comic-grid .character-single, .character-grid-single .character-single {
+.character-grid .character-single, .sub-grid .character-single, .character-grid-single .character-single {
   max-width: 100%;
   margin: 0px auto;
 }
-.character-grid .character-single .description, .comic-grid .character-single .description, .character-grid-single .character-single .description,
+.character-grid .character-single .description, .sub-grid .character-single .description, .character-grid-single .character-single .description,
 .character-grid .character-single .extras,
-.comic-grid .character-single .extras,
+.sub-grid .character-single .extras,
 .character-grid-single .character-single .extras {
   padding: 20px 20px;
 }
-
-.character-grid-single {
-  display: block;
+.character-grid .character-single .description > h2, .sub-grid .character-single .description > h2, .character-grid-single .character-single .description > h2,
+.character-grid .character-single .extras > h2,
+.sub-grid .character-single .extras > h2,
+.character-grid-single .character-single .extras > h2 {
+  text-align: center;
+  font-size: 2.29rem;
 }
 
-.grid-photo, .comic-grid-photo {
+.grid-photo, .data-grid-photo {
   width: 300px;
   border-radius: 10px;
 }
 
-.grid-figure, .comic-grid-figure, .single-photo {
+.grid-figure, .data-grid-figure, .single-photo {
   flex-basis: 2.68rem;
   flex-grow: 1;
   flex-shrink: 0;
@@ -353,7 +360,7 @@ body {
   min-height: 500px;
 }
 
-div > figure.grid-figure:hover, div > figure.comic-grid-figure:hover, div > figure.single-photo:hover {
+div > figure.grid-figure:hover, div > figure.data-grid-figure:hover, div > figure.single-photo:hover {
   transform: scale(1.1);
   box-shadow: 0 0 40px -0.625rem rgba(0, 0, 0, 0.25);
 }
@@ -366,7 +373,7 @@ div > figure.grid-figure:hover, div > figure.comic-grid-figure:hover, div > figu
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.single-photo .grid-figure, .single-photo .comic-grid-figure, .single-photo .single-photo {
+.single-photo .grid-figure, .single-photo .data-grid-figure, .single-photo .single-photo {
   box-shadow: none;
   margin: 0 2rem 0 0;
   border: 0;
@@ -380,21 +387,21 @@ div > figure.grid-figure:hover, div > figure.comic-grid-figure:hover, div > figu
 }
 
 /* Character Grid End */
-/* Comic Grid Start */
-.comic-grid {
+.sub-grid {
   max-width: fit-content;
 }
 
-.comic-grid-figure {
+/* SubGridItem Start */
+.data-grid-figure {
   min-width: 280px;
   min-height: 450px;
 }
 
-.comic-grid-photo {
+.data-grid-photo {
   max-width: 280px;
 }
 
-/* Comic Grid End */
+/* SubGridItem End */
 .dark-button {
   width: 110px;
   height: 32px;
@@ -449,7 +456,7 @@ div > figure.grid-figure:hover, div > figure.comic-grid-figure:hover, div > figu
 .dark .search-bar .ui.red.large.button.search-button {
   background-color: #3367d6;
 }
-.dark .grid-figure, .dark .single-photo, .dark .comic-grid-figure {
+.dark .grid-figure, .dark .single-photo, .dark .data-grid-figure {
   background: #474747;
   box-shadow: 0 0 0 5px rgba(34, 34, 34, 0.03);
 }
@@ -550,12 +557,22 @@ div > figure.grid-figure:hover, div > figure.comic-grid-figure:hover, div > figu
   .card {
     width: 100%;
   }
-  .grid-figure, .single-photo, .comic-grid-figure {
+  .grid-figure, .single-photo, .data-grid-figure {
     padding: 0.313rem;
     margin: 2rem auto;
   }
-  div > figure.grid-figure:hover, div > figure.single-photo:hover, div > figure.comic-grid-figure:hover {
+  div > figure.grid-figure:hover, div > figure.single-photo:hover, div > figure.data-grid-figure:hover {
     transform: scale(1.02);
+  }
+  .data-grid-photo {
+    max-width: 120px;
+  }
+  .data-grid-figure {
+    min-width: 120px;
+    min-height: fit-content;
+  }
+  div > figure.data-grid-figure:hover {
+    transform: scale(1.01);
   }
   .card-header {
     padding: 50px 0.625rem;

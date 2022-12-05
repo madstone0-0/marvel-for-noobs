@@ -68,7 +68,7 @@ body {
     font-size: 1.3rem;
 }
 
-.comic-title {
+.data-title {
     font-size: 1.4rem;
     text-align: center;
 }
@@ -271,11 +271,11 @@ body {
 
 @media screen and (max-width: 540px) {
     .character-single {
-        h3 {
+        > h3 {
             font-size: 1.2rem;
         }
 
-        p {
+        > p {
             font-size: 1.3rem;
         }
 
@@ -285,12 +285,17 @@ body {
         }
 
         .description {
-            text-align: justify;
+            text-align: start;
         }
     }
 
     .character-name {
         font-size: 1.4rem;
+    }
+
+    .data-title {
+        font-size: 1rem;
+        text-align: center;
     }
 
     .page-header {
