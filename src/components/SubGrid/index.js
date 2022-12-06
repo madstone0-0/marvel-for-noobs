@@ -65,6 +65,7 @@ const SubGrid = ({ uri }) => {
     const getCacheData = (key) => readFromCache(key);
 
     const fetchData = (uri, cacheResponse = false) => {
+        const fullUri = `${uri.split(":")[1]}&offset=${offset}`;
         if (getCacheData(uri) !== null) {
             cacheResponse = true;
             handleData(readFromCache(uri));
@@ -75,7 +76,7 @@ const SubGrid = ({ uri }) => {
     };
 
     useEffect(() => {
-        fetchData(`${uri}&offset=${offset}`);
+        fetchData(uri);
     }, [offset]);
 
     if (error)
