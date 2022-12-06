@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { LIMIT_MAX } from "../constants";
+import { HASH, LIMIT_MAX, TIMESTAMP } from "../constants";
 import NavButtons from "../NavButtons";
 import SubGridItem from "../SubGridItem";
 import { readFromCache, writeToCache } from "../utils/cache";
@@ -65,7 +65,7 @@ const SubGrid = ({ uri }) => {
     const getCacheData = (key) => readFromCache(key);
 
     const fetchData = (uri, cacheResponse = false) => {
-        const fullUri = `${uri.split(":")[1]}&offset=${offset}`;
+        const fullUri = `https:${uri.split(":")[1]}&offset=${offset}`;
         if (getCacheData(uri) !== null) {
             cacheResponse = true;
             handleData(readFromCache(uri));
