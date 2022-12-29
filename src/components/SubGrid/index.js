@@ -66,12 +66,12 @@ const SubGrid = ({ uri }) => {
 
     const fetchData = (uri, cacheResponse = false) => {
         const fullUri = `https:${uri.split(":")[1]}&offset=${offset}`;
-        if (getCacheData(uri) !== null) {
+        if (getCacheData(fullUri) !== null) {
             cacheResponse = true;
-            handleData(readFromCache(uri));
+            handleData(readFromCache(fullUri));
             setLoading(false);
         } else {
-            getFreshData(uri, true);
+            getFreshData(fullUri, true);
         }
     };
 
