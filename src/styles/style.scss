@@ -158,6 +158,7 @@ div > figure.grid-figure:hover {
     @extend .grid-figure;
     min-width: 280px;
     min-height: 450px;
+    max-width: 310px;
 }
 
 .data-grid-photo {
