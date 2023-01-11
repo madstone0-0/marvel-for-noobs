@@ -5,8 +5,8 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import Character from "../Character";
 import CharacterSingle from "../CharacterSingle";
-import { useCharacters } from "../hooks";
 import Search from "../Search";
+import { useCharacters } from "../hooks";
 import RestoreScrollOnMount from "../utils/RestoreScrollOnMount";
 
 /**
@@ -16,15 +16,20 @@ const CharacterGrid = () => {
     const {
         characters,
         searchCharacter,
-        searchChange,
-        searchSubmit,
+        characterSearchChange,
+        characterSearchSubmit,
         currentView,
         changeCurrentView,
     } = useCharacters();
     return (
         <>
             <RestoreScrollOnMount view={currentView} />
-            <Search>Search</Search>
+            <Search
+                onSearchChange={characterSearchChange}
+                onSearchSubmit={characterSearchSubmit}
+                value={searchCharacter}
+                placeholder="Character name"
+            />
             <div
                 className={classNames("character-grid", {
                     "character-grid-single": currentView !== "grid",

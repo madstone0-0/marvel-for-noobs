@@ -24,11 +24,11 @@ const CharacterProvider = ({ children }) => {
     const [hasNotSearchedOnce, hasSearchedOnce] = useState(true);
     const [currentView, changeView] = useState("grid");
 
-    const searchChange = (e) => {
+    const characterSearchChange = (e) => {
         return updateSearchCharacter(e.target.value);
     };
 
-    const searchSubmit = (e) => {
+    const characterSearchSubmit = (e) => {
         ReactGA.event({
             category: "Page interactions",
             action: "Searched for a character",
@@ -118,8 +118,8 @@ const CharacterProvider = ({ children }) => {
                 next,
                 changeCurrentView,
                 fetchSearchedCharacter,
-                searchChange,
-                searchSubmit,
+                characterSearchChange,
+                characterSearchSubmit,
             }}
         >
             {children}

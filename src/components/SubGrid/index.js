@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { HASH, LIMIT_MAX, TIMESTAMP } from "../constants";
 import NavButtons from "../NavButtons";
+import Search from "../Search";
 import SubGridItem from "../SubGridItem";
+import { HASH, LIMIT_MAX, TIMESTAMP } from "../constants";
 import { readFromCache, writeToCache } from "../utils/cache";
 
-const SubGrid = ({ uri }) => {
+const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
     const [data, setData] = useState([]);
+    const [displayedData, setDisplayedData] = useState([]);
+    const [searchData, setSearchData] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [offset, setOffset] = useState(0);
@@ -20,6 +23,7 @@ const SubGrid = ({ uri }) => {
         const results = data.results;
         const count = data.count;
         setData(results);
+        setDisplayedData(results);
         setTotal(total);
         setCount(count);
     };
@@ -75,6 +79,22 @@ const SubGrid = ({ uri }) => {
         }
     };
 
+    const searchDataChange = (e) => {
+        return setSearchData(e.target.value);
+    };
+
+    const searchDataSubmit = (e) => {
+        e.preventDefault();
+        console.log(data.length);
+        const newDisplayedData = data.filter((data) =>
+            data.title.includes(searchData),
+        );
+        // const newData = [...data, ...newDisplayedData];
+        console.log({ data });
+        console.log({ newDisplayedData });
+        setDisplayedData(newDisplayedData);
+    };
+
     useEffect(() => {
         fetchData(uri);
     }, [offset]);
@@ -85,11 +105,22 @@ const SubGrid = ({ uri }) => {
     if (data)
         return (
             <>
+                {hasSearchBar ? (
+                    <Search
+                        value={searchData}
+                        onSearchChange={searchDataChange}
+                        onSearchSubmit={searchDataSubmit}
+                        placeholder={searchPlaceholder}
+                    />
+                ) : (
+                    <></>
+                )}
+
                 {count === 0 ? (
                     <p className="centered">No more Items</p>
                 ) : (
                     <div className="sub-grid">
-                        {data.map((item) => (
+                        {displayedData.map((item) => (
                             <SubGridItem key={item.id} data={item} />
                         ))}
                     </div>

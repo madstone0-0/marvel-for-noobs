@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import ComicGrid from "../ComicGrid";
+import SubGrid from "../SubGrid";
 import {
     API_KEY,
     FORMAT_COMIC,
@@ -10,7 +11,6 @@ import {
     ORDER_BY_START_DATE_DESC,
 } from "../constants";
 import { useCharacters } from "../hooks";
-import SubGrid from "../SubGrid";
 import ScrollToTopOnMount from "../utils/ScrollToTopOnMount";
 
 /**
@@ -56,6 +56,8 @@ const CharacterSingle = ({ character }) => {
                 ) : (
                     <SubGrid
                         uri={`${comics.collectionURI}?${FORMAT_COMIC}&${ORDER_BY_ON_SALE_DATE}&${API_KEY}&limit=${LIMIT_MAX}`}
+                        hasSearchBar
+                        searchPlaceholder="Comic Name"
                     />
                 )}
                 <br />
@@ -65,6 +67,8 @@ const CharacterSingle = ({ character }) => {
                 ) : (
                     <SubGrid
                         uri={`${events.collectionURI}?${ORDER_BY_START_DATE_DESC}&${API_KEY}`}
+                        hasSearchBar
+                        searchPlaceholder="Event Name"
                     />
                 )}
                 <br />

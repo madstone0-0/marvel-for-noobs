@@ -6,17 +6,27 @@ import { useCharacters } from "../hooks";
 /**
  * Search bar component
  */
-const Search = ({ children }) => {
-    const { searchCharacter, searchChange, searchSubmit } = useCharacters();
+const Search = ({
+    onSearchSubmit,
+    onSearchChange,
+    value,
+    children = "Search",
+    style = {},
+    placeholder = "",
+}) => {
     return (
-        <form className="search-bar" onSubmit={searchSubmit}>
+        <form
+            style={{ ...style }}
+            className="search-bar"
+            onSubmit={onSearchSubmit}
+        >
             <Input
                 className="search-input"
                 type="text"
                 size="large"
-                onChange={searchChange}
-                value={searchCharacter}
-                placeholder="Character name"
+                onChange={onSearchChange}
+                value={value}
+                placeholder={placeholder}
             />
             <button type="submit" className="ui red large button search-button">
                 {children}
