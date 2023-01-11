@@ -1,6 +1,6 @@
 # Marvel for Noobs
 
-A marvel Wiki [Marvel for Noobs](https://marvel-for-noobs.cyclic.app).
+A marvel Wiki [Marvel for Noobs](https://marvel-for-noobs.surge.sh/).
 
 
 ## Features
