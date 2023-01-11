@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Loading from "../Loading";
 import NavButtons from "../NavButtons";
 import Search from "../Search";
 import SubGridItem from "../SubGridItem";
@@ -101,7 +102,7 @@ const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
 
     if (error)
         return <p className="centered">There was an error retrieving data</p>;
-    if (loading) return <p className="loading-text">Loading...</p>;
+    if (loading) return <Loading />;
     if (data)
         return (
             <>

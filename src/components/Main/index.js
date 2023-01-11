@@ -15,6 +15,11 @@ import Cookies from "universal-cookie";
 
 import CharacterGrid from "../CharacterGrid";
 import { CharacterContext } from "../CharacterProvider";
+import Footer from "../Footer";
+import HomePage from "../HomePage";
+import Loading from "../Loading";
+import NavBar from "../NavBar";
+import NavButtons from "../NavButtons";
 import {
     API_KEY,
     CHARACTERS,
@@ -22,11 +27,7 @@ import {
     PATH_BASE,
     PATH_SEARCH_STARTS,
 } from "../constants";
-import Footer from "../Footer";
-import HomePage from "../HomePage";
 import { useCharacters } from "../hooks";
-import NavBar from "../NavBar";
-import NavButtons from "../NavButtons";
 import { readFromCache, writeToCache } from "../utils/cache";
 import { getState, saveState } from "../utils/stateSaver";
 
@@ -147,9 +148,7 @@ const Main = () => {
                                             ) : (
                                                 <>
                                                     {isLoading ? (
-                                                        <p className="loading-text">
-                                                            Loading...
-                                                        </p>
+                                                        <Loading />
                                                     ) : (
                                                         <>
                                                             {characters.length <
