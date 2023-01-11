@@ -15,6 +15,7 @@ A marvel Wiki [Marvel for Noobs](https://marvel-for-noobs.surge.sh/).
 - features:
 	- Search bar
 	- Marvel characters interface
+	- Marvel comics interface
 	- Marvel movie countdown
 
 ## Installation
