@@ -90,7 +90,9 @@ const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
         const newDisplayedData = data.filter((data) =>
             data.title.includes(searchData),
         );
-        // const newData = [...data, ...newDisplayedData];
+        if (newDisplayedData.length == 0) {
+            const searchUri = uri.fetchData("");
+        }
         console.log({ data });
         console.log({ newDisplayedData });
         setDisplayedData(newDisplayedData);

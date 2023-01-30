@@ -42,7 +42,7 @@ body a:hover {
 }
 
 .data-title {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
@@ -395,6 +395,7 @@ div > figure.grid-figure:hover, div > figure.data-grid-figure:hover, div > figur
 .data-grid-figure {
   min-width: 280px;
   min-height: 450px;
+  max-width: 310px;
 }
 
 .data-grid-photo {
