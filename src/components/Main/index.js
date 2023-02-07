@@ -10,26 +10,16 @@ import React, {
 } from "react";
 import ReactGA from "react-ga";
 import { Link, Route, Routes } from "react-router-dom";
-import { Button, Container } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import Cookies from "universal-cookie";
 
 import CharacterGrid from "../CharacterGrid";
-import { CharacterContext } from "../CharacterProvider";
 import Footer from "../Footer";
 import HomePage from "../HomePage";
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import NavButtons from "../NavButtons";
-import {
-    API_KEY,
-    CHARACTERS,
-    LIMIT,
-    PATH_BASE,
-    PATH_SEARCH_STARTS,
-} from "../constants";
 import { useCharacters } from "../hooks";
-import { readFromCache, writeToCache } from "../utils/cache";
-import { getState, saveState } from "../utils/stateSaver";
 
 const AppMedia = createMedia({
     breakpoints: {
@@ -60,10 +50,6 @@ const Main = () => {
         characters,
         previous,
         next,
-        changeCurrentView,
-        fetchSearchedCharacter,
-        onSearchChange,
-        onSearchSubmit,
     } = useCharacters();
 
     const cookies = new Cookies();
