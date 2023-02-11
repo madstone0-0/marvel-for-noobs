@@ -2,8 +2,9 @@ const DEFAULT_QUERY = "Spider-Man";
 const API_KEY = "apikey=23a80623a19e54b4e7904a81d8a8780e";
 const PATH_BASE = "https://gateway.marvel.com:443/v1/public";
 const CHARACTERS = "/characters";
-const PATH_SEARCH_STARTS = "nameStartsWith";
-const PATH_SEARCH_IS = "name";
+const COMICS = "/comics";
+const PATH_SEARCH_STARTS = ["nameStartsWith", "titleStartsWith"];
+const PATH_SEARCH_IS = ["name", "title"];
 const LIMIT = 50;
 const LIMIT_MAX = 100;
 const TIMESTAMP = `ts=${+new Date()}`;
@@ -23,6 +24,7 @@ export {
     API_KEY,
     PATH_BASE,
     CHARACTERS,
+    COMICS,
     PATH_SEARCH_IS,
     PATH_SEARCH_STARTS,
     LIMIT,

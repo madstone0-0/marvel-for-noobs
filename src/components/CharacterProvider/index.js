@@ -66,7 +66,9 @@ const CharacterProvider = ({ children }) => {
         hasSearchedOnce(false);
         updateOffset(offset);
 
-        const url = `${PATH_BASE}${CHARACTERS}?${PATH_SEARCH_STARTS}=${searchCharacter.toLowerCase()}&${API_KEY}&limit=${LIMIT}&offset=${offset}`;
+        const url = `${PATH_BASE}${CHARACTERS}?${
+            PATH_SEARCH_STARTS[0]
+        }=${searchCharacter.toLowerCase()}&${API_KEY}&limit=${LIMIT}&offset=${offset}`;
 
         if (getCacheData(searchCharacter) !== null) {
             cacheResponse = true;
