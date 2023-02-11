@@ -34,7 +34,13 @@ const HomePage = () => {
                 trailer: movie.trailer_url && movie.trailer_url,
             });
         });
-        setMovies(new_data.reverse());
+        const filtered_movies = new_data.filter((movie) => {
+            return !(
+                new Date(movie.timeTill) <
+                new Date(new Date().setDate(new Date().getDate() - 100))
+            );
+        });
+        setMovies(filtered_movies.reverse());
     };
 
     const getFreshData = (url, cacheResponse) => {
