@@ -101,16 +101,14 @@ const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
         newDisplayedData = data.filter((data) =>
             data.title.includes(searchData),
         );
-        if (newDisplayedData.length == 0) {
-            const searchUri = `${PATH_BASE}${COMICS}?${
-                PATH_SEARCH_STARTS[1]
-            }=${searchData.toLowerCase()}&${API_KEY}`;
-            fetchData(searchUri, true);
-            newDisplayedData = data;
-            // console.log({ searchUri });
-        }
-        console.log({ data });
-        console.log({ newDisplayedData });
+        // if (newDisplayedData.length == 0) {
+        //     const searchUri = `${PATH_BASE}${COMICS}?${
+        //         PATH_SEARCH_STARTS[1]
+        //     }=${searchData.toLowerCase()}&${API_KEY}`;
+        //     fetchData(searchUri, true);
+        //     newDisplayedData = data;
+        //     // console.log({ searchUri });
+        // }
         setDisplayedData(newDisplayedData);
     };
 
