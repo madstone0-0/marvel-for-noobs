@@ -4,7 +4,13 @@ import Loading from "../Loading";
 import NavButtons from "../NavButtons";
 import Search from "../Search";
 import SubGridItem from "../SubGridItem";
-import { HASH, LIMIT_MAX, TIMESTAMP } from "../constants";
+import {
+    API_KEY,
+    PATH_BASE,
+    COMICS,
+    PATH_SEARCH_STARTS,
+    LIMIT_MAX,
+} from "../constants";
 import { readFromCache, writeToCache } from "../utils/cache";
 
 const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
@@ -69,10 +75,15 @@ const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
 
     const getCacheData = (key) => readFromCache(key);
 
-    const fetchData = (uri, cacheResponse = false) => {
-        const fullUri = `https:${uri.split(":")[1]}&offset=${offset}`;
+    const fetchData = (uri, apiSearch = false) => {
+        let fullUri = "";
+        if (apiSearch) {
+            fullUri = `https:${uri.split(":")[1]}`;
+        } else {
+            fullUri = `https:${uri.split(":")[1]}&offset=${offset}`;
+        }
         if (getCacheData(fullUri) !== null) {
-            cacheResponse = true;
+            // cacheResponse = true;
             handleData(readFromCache(fullUri));
             setLoading(false);
         } else {
@@ -86,12 +97,17 @@ const SubGrid = ({ uri, hasSearchBar = false, searchPlaceholder = "" }) => {
 
     const searchDataSubmit = (e) => {
         e.preventDefault();
-        console.log(data.length);
-        const newDisplayedData = data.filter((data) =>
+        let newDisplayedData = [];
+        newDisplayedData = data.filter((data) =>
             data.title.includes(searchData),
         );
         if (newDisplayedData.length == 0) {
-            const searchUri = uri.fetchData("");
+            const searchUri = `${PATH_BASE}${COMICS}?${
+                PATH_SEARCH_STARTS[1]
+            }=${searchData.toLowerCase()}&${API_KEY}`;
+            fetchData(searchUri, true);
+            newDisplayedData = data;
+            // console.log({ searchUri });
         }
         console.log({ data });
         console.log({ newDisplayedData });
