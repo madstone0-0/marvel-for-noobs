@@ -7,7 +7,7 @@ import CharacterProvider from "./components/CharacterProvider";
 import Main from "./components/Main";
 import css from "./styles/style.css";
 
-const container = document.getElementById("app");
+const container = document.getElementById("root");
 const root = createRoot(container);
 const router = (
     <BrowserRouter>

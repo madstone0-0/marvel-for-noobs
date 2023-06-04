@@ -253,7 +253,7 @@ body a:hover {
     font-size: 1rem;
   }
 }
-#app {
+#root {
   height: 100%;
 }
 
