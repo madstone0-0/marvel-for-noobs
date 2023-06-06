@@ -20,6 +20,7 @@ import Loading from "../Loading";
 import NavBar from "../NavBar";
 import NavButtons from "../NavButtons";
 import { useCharacters } from "../hooks";
+import { readFromLocalStore, writeToLocalStore } from "../utils/cache";
 
 const AppMedia = createMedia({
     breakpoints: {
@@ -70,11 +71,11 @@ const Main = () => {
     }, []);
 
     useLayoutEffect(() => {
-        getDarkModeCookie();
+        getDarkModeValue();
     }, []);
 
     useLayoutEffect(() => {
-        setDarkModeCookie();
+        setDarkModeValue();
     }, [darkTheme]);
 
     const handlePusher = () => {
@@ -83,17 +84,12 @@ const Main = () => {
 
     const handleToggle = () => isVisible(!visible);
 
-    const setDarkModeCookie = () => {
-        cookies.set("darkMode", darkTheme, {
-            path: "/",
-            sameSite: true,
-            expires: false,
-        });
+    const setDarkModeValue = () => {
+        writeToLocalStore("darkMode", darkTheme);
     };
 
-    const getDarkModeCookie = () => {
-        const darkMode = cookies.get("darkMode");
-        if (darkMode === "true") updateDarkTheme(true);
+    const getDarkModeValue = () => {
+        if (readFromLocalStore("darkMode")) updateDarkTheme(true);
     };
 
     const toggleDarkTheme = () => {
